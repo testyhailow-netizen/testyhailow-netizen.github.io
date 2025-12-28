@@ -338,31 +338,81 @@
       user-select: none;
     }
 
-    /* Featured Altar Cards grid placeholder */
+    /* Featured Altar Cards grid container */
     .featured-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 28px;
     }
+    /* Card styling */
     .feature-card {
-      border-radius: var(--radius);
       background: #1f1f29;
+      border-radius: var(--radius);
       border: 1px solid var(--gold-soft);
-      box-shadow: 0 8px 28px rgba(215,192,122,0.12);
-      aspect-ratio: 4 / 5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--gold-soft);
+      box-shadow: 0 10px 36px rgba(215,192,122,0.16);
+      color: var(--text);
       font-family: var(--font-body);
-      font-style: italic;
-      font-weight: 600;
-      user-select: none;
-      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
     .feature-card:hover {
-      box-shadow: 0 16px 48px rgba(215,192,122,0.35);
-      cursor: default;
+      box-shadow: 0 20px 60px rgba(215,192,122,0.45);
+      transform: translateY(-6px);
+      cursor: pointer;
+    }
+    .feature-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      flex-shrink: 0;
+      aspect-ratio: 4 / 5;
+      border-bottom: 1px solid var(--gold-soft);
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover img {
+      transform: scale(1.05);
+    }
+    .feature-content {
+      padding: 16px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .feature-content h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 20px;
+      margin: 0 0 8px 0;
+      line-height: 1.2;
+      text-shadow: 0 0 6px rgba(215,192,122,0.7);
+    }
+    .feature-content p {
+      font-size: 15px;
+      color: var(--muted);
+      flex-grow: 1;
+      margin: 0 0 16px 0;
+      font-style: normal;
+      line-height: 1.4;
+    }
+    .feature-content a {
+      font-weight: 700;
+      color: var(--gold);
+      align-self: flex-start;
+      letter-spacing: 0.04em;
+      font-size: 14px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    .feature-content a:hover,
+    .feature-content a:focus-visible {
+      border-color: var(--gold);
+      outline: none;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     /* Cards container for What We Create */
@@ -490,7 +540,7 @@
         max-width: 100%;
       }
       .featured-grid {
-        grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+        grid-template-columns: 1fr !important;
         gap: 20px;
       }
       .journal-placeholder {
@@ -537,13 +587,31 @@
         <h2 id="featured-title">Featured Altar Cards</h2>
         <span class="sub">A glimpse into our sacred selections</span>
       </div>
-      <div class="featured-grid" aria-live="polite" aria-label="Featured altar cards placeholder grid">
-        <div class="feature-card" aria-hidden="true">Card Placeholder 1</div>
-        <div class="feature-card" aria-hidden="true">Card Placeholder 2</div>
-        <div class="feature-card" aria-hidden="true">Card Placeholder 3</div>
-        <div class="feature-card" aria-hidden="true">Card Placeholder 4</div>
-        <div class="feature-card" aria-hidden="true">Card Placeholder 5</div>
-        <div class="feature-card" aria-hidden="true">Card Placeholder 6</div>
+      <div class="featured-grid" aria-live="polite" aria-label="Featured altar cards">
+        <article class="feature-card" tabindex="0" aria-label="Isis — Inner Transformation altar card">
+          <img src="https://i.etsystatic.com/46666994/r/il/ee2458/7231062688/il_794xN.7231062688_3j40.jpg" alt="Isis — Inner Transformation altar card image" />
+          <div class="feature-content">
+            <h3>Isis — Inner Transformation</h3>
+            <p>A profound meditation card symbolizing rebirth and spiritual awakening through inner transformation.</p>
+            <a href="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" target="_blank" rel="noopener noreferrer" aria-label="View Isis — Inner Transformation on Etsy (opens new tab)">View on Etsy</a>
+          </div>
+        </article>
+        <article class="feature-card" tabindex="0" aria-label="Quan Yin — Spiritual Growth altar card">
+          <img src="https://i.etsystatic.com/46666994/r/il/c2986a/7366219886/il_794xN.7366219886_bczg.jpg" alt="Quan Yin — Spiritual Growth altar card image" />
+          <div class="feature-content">
+            <h3>Quan Yin — Spiritual Growth</h3>
+            <p>A prayer card inspiring compassion and continuous spiritual growth along your sacred journey.</p>
+            <a href="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" target="_blank" rel="noopener noreferrer" aria-label="View Quan Yin — Spiritual Growth on Etsy (opens new tab)">View on Etsy</a>
+          </div>
+        </article>
+        <article class="feature-card" tabindex="0" aria-label="Durga — Strength & Resilience altar card">
+          <img src="https://i.etsystatic.com/46666994/r/il/c1726f/7323640672/il_794xN.7323640672_fqnt.jpg" alt="Durga — Strength & Resilience altar card image" />
+          <div class="feature-content">
+            <h3>Durga — Strength & Resilience</h3>
+            <p>A meditation card celebrating strength, resilience, and the power to overcome life's challenges.</p>
+            <a href="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" target="_blank" rel="noopener noreferrer" aria-label="View Durga — Strength & Resilience on Etsy (opens new tab)">View on Etsy</a>
+          </div>
+        </article>
       </div>
     </section>
 

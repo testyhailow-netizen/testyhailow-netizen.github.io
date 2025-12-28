@@ -470,6 +470,7 @@
       border-bottom: 1px solid var(--gold-soft);
       transition: transform 0.3s ease;
       display: block;
+      cursor: pointer;
     }
     .feature-card:hover img {
       transform: scale(1.05);
@@ -711,6 +712,96 @@
       user-select: text;
     }
 
+    /* Lightbox Modal Styles */
+    #lightbox-modal {
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    #lightbox-modal.active {
+      display: flex;
+    }
+    #lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: #1f1f29;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 0 40px var(--gold-shadow);
+      padding: 24px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--gold);
+      user-select: none;
+    }
+    #lightbox-content img {
+      max-width: 100%;
+      max-height: 70vh;
+      border-radius: var(--radius);
+      box-shadow: 0 12px 50px rgba(215,192,122,0.6);
+      margin-bottom: 20px;
+      object-fit: contain;
+      background: #1a1a1a;
+    }
+    #lightbox-title {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 24px;
+      margin: 0 0 20px;
+      text-align: center;
+      line-height: 1.2;
+      text-shadow: 0 0 10px rgba(215,192,122,0.9);
+    }
+    #lightbox-etsy-link {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 12px 36px;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--gold);
+      background: var(--gold);
+      color: #1a1a1a;
+      box-shadow: 0 14px 40px rgba(215,192,122,0.6);
+      text-decoration: none;
+      user-select: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    #lightbox-etsy-link:hover,
+    #lightbox-etsy-link:focus-visible {
+      background: #fff2aa;
+      color: #0a0a08;
+      box-shadow: 0 24px 60px rgba(215,192,122,0.8);
+      outline: none;
+      transform: translateY(-2px);
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: var(--gold);
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+      cursor: pointer;
+      user-select: none;
+      padding: 4px 10px 0 10px;
+      transition: color 0.3s ease;
+    }
+    #lightbox-close:hover,
+    #lightbox-close:focus-visible {
+      color: #fff2aa;
+      outline: none;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       header.topbar {
@@ -775,6 +866,17 @@
         height: 140px;
         font-size: 16px;
       }
+      #lightbox-content {
+        padding: 16px 18px 24px;
+      }
+      #lightbox-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+      #lightbox-etsy-link {
+        font-size: 14px;
+        padding: 10px 28px;
+      }
     }
 
     /* Animation keyframes */
@@ -835,7 +937,7 @@
       <div class="featured-grid" aria-live="polite" aria-label="Featured altar cards">
         <article class="feature-card" tabindex="0" aria-label="Isis — Inner Transformation altar card">
           <div class="badge new" aria-label="New badge">New</div>
-          <img src="https://i.etsystatic.com/46666994/r/il/ee2458/7231062688/il_794xN.7231062688_3j40.jpg" alt="Isis — Inner Transformation altar card image" />
+          <img src="https://i.etsystatic.com/46666994/r/il/ee2458/7231062688/il_794xN.7231062688_3j40.jpg" alt="Isis — Inner Transformation altar card image" data-title="Isis — Inner Transformation" data-etsy="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" />
           <div class="feature-content">
             <h3>Isis — Inner Transformation</h3>
             <p class="feature-meta">Digital download · From €9.99</p>
@@ -845,7 +947,7 @@
         </article>
         <article class="feature-card" tabindex="0" aria-label="Quan Yin — Spiritual Growth altar card">
           <div class="badge bestseller" aria-label="Bestseller badge">Bestseller</div>
-          <img src="https://i.etsystatic.com/46666994/r/il/c2986a/7366219886/il_794xN.7366219886_bczg.jpg" alt="Quan Yin — Spiritual Growth altar card image" />
+          <img src="https://i.etsystatic.com/46666994/r/il/c2986a/7366219886/il_794xN.7366219886_bczg.jpg" alt="Quan Yin — Spiritual Growth altar card image" data-title="Quan Yin — Spiritual Growth" data-etsy="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" />
           <div class="feature-content">
             <h3>Quan Yin — Spiritual Growth</h3>
             <p class="feature-meta">Digital download · From €8.50</p>
@@ -855,7 +957,7 @@
         </article>
         <article class="feature-card" tabindex="0" aria-label="Durga — Strength & Resilience altar card">
           <div class="badge new" aria-label="New badge">New</div>
-          <img src="https://i.etsystatic.com/46666994/r/il/c1726f/7323640672/il_794xN.7323640672_fqnt.jpg" alt="Durga — Strength & Resilience altar card image" />
+          <img src="https://i.etsystatic.com/46666994/r/il/c1726f/7323640672/il_794xN.7323640672_fqnt.jpg" alt="Durga — Strength & Resilience altar card image" data-title="Durga — Strength & Resilience" data-etsy="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" />
           <div class="feature-content">
             <h3>Durga — Strength & Resilience</h3>
             <p class="feature-meta">Digital download · From €7.75</p>
@@ -928,6 +1030,15 @@
     </footer>
   </div>
 
+  <div id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" tabindex="-1">
+    <div id="lightbox-content">
+      <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <img id="lightbox-image" src="" alt="" />
+      <h3 id="lightbox-title"></h3>
+      <a id="lightbox-etsy-link" href="#" target="_blank" rel="noopener noreferrer">View on Etsy</a>
+    </div>
+  </div>
+
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -961,6 +1072,70 @@
 
     const footer = document.querySelector('footer');
     if(footer) observer.observe(footer);
+
+    // Lightbox modal elements
+    const modal = document.getElementById('lightbox-modal');
+    const modalImage = document.getElementById('lightbox-image');
+    const modalTitle = document.getElementById('lightbox-title');
+    const modalEtsyLink = document.getElementById('lightbox-etsy-link');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    // Function to open modal with data
+    function openModal(imgSrc, title, etsyUrl, altText) {
+      modalImage.src = imgSrc;
+      modalImage.alt = altText || title || "Featured altar card";
+      modalTitle.textContent = title;
+      modalEtsyLink.href = etsyUrl;
+      modal.focus();
+      modal.classList.add('active');
+      // Prevent scroll behind
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Function to close modal
+    function closeModal() {
+      modal.classList.remove('active');
+      modalImage.src = '';
+      modalImage.alt = '';
+      modalTitle.textContent = '';
+      modalEtsyLink.href = '#';
+      document.body.style.overflow = '';
+    }
+
+    // Click event on images
+    const featuredImages = document.querySelectorAll('.featured-grid img[data-title]');
+    featuredImages.forEach(img => {
+      img.addEventListener('click', () => {
+        openModal(img.src, img.dataset.title, img.dataset.etsy, img.alt);
+      });
+      // Also support keyboard click on image (space/enter)
+      img.tabIndex = 0;
+      img.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(img.src, img.dataset.title, img.dataset.etsy, img.alt);
+        }
+      });
+    });
+
+    // Close button click
+    closeBtn.addEventListener('click', () => {
+      closeModal();
+    });
+
+    // Click outside modal content closes modal
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // ESC key to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
   });
 </script>
 </body>

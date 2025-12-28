@@ -2,278 +2,441 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>My Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virtual Utopia Designz</title>
+  <meta name="description" content="Spiritual altar art, cosmic design, and mythic hero packs for storytellers." />
+
   <style>
     :root{
-      --bg:#0b0d12;
-      --card:#121625;
-      --text:#e9ecf5;
-      --muted:#a7b0c6;
-      --accent:#7c5cff;
-      --accent2:#22c55e;
-      --border:rgba(255,255,255,.08);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --bg:#070810;
+      --panel: rgba(14, 16, 28, .68);
+      --panel2: rgba(16, 18, 32, .78);
+      --text:#ECEAF6;
+      --muted:#B7B2D3;
+      --gold:#D7C07A;
+      --violet:#7C5CFF;
+      --aqua:#00D4FF;
+      --rose:#FF4FD8;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 18px 45px rgba(0,0,0,.55);
       --radius: 18px;
+      --radius2: 26px;
     }
-    *{box-sizing:border-box}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
-      background: radial-gradient(1200px 800px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
-                  radial-gradient(900px 700px at 90% 10%, rgba(34,197,94,.18), transparent 55%),
-                  var(--bg);
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(1000px 650px at 14% -10%, rgba(124,92,255,.38), transparent 60%),
+        radial-gradient(900px 650px at 95% 8%, rgba(0,212,255,.18), transparent 55%),
+        radial-gradient(850px 550px at 55% 105%, rgba(255,79,216,.12), transparent 60%),
+        linear-gradient(180deg, #060611 0%, #070810 45%, #05050E 100%);
+      overflow-x:hidden;
     }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin:0 auto; padding:24px}
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 16px; border:1px solid var(--border);
-      border-radius: var(--radius);
-      background: rgba(18,22,37,.65);
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1120px; margin:0 auto; padding:22px; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      background: var(--panel);
       backdrop-filter: blur(10px);
       box-shadow: var(--shadow);
-      position: sticky; top: 16px; z-index: 10;
     }
-    .brand{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.2px}
-    .logo{
-      width:36px; height:36px; border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), #00d4ff);
-      box-shadow: 0 10px 25px rgba(124,92,255,.25);
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 220px;
     }
-    .navlinks{display:flex; gap:14px; align-items:center; color:var(--muted); font-weight:600}
-    .navlinks a{padding:10px 12px; border-radius: 12px}
-    .navlinks a:hover{background: rgba(255,255,255,.06); color: var(--text)}
+
+    .sigil{
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(215,192,122,.9), rgba(215,192,122,.1) 55%, transparent 70%),
+        linear-gradient(135deg, rgba(124,92,255,.85), rgba(0,212,255,.55));
+      border: 1px solid rgba(215,192,122,.35);
+      box-shadow: 0 18px 45px rgba(124,92,255,.22);
+    }
+
+    .brand .name{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: .2px;
+      line-height: 1.1;
+    }
+    .brand .tag{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-top: 2px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .nav a{
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.08);
+    }
+
     .cta{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:10px 14px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), #00d4ff);
-      border: none; color: #0b0d12; font-weight:800;
-      box-shadow: 0 12px 30px rgba(124,92,255,.25);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(215,192,122,.35);
+      background: linear-gradient(135deg, rgba(215,192,122,.92), rgba(215,192,122,.45));
+      color: #0b0b12;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 900;
       cursor:pointer;
+      box-shadow: 0 18px 45px rgba(215,192,122,.18);
+      white-space: nowrap;
     }
+    .cta:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+
+    /* Hero */
     .hero{
-      padding: 56px 0 26px;
-      display:grid; grid-template-columns: 1.15fr .85fr; gap: 22px;
+      margin-top: 18px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: var(--panel2);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow:hidden;
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(700px 340px at 25% 0%, rgba(124,92,255,.28), transparent 60%),
+        radial-gradient(650px 340px at 80% 20%, rgba(0,212,255,.18), transparent 60%),
+        radial-gradient(520px 320px at 60% 120%, rgba(215,192,122,.16), transparent 55%);
+      pointer-events:none;
+      opacity:.95;
+    }
+
+    .hero-inner{
+      position: relative;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
       align-items: stretch;
     }
-    .card{
-      background: rgba(18,22,37,.72);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      backdrop-filter: blur(10px);
+
+    h1{
+      margin: 0 0 12px;
+      font-size: 46px;
+      line-height: 1.05;
+      letter-spacing: -0.4px;
     }
-    h1{margin:0 0 12px; font-size: 44px; line-height: 1.05}
-    .lead{color:var(--muted); font-size: 16.5px; line-height: 1.5; margin:0 0 18px}
-    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin: 18px 0 0}
-    .pill{
-      padding:8px 10px; border:1px solid var(--border);
-      border-radius: 999px; color: var(--muted);
+
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16.5px;
+      line-height: 1.6;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .accentline{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .chip{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
-      font-weight:600; font-size: 13px;
-    }
-    .grid{
-      display:grid; grid-template-columns: repeat(3, 1fr);
-      gap: 14px; margin-top: 14px;
-    }
-    .tile{
-      padding: 16px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
-    }
-    .tile h3{margin:0 0 6px; font-size: 16px}
-    .tile p{margin:0; color:var(--muted); font-size: 14px; line-height: 1.4}
-    .split{
-      display:grid; grid-template-columns: 1fr 1fr; gap: 14px;
-      margin: 14px 0 0;
-    }
-    .small{color: var(--muted); font-size: 13px}
-    .footer{
-      margin: 28px 0 10px; color: var(--muted);
-      display:flex; justify-content:space-between; gap: 12px; flex-wrap:wrap;
+      color: rgba(236,234,246,.92);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
       font-size: 13px;
     }
-    .btn{
-      padding:10px 12px; border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      color: var(--text); font-weight:700;
-      cursor:pointer;
+
+    .card{
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 18px;
     }
-    .btn:hover{background: rgba(255,255,255,.08)}
-    .input{
-      width:100%; padding:12px 12px; border-radius: 14px;
+
+    .card h3{
+      margin: 0 0 6px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 15.5px;
+      letter-spacing: .2px;
+    }
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .mini{
+      display:grid;
+      gap: 12px;
+      align-content:start;
+    }
+
+    .divider{
+      margin: 22px 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(215,192,122,.35), transparent);
+      opacity: .9;
+    }
+
+    /* Sections */
+    section{
+      margin-top: 16px;
+      border-radius: 28px;
       border: 1px solid var(--border);
-      background: rgba(0,0,0,.25);
+      background: rgba(14, 16, 28, .55);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 20px;
+      letter-spacing: .2px;
+    }
+    .section-title .sub{
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .softlink{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 800;
       color: var(--text);
-      outline: none;
     }
-    .row{display:flex; gap:10px; align-items:center}
+    .softlink:hover{ background: rgba(255,255,255,.06); }
+
+    .note{
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    footer{
+      margin: 18px 0 8px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      opacity: .95;
+    }
+
     @media (max-width: 900px){
-      .hero{grid-template-columns: 1fr}
-      h1{font-size: 38px}
-      .grid{grid-template-columns: 1fr}
-      .split{grid-template-columns: 1fr}
-      .nav{position: static}
+      .hero-inner{ grid-template-columns: 1fr; }
+      h1{ font-size: 38px; }
+      .grid{ grid-template-columns: 1fr; }
+      .brand{ min-width: auto; }
+      .nav{ display:none; } /* keeps it minimal on mobile */
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header class="nav">
+  <div class="wrap">
+    <header class="topbar">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>My Brand</div>
+        <div class="sigil" aria-hidden="true"></div>
+        <div>
+          <div class="name">Virtual Utopia Designz</div>
+          <div class="tag">Spiritual art • cosmic wonder • mythic storytelling</div>
+        </div>
       </div>
 
-      <nav class="navlinks" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#blog">Blog</a>
-        <a href="#shop">Shop</a>
-        <a href="#about">About</a>
+      <!-- Minimal menu (not too many buttons) -->
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#journal">Journal</a>
+        <a href="#packs">Hero Packs</a>
       </nav>
 
-      <button class="cta" onclick="scrollToSection('shop')">Explore</button>
+      <!-- Main action: Etsy -->
+      <a class="cta" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noreferrer">
+        Shop on Etsy →
+      </a>
     </header>
 
-    <main id="home" class="hero">
-      <section class="card">
-        <h1>A clean home for your blog + future shop.</h1>
-        <p class="lead">
-          Tell me what vibe you want (colors, style, pages, features) and I’ll update the site.
-          For now this is your starter layout — fast, modern, and easy to expand.
-        </p>
+    <main class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <h1>Altars, Archetypes, and Mythic Heroes.</h1>
+          <p class="lead">
+            A home for spiritual, cosmic-inspired artwork — and a new project:
+            <strong>Mythical Hero Packs</strong> made for D&amp;D players who want characters with lore,
+            symbolism, and a little otherworldly guidance.
+          </p>
 
-        <div class="row" style="gap:12px; flex-wrap:wrap">
-          <button class="btn" onclick="scrollToSection('blog')">See blog section</button>
-          <button class="btn" onclick="scrollToSection('shop')">See shop section</button>
-        </div>
-
-        <div class="pillrow">
-          <span class="pill">✅ Mobile-friendly</span>
-          <span class="pill">✅ Fast + clean</span>
-          <span class="pill">✅ Built for growth</span>
-          <span class="pill">✅ Easy edits</span>
-        </div>
-
-        <div class="grid" style="margin-top:18px">
-          <div class="tile">
-            <h3>Blog-ready</h3>
-            <p>We’ll add a posts page + a simple writing workflow.</p>
+          <div class="accentline">
+            <span class="chip">Goddess / God Art</span>
+            <span class="chip">Altar Cards</span>
+            <span class="chip">Astral / Portal Energy</span>
+            <span class="chip">Mythic Hero Packs</span>
           </div>
-          <div class="tile">
-            <h3>Shop-ready</h3>
-            <p>We can start with product cards and links (free).</p>
-          </div>
-          <div class="tile">
-            <h3>Custom design</h3>
-            <p>You’ll tell me changes, I’ll rewrite the code.</p>
-          </div>
-        </div>
-      </section>
 
-      <aside class="card">
-        <h2 style="margin:0 0 10px; font-size:18px">Quick setup panel</h2>
-        <p class="small" style="margin-top:0">
-          This area can become: newsletter signup, featured post, “about me”, or a product spotlight.
-        </p>
+          <div class="divider"></div>
 
-        <div class="split">
-          <div class="tile">
-            <h3>Featured post</h3>
-            <p class="small">“My first post” (coming soon)</p>
-          </div>
-          <div class="tile">
-            <h3>Spotlight</h3>
-            <p class="small">Your best product or offer</p>
+          <div class="note">
+            Your Etsy shop description sets the tone: spiritual goddesses blended with cosmic wonder and “astral spirit guide” themes — we’re keeping that same classy energy here. :contentReference[oaicite:1]{index=1}
           </div>
         </div>
 
-        <div style="margin-top:14px" class="tile">
-          <h3 style="margin:0 0 8px">Newsletter (optional)</h3>
-          <div class="row">
-            <input class="input" placeholder="Your email (demo)" />
-            <button class="btn" onclick="demoAlert()">Join</button>
+        <aside class="mini">
+          <div class="card">
+            <h3>Featured: Mythical Hero Packs</h3>
+            <p>
+              A hero, their origin story, spiritual “thread,” and usable D&amp;D hooks — designed for quick drop-in play.
+            </p>
           </div>
-          <p class="small" style="margin:10px 0 0">This button is demo-only right now.</p>
-        </div>
-      </aside>
+
+          <div class="card">
+            <h3>Featured: Altar Art &amp; Prints</h3>
+            <p>
+              Digital and physical pieces inspired by divine feminine energy, cosmic motifs, and bold color.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>One clean path</h3>
+            <p>
+              This site stays simple. Etsy is where people buy — here is where people fall in love with the world.
+            </p>
+          </div>
+        </aside>
+      </div>
     </main>
 
-    <section id="blog" class="card">
-      <h2 style="margin:0 0 6px">Blog</h2>
-      <p class="small" style="margin:0 0 14px">We’ll turn this into a real blog list next.</p>
+    <section id="packs">
+      <div class="section-title">
+        <h2>Mythical Hero Packs</h2>
+        <div class="sub">Stories + characters for D&amp;D</div>
+      </div>
 
       <div class="grid">
-        <div class="tile">
-          <h3>Post Title #1</h3>
-          <p>Short description goes here. (We’ll replace these with your real posts.)</p>
+        <div class="card">
+          <h3>Hero Archetypes</h3>
+          <p>Build a set: Seer, Exile, Oathkeeper, Star-Touched, Oracle, Shadow-Knight…</p>
         </div>
-        <div class="tile">
-          <h3>Post Title #2</h3>
-          <p>Short description goes here. You’ll be able to add as many as you want.</p>
+        <div class="card">
+          <h3>Pack Contents</h3>
+          <p>Short lore, motivations, bonds, secrets, a “spiritual theme,” and gameplay hooks.</p>
         </div>
-        <div class="tile">
-          <h3>Post Title #3</h3>
-          <p>Short description goes here. Later we can add categories and tags.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="shop" class="card" style="margin-top:14px">
-      <h2 style="margin:0 0 6px">Shop (starter)</h2>
-      <p class="small" style="margin:0 0 14px">
-        For now we can show products as cards with links (free). Later we can add real checkout using a platform.
-      </p>
-
-      <div class="grid">
-        <div class="tile">
-          <h3>Product One</h3>
-          <p class="small">Description • $</p>
-          <button class="btn" style="margin-top:10px" onclick="demoAlert()">View</button>
-        </div>
-        <div class="tile">
-          <h3>Product Two</h3>
-          <p class="small">Description • $</p>
-          <button class="btn" style="margin-top:10px" onclick="demoAlert()">View</button>
-        </div>
-        <div class="tile">
-          <h3>Product Three</h3>
-          <p class="small">Description • $</p>
-          <button class="btn" style="margin-top:10px" onclick="demoAlert()">View</button>
+        <div class="card">
+          <h3>How you’ll sell</h3>
+          <p>List packs on Etsy; this site links out with a clean “Shop on Etsy” path.</p>
         </div>
       </div>
-    </section>
 
-    <section id="about" class="card" style="margin-top:14px">
-      <h2 style="margin:0 0 6px">About</h2>
-      <p class="small" style="margin:0">
-        Tell me what this site is about (your niche, brand name, vibe, audience), and I’ll tailor the design and wording.
+      <p class="note">
+        When you’re ready, we can add a “Packs” page with individual hero pages (no extra platform needed).
       </p>
     </section>
 
-    <footer class="footer">
-      <div>© <span id="year"></span> My Brand</div>
-      <div>Built with help from ChatGPT • Hosted on GitHub Pages</div>
+    <section id="journal">
+      <div class="section-title">
+        <h2>Journal</h2>
+        <div class="sub">Cards, symbolism, and lore notes</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Card Meanings (your voice)</h3>
+          <p>Write about the cards, archetypes, and spiritual ideas behind your creations.</p>
+        </div>
+        <div class="card">
+          <h3>Behind the Art</h3>
+          <p>Process posts: where a piece started, what it represents, what it’s for.</p>
+        </div>
+        <div class="card">
+          <h3>Mythic Notes</h3>
+          <p>Short worldbuilding snippets that become hero pack lore later.</p>
+        </div>
+      </div>
+
+      <p class="note">
+        Next step (when you say): I can generate your first 3 journal post titles and draft the first post in your tone.
+      </p>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Virtual Utopia Designz</div>
+      <div><a class="softlink" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noreferrer">Visit Etsy Shop</a></div>
     </footer>
   </div>
 
   <script>
-    // tiny helpers (you don't need to learn this)
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function scrollToSection(id){
-      const el = document.getElementById(id);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-
-    function demoAlert(){
-      alert("Demo button 👋\n\nLater we can connect this to a real newsletter or shop checkout.");
-    }
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

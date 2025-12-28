@@ -662,6 +662,55 @@
       transform: translateY(-2px);
     }
 
+    /* Browse Collections grid */
+    .browse-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .browse-tile {
+      background: #1f1f29;
+      border-radius: var(--radius);
+      border: 1px solid var(--gold-soft);
+      box-shadow: 0 10px 36px rgba(215,192,122,0.16);
+      padding: 20px 20px 28px;
+      color: var(--text);
+      font-family: var(--font-body);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+    .browse-tile:hover,
+    .browse-tile:focus-visible {
+      box-shadow: 0 20px 60px rgba(215,192,122,0.45);
+      transform: translateY(-6px);
+      outline: none;
+      border-color: var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      z-index: 1;
+    }
+    .browse-tile h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: inherit;
+      font-size: 20px;
+      margin: 0 0 8px 0;
+      line-height: 1.2;
+      user-select: text;
+    }
+    .browse-tile p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+      font-style: italic;
+      user-select: text;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       header.topbar {
@@ -716,6 +765,10 @@
       }
       .featured-grid {
         grid-template-columns: 1fr !important;
+        gap: 20px;
+      }
+      .browse-grid {
+        grid-template-columns: 1fr 1fr !important;
         gap: 20px;
       }
       .journal-placeholder {
@@ -810,6 +863,31 @@
             <a href="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" target="_blank" rel="noopener noreferrer" aria-label="View Durga — Strength & Resilience on Etsy (opens new tab)">View on Etsy</a>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="browse-title">
+      <div class="section-title">
+        <h2 id="browse-title">Browse Collections</h2>
+        <span class="sub">Sacred themes to guide your journey</span>
+      </div>
+      <div class="browse-grid" role="list" aria-label="Browse Collections categories">
+        <a href="#featured" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Goddess & Divine Feminine collection">
+          <h3>Goddess &amp; Divine Feminine</h3>
+          <p>Embody grace and celestial power in sacred embrace.</p>
+        </a>
+        <a href="#featured" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Protection & Strength collection">
+          <h3>Protection &amp; Strength</h3>
+          <p>Guardians arise with fortitude and fierce light.</p>
+        </a>
+        <a href="#featured" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Compassion & Healing collection">
+          <h3>Compassion &amp; Healing</h3>
+          <p>Gentle whispers soothe the wounded soul’s flight.</p>
+        </a>
+        <a href="#featured" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Ritual & Transformation collection">
+          <h3>Ritual &amp; Transformation</h3>
+          <p>Cycles unfold, renewing spirit’s flight.</p>
+        </a>
       </div>
     </section>
 

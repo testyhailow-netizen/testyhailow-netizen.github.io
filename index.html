@@ -633,15 +633,19 @@
     footer {
       max-width: 1200px;
       margin: 0 auto 24px;
-      text-align: center;
       font-family: var(--font-body);
       font-size: 13px;
       color: var(--muted);
       user-select: none;
       letter-spacing: 0.05em;
-      padding: 12px 24px;
+      padding: 32px 24px 20px;
       opacity: 0;
       transform: translateY(15px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid var(--gold-soft);
     }
     footer.visible {
       animation: fadeSlideIn 0.8s ease forwards;
@@ -661,6 +665,85 @@
       outline: none;
       text-decoration: underline;
       transform: translateY(-2px);
+    }
+    footer .footer-col {
+      flex: 1 1 200px;
+      min-width: 160px;
+    }
+    footer .footer-col h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 12px;
+      text-shadow: 0 0 6px rgba(215,192,122,0.7);
+    }
+    footer .brand-blurb {
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.4;
+      max-width: 320px;
+      user-select: text;
+    }
+    footer .quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    footer .quick-links a {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+    footer .quick-links a:hover,
+    footer .quick-links a:focus-visible {
+      color: var(--gold);
+      transform: translateX(4px);
+      outline: none;
+      text-decoration: none;
+    }
+    footer .cta-footer {
+      margin-top: 0;
+    }
+    footer .cta-footer .btn-footer {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: var(--radius-lg);
+      background: var(--gold);
+      color: #1a1a1a;
+      box-shadow: 0 14px 40px rgba(215,192,122,0.6);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      white-space: nowrap;
+      display: inline-block;
+      user-select: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 5px #f0de75;
+    }
+    footer .cta-footer .btn-footer:hover,
+    footer .cta-footer .btn-footer:focus-visible {
+      background: #fff2aa;
+      color: #0a0a08;
+      box-shadow: 0 24px 60px rgba(215,192,122,0.8);
+      outline: none;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    footer .copyright {
+      flex-basis: 100%;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      user-select: none;
     }
 
     /* Browse Collections grid */
@@ -877,6 +960,18 @@
         font-size: 14px;
         padding: 10px 28px;
       }
+      footer {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px 16px 16px;
+      }
+      footer .footer-col {
+        flex-basis: auto;
+        width: 100%;
+      }
+      footer .copyright {
+        margin-top: 12px;
+      }
     }
 
     /* Animation keyframes */
@@ -1025,8 +1120,21 @@
     </section>
 
     <footer role="contentinfo">
-      <div>© <span id="year"></span> Virtual Utopia Designz</div>
-      <div><a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Visit Etsy shop (opens new tab)">Visit Etsy Shop</a></div>
+      <div class="footer-col brand-blurb">
+        <h3>About Virtual Utopia Designz</h3>
+        Bringing cosmic symbolism and spiritual art to your sacred spaces, our altar cards and designs inspire transformation and mythic storytelling.
+      </div>
+      <nav class="footer-col quick-links" aria-label="Quick links">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="packs.html">Packs</a>
+        <a href="contact.html">Contact</a>
+        <a href="#featured">Featured</a>
+      </nav>
+      <div class="footer-col cta-footer">
+        <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" class="btn-footer" aria-label="Visit Etsy Shop (opens new tab)">Visit Etsy Shop</a>
+      </div>
+      <div class="copyright">© <span id="year"></span> Virtual Utopia Designz</div>
     </footer>
   </div>
 

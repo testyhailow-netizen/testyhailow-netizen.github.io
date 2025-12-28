@@ -8,17 +8,17 @@
 
   <style>
     :root{
-      --bg:#f8f6f2;
-      --panel: rgba(14, 16, 28, .52);
-      --panel2: rgba(16, 18, 32, .62);
+      --bg:#1a1a23;
+      --panel: rgba(215,192,122,0.85);
+      --panel2: rgba(215,192,122,0.30);
       --text:#E6E2F0;
-      --muted:#BFB9D6;
+      --muted:#E6E2F0cc;
       --gold:#D7C07A;
       --violet:#7C5CFF;
       --aqua:#00D4FF;
       --rose:#FF4FD8;
-      --border: rgba(255,255,255,.10);
-      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --border: rgba(215,192,122,0.35);
+      --shadow: 0 18px 45px rgba(215,192,122,0.45);
       --radius: 18px;
       --radius2: 26px;
     }
@@ -30,10 +30,10 @@
       color:var(--text);
       font-family: ui-serif, Georgia, "Times New Roman", serif;
       background:
-        radial-gradient(1200px 600px at 8% -8%, rgba(215,192,122,.18), transparent 60%),
-        radial-gradient(900px 520px at 100% 0%, rgba(255,208,160,.12), transparent 55%),
-        radial-gradient(650px 520px at -10% 100%, rgba(215,192,122,.10), transparent 60%),
-        linear-gradient(180deg, #fffdf9 0%, #fbf7f1 45%, #f6f1e9 100%);
+        radial-gradient(1200px 600px at 8% -8%, rgba(215,192,122,.12), transparent 60%),
+        radial-gradient(900px 520px at 100% 0%, rgba(255,208,160,.08), transparent 55%),
+        radial-gradient(650px 520px at -10% 100%, rgba(215,192,122,.06), transparent 60%),
+        linear-gradient(180deg, #121217 0%, #1a1a23 45%, #1f1f29 100%);
       overflow-x:hidden;
       background-attachment: fixed;
     }
@@ -59,8 +59,8 @@
       transition: border-color .25s ease, box-shadow .25s ease, transform .18s ease;
     }
     .topbar:hover{
-      border-color: rgba(215,192,122,.35);
-      box-shadow: 0 24px 70px rgba(215,192,122,.18), var(--shadow);
+      border-color: rgba(255, 223, 102, .55);
+      box-shadow: 0 24px 70px rgba(255, 223, 102, .3), var(--shadow);
       transform: translateY(-1px);
     }
 
@@ -76,10 +76,10 @@
       height: 44px;
       border-radius: 16px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(215,192,122,.85), rgba(215,192,122,.1) 55%, transparent 70%),
-        linear-gradient(135deg, rgba(124,92,255,.70), rgba(0,212,255,.48));
-      border: 1px solid rgba(215,192,122,.28);
-      box-shadow: 0 18px 45px rgba(124,92,255,.18);
+        radial-gradient(circle at 30% 30%, rgba(255, 223, 102, 0.9), rgba(255, 223, 102, 0.15) 55%, transparent 70%),
+        linear-gradient(135deg, rgba(255, 223, 102, 0.80), rgba(255, 240, 150, 0.70));
+      border: 1px solid rgba(255, 223, 102, 0.48);
+      box-shadow: 0 18px 45px rgba(255, 223, 102, 0.35);
     }
 
     .brand .name{
@@ -88,10 +88,11 @@
       letter-spacing: .2px;
       line-height: 1.1;
       font-size: 20px;
+      color: var(--gold);
     }
     .brand .tag{
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--muted);
+      color: var(--gold);
       font-size: 13.5px;
       margin-top: 4px;
     }
@@ -101,7 +102,7 @@
       align-items:center;
       gap: 12px;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--muted);
+      color: var(--gold);
       font-weight: 800;
       font-size: 16px;
     }
@@ -113,9 +114,9 @@
       transition: color .22s ease, background .22s ease, transform .16s ease, border-color .22s ease;
     }
     .nav a:hover{
-      color: var(--text);
-      background: rgba(255,255,255,.05);
-      border-color: rgba(215,192,122,.28);
+      color: var(--panel2);
+      background: rgba(255, 223, 102, .15);
+      border-color: rgba(255, 223, 102, .50);
       transform: translateY(-1px);
     }
     .nav a::after{
@@ -137,7 +138,7 @@
     .nav a:focus-visible::after{ transform: scaleX(1); }
     .nav a:focus-visible{
       outline: none;
-      box-shadow: 0 0 0 3px rgba(215,192,122,.28) inset;
+      box-shadow: 0 0 0 3px rgba(255, 223, 102, .40) inset;
     }
 
     .cta{

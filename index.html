@@ -453,11 +453,13 @@
       overflow: hidden;
       box-sizing: border-box;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
     .feature-card:hover {
       box-shadow: 0 20px 60px rgba(215,192,122,0.45);
       transform: translateY(-6px);
       cursor: pointer;
+      z-index: 1;
     }
     .feature-card img {
       width: 100%;
@@ -467,6 +469,7 @@
       aspect-ratio: 4 / 5;
       border-bottom: 1px solid var(--gold-soft);
       transition: transform 0.3s ease;
+      display: block;
     }
     .feature-card:hover img {
       transform: scale(1.05);
@@ -482,9 +485,17 @@
       font-weight: 700;
       color: var(--gold);
       font-size: 20px;
-      margin: 0 0 8px 0;
+      margin: 0 0 4px 0;
       line-height: 1.2;
       text-shadow: 0 0 6px rgba(215,192,122,0.7);
+      position: relative;
+    }
+    .feature-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 12px 0;
+      font-style: italic;
+      font-family: var(--font-body);
     }
     .feature-content p {
       font-size: 15px;
@@ -509,6 +520,36 @@
       outline: none;
       text-decoration: none;
       cursor: pointer;
+    }
+
+    /* Badge styling */
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--gold);
+      color: #1a1a1a;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      box-shadow: 0 0 6px rgba(215,192,122,0.8);
+      user-select: none;
+      pointer-events: none;
+      z-index: 10;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .badge.bestseller {
+      background: #ffb84d;
+      box-shadow: 0 0 8px #ffb84d;
+      color: #3b2300;
+    }
+    .badge.new {
+      background: #7bd07a;
+      box-shadow: 0 0 8px #7bd07a;
+      color: #1a2900;
     }
 
     /* Cards container for What We Create */
@@ -740,25 +781,31 @@
       </div>
       <div class="featured-grid" aria-live="polite" aria-label="Featured altar cards">
         <article class="feature-card" tabindex="0" aria-label="Isis — Inner Transformation altar card">
+          <div class="badge new" aria-label="New badge">New</div>
           <img src="https://i.etsystatic.com/46666994/r/il/ee2458/7231062688/il_794xN.7231062688_3j40.jpg" alt="Isis — Inner Transformation altar card image" />
           <div class="feature-content">
             <h3>Isis — Inner Transformation</h3>
+            <p class="feature-meta">Digital download · From €9.99</p>
             <p>A profound meditation card symbolizing rebirth and spiritual awakening through inner transformation.</p>
             <a href="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" target="_blank" rel="noopener noreferrer" aria-label="View Isis — Inner Transformation on Etsy (opens new tab)">View on Etsy</a>
           </div>
         </article>
         <article class="feature-card" tabindex="0" aria-label="Quan Yin — Spiritual Growth altar card">
+          <div class="badge bestseller" aria-label="Bestseller badge">Bestseller</div>
           <img src="https://i.etsystatic.com/46666994/r/il/c2986a/7366219886/il_794xN.7366219886_bczg.jpg" alt="Quan Yin — Spiritual Growth altar card image" />
           <div class="feature-content">
             <h3>Quan Yin — Spiritual Growth</h3>
+            <p class="feature-meta">Digital download · From €8.50</p>
             <p>A prayer card inspiring compassion and continuous spiritual growth along your sacred journey.</p>
             <a href="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" target="_blank" rel="noopener noreferrer" aria-label="View Quan Yin — Spiritual Growth on Etsy (opens new tab)">View on Etsy</a>
           </div>
         </article>
         <article class="feature-card" tabindex="0" aria-label="Durga — Strength & Resilience altar card">
+          <div class="badge new" aria-label="New badge">New</div>
           <img src="https://i.etsystatic.com/46666994/r/il/c1726f/7323640672/il_794xN.7323640672_fqnt.jpg" alt="Durga — Strength & Resilience altar card image" />
           <div class="feature-content">
             <h3>Durga — Strength & Resilience</h3>
+            <p class="feature-meta">Digital download · From €7.75</p>
             <p>A meditation card celebrating strength, resilience, and the power to overcome life's challenges.</p>
             <a href="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" target="_blank" rel="noopener noreferrer" aria-label="View Durga — Strength & Resilience on Etsy (opens new tab)">View on Etsy</a>
           </div>

@@ -58,38 +58,42 @@
     /* NAVIGATION BAR */
     header.topbar {
       position: sticky;
-      top: 0;
+      top: 16px;
       z-index: 30;
-      backdrop-filter: saturate(180%) blur(12px);
-      background: rgba(18,18,23,0.85);
-      padding: 16px 32px;
-      margin: 24px 0 48px;
+      backdrop-filter: saturate(180%) blur(14px);
+      background: rgba(18,18,23,0.75);
+      padding: 20px 48px;
+      margin: 0 0 48px;
       border-radius: var(--radius-lg);
-      box-shadow: 0 0 20px var(--gold-soft);
+      box-shadow: 0 8px 40px rgba(215,192,122,0.25);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: box-shadow 0.3s ease;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      font-feature-settings: "liga" 1;
+      font-variant-numeric: tabular-nums;
+      user-select: none;
     }
-    header.topbar:hover {
-      box-shadow: 0 4px 38px var(--gold-shadow);
+    header.topbar:hover,
+    header.topbar:focus-within {
+      box-shadow: 0 6px 48px var(--gold-shadow);
+      background: rgba(18,18,23,0.85);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
-      user-select: none;
+      gap: 20px;
     }
 
     .sigil {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       background:
         radial-gradient(circle at 30% 30%, rgba(215,192,122,0.9), rgba(215,192,122,0.18) 55%, transparent 70%),
         linear-gradient(135deg, rgba(215,192,122,0.80), rgba(255, 223, 102, 0.72));
-      box-shadow: 0 12px 38px rgba(215,192,122,0.6);
+      box-shadow: 0 14px 42px rgba(215,192,122,0.65);
       border: 1px solid var(--gold-soft);
       flex-shrink: 0;
     }
@@ -97,101 +101,121 @@
     .brand .name {
       font-family: var(--font-heading);
       font-weight: 900;
-      font-size: 22px;
+      font-size: 24px;
       color: var(--gold);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       line-height: 1.1;
+      user-select: text;
     }
 
     .brand .tag {
       font-family: var(--font-body);
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--muted);
       font-style: italic;
-      margin-top: 4px;
-      letter-spacing: 0.02em;
+      margin-top: 6px;
+      letter-spacing: 0.03em;
+      user-select: text;
     }
 
     nav.nav {
       display: flex;
-      gap: 28px;
+      gap: 38px;
       font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 17px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       user-select: none;
     }
 
     nav.nav a {
       position: relative;
-      padding: 8px 14px;
+      padding: 10px 16px;
       border-radius: var(--radius);
-      transition: all 0.24s ease;
+      transition: all 0.27s cubic-bezier(0.4, 0, 0.2, 1);
       color: var(--muted);
-      border: 1px solid transparent;
-      font-weight: 600;
+      border: 1.5px solid transparent;
+      font-weight: 700;
+      font-smooth: never;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      outline-offset: 4px;
+      outline: none;
+      cursor: pointer;
     }
-
     nav.nav a:hover,
     nav.nav a:focus-visible {
       color: var(--gold);
-      background: rgba(215, 192, 122, 0.15);
+      background: rgba(215, 192, 122, 0.18);
       border-color: var(--gold-soft);
-      outline-offset: 3px;
-      outline: none;
-      box-shadow: 0 0 6px var(--gold-shadow);
-      transform: translateY(-1px);
-      cursor: pointer;
-      z-index: 1;
+      box-shadow: 0 0 8px var(--gold-shadow);
+      transform: translateY(-2px);
+      z-index: 2;
+      outline-offset: 2px;
+      outline: 2px solid var(--gold);
+    }
+    nav.nav a[aria-current="page"] {
+      color: var(--gold);
+      background: rgba(215, 192, 122, 0.22);
+      border-color: var(--gold-soft);
+      box-shadow: 0 0 10px var(--gold-shadow);
+      cursor: default;
+      transform: none;
+      font-weight: 900;
     }
     nav.nav a::after {
       content: "";
       position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 6px;
-      height: 2px;
-      border-radius: 2px;
+      left: 16px;
+      right: 16px;
+      bottom: 5px;
+      height: 2.5px;
+      border-radius: 2.5px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
       transform: scaleX(0);
       transform-origin: center;
-      transition: transform 0.25s ease;
-      opacity: 0.9;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0.95;
       pointer-events: none;
+      bottom: 6px;
     }
     nav.nav a:hover::after,
-    nav.nav a:focus-visible::after {
+    nav.nav a:focus-visible::after,
+    nav.nav a[aria-current="page"]::after {
       transform: scaleX(1);
+      opacity: 1;
     }
 
     .topbar .cta {
       font-family: var(--font-heading);
       font-weight: 900;
-      font-size: 15.5px;
-      padding: 12px 22px;
+      font-size: 16.2px;
+      padding: 14px 28px;
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, #d7c07a, #ffe87c);
+      background: linear-gradient(135deg, #fee588, #d7c07a 75%);
       color: #1a1a1a;
-      box-shadow: 0 14px 45px rgba(215,192,122,0.5);
+      box-shadow: 0 18px 56px rgba(255, 230, 90, 0.48);
       border: none;
       white-space: nowrap;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       user-select: none;
-      transition: all 0.22s ease;
+      transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.07em;
+      text-shadow: 0 0 3px #f0de75;
+      cursor: pointer;
     }
     .topbar .cta:hover {
-      filter: brightness(1.12);
-      transform: translateY(-2px);
-      box-shadow: 0 28px 60px rgba(215,192,122,0.7);
-      cursor: pointer;
+      filter: brightness(1.15);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 30px 80px rgba(255, 230, 90, 0.74);
       text-decoration: none;
     }
     .topbar .cta:focus-visible {
-      outline-offset: 3px;
-      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      outline: 3px solid #ffec87;
     }
 
     /* HERO */
@@ -539,8 +563,11 @@
     @media (max-width: 900px) {
       header.topbar {
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 16px;
         justify-content: center;
+        padding: 16px 24px;
+        top: 0;
+        margin: 0 0 40px;
       }
       nav.nav {
         display:none;

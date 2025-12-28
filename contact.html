@@ -1,20 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Virtual Utopia Designz</title>
+
+  <style>
+    :root{
+      --bg:#f8f6f2;
+      --panel: rgba(14, 16, 28, .52);
+      --text:#E6E2F0;
+      --muted:#BFB9D6;
+      --gold:#D7C07A;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; margin:0; font-family: ui-serif, Georgia, "Times New Roman", serif; color: var(--text); background: var(--bg); }
+    a{ color: inherit; text-decoration: none; }
+
+    .wrap{ max-width: 720px; margin: 30px auto 50px; padding: 24px; background: var(--panel); border-radius: var(--radius2); box-shadow: var(--shadow); border: 1px solid var(--border); }
+
+    h1{
+      font-size: 32px;
+      margin-bottom: 24px;
+      letter-spacing: -0.3px;
+      font-weight: 800;
+      color: var(--gold);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 15px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--muted);
+      user-select: none;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-size: 14px;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      resize: vertical;
+      transition: border-color 0.25s ease;
+    }
+
+    input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(215,192,122,.12);
+      box-shadow: 0 0 8px rgba(215,192,122,.35);
+    }
+
+    button {
+      padding: 14px 20px;
+      border-radius: var(--radius2);
+      border: none;
+      font-weight: 900;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 16px;
+      background: linear-gradient(135deg, rgba(215,192,122,.92), rgba(215,192,122,.52));
+      color: #0b0b12;
+      cursor: pointer;
+      box-shadow: 0 18px 45px rgba(215,192,122,.18);
+      transition: filter 0.2s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 22px 60px rgba(215,192,122,.22);
+    }
+
+    nav {
+      margin-bottom: 30px;
+      display: flex;
+      gap: 18px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    nav a {
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      transition: color 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+    nav a:hover {
+      color: var(--gold);
+      background: rgba(215,192,122,0.12);
+      border-color: var(--gold);
+    }
+
+    @media (max-width: 500px) {
+      .wrap {
+        margin: 20px 12px 40px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <nav aria-label="Breadcrumb navigation">
+      <a href="index.html">Home</a>
+      <a href="packs.html">Hero Packs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
     <h1>Contact Us</h1>
     <form action="#" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br><br>
-        <button type="submit">Send</button>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
     </form>
+  </div>
 </body>
 </html>

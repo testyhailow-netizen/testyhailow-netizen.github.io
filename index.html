@@ -1096,60 +1096,6 @@
         transform: translateY(0);
       }
     }
-
-    /* How It Works section styles */
-    .how-it-works {
-      max-width: 1200px;
-      margin: -32px auto 56px;
-      background: rgba(255 255 255 / 0.12);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 12px 36px rgba(215,192,122,0.16);
-      display: flex;
-      justify-content: space-around;
-      padding: 18px 32px;
-      font-family: var(--font-body);
-      color: var(--muted);
-      font-size: 14px;
-      user-select: none;
-      letter-spacing: 0.04em;
-      text-align: center;
-      font-weight: 600;
-      box-shadow: 0 10px 30px rgba(215,192,122,0.22);
-      text-shadow: 0 0 8px rgba(215,192,122,0.3);
-      z-index: 1;
-    }
-    .how-it-works > div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      flex: 1;
-      max-width: 200px;
-      color: #6b6341;
-    }
-    .how-it-works > div::before {
-      content: counter(step-num);
-      counter-increment: step-num;
-      background: var(--gold-soft);
-      color: #5a4e2c;
-      font-weight: 900;
-      font-family: var(--font-heading);
-      font-size: 18px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 0 10px rgba(215,192,122,0.12);
-      user-select: none;
-    }
-    .how-it-works > div span {
-      margin-top: 0;
-    }
-    .how-it-works {
-      counter-reset: step-num;
-    }
   </style>
 </head>
 <body>
@@ -1227,12 +1173,6 @@
         </article>
       </div>
     </section>
-
-    <div class="how-it-works" aria-label="How it works steps">
-      <div><span>Choose a card</span></div>
-      <div><span>Download instantly</span></div>
-      <div><span>Print or use digitally</span></div>
-    </div>
 
     <section aria-labelledby="browse-title">
       <div class="section-title">

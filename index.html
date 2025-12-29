@@ -661,6 +661,73 @@
       cursor: default;
     }
 
+    /* New Journal Card Grid */
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .journal-card {
+      background: #fbf9ee;
+      border-radius: var(--radius);
+      border: 1px solid var(--gold-soft);
+      box-shadow: 0 12px 36px rgba(215,192,122,0.2);
+      padding: 24px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      color: var(--text);
+      font-family: var(--font-body);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .journal-card:hover, 
+    .journal-card:focus-within {
+      box-shadow: 0 24px 60px rgba(215,192,122,0.42);
+      transform: translateY(-4px);
+      cursor: pointer;
+      outline: none;
+    }
+    .journal-card h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 20px;
+      color: #5a5135;
+      margin: 0 0 6px 0;
+      text-shadow: 0 0 6px rgba(215,192,122,0.7);
+      line-height: 1.2;
+    }
+    .journal-card time {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      margin: 0 0 12px 0;
+      display: block;
+      font-family: var(--font-body);
+    }
+    .journal-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.4;
+      margin: 0 0 18px 0;
+      flex-grow: 1;
+    }
+    .journal-card a {
+      font-weight: 700;
+      color: #5a5135;
+      font-size: 14px;
+      border-bottom: 2px solid transparent;
+      align-self: flex-start;
+      transition: border-color 0.3s ease;
+    }
+    .journal-card a:hover,
+    .journal-card a:focus-visible {
+      border-color: var(--gold);
+      outline: none;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
     /* FOOTER */
     footer {
       max-width: 1200px;
@@ -1012,6 +1079,10 @@
       footer .copyright {
         margin-top: 12px;
       }
+      .journal-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+      }
     }
 
     /* Animation keyframes */
@@ -1154,8 +1225,25 @@
         <h2 id="journal-title">Journal</h2>
         <span class="sub">Insights, inspirations, and cosmic reflections</span>
       </div>
-      <div class="journal-placeholder" aria-live="polite" aria-label="Journal teaser placeholder">
-        * Journal content coming soon...
+      <div class="journal-grid" aria-live="polite" aria-label="Latest journal posts">
+        <article class="journal-card" tabindex="0" aria-label="Post: Aligning Your Spirit with Lunar Cycles">
+          <h3>Aligning Your Spirit with Lunar Cycles</h3>
+          <time datetime="2024-05-08">May 8, 2024</time>
+          <p>Discover how the phases of the moon can deepen your rituals and spiritual practice, fostering growth and renewal in tune with cosmic rhythms.</p>
+          <a href="journal/aligning-lunar-cycles.html" aria-label="Read more about Aligning Your Spirit with Lunar Cycles">Read more</a>
+        </article>
+        <article class="journal-card" tabindex="0" aria-label="Post: Sacred Spaces: Creating Your Personal Altar">
+          <h3>Sacred Spaces: Creating Your Personal Altar</h3>
+          <time datetime="2024-04-22">April 22, 2024</time>
+          <p>Learn practical steps to craft a meaningful altar that serves as a sanctuary for meditation, intention-setting, and cosmic connection.</p>
+          <a href="journal/sacred-spaces-altar-creation.html" aria-label="Read more about Sacred Spaces: Creating Your Personal Altar">Read more</a>
+        </article>
+        <article class="journal-card" tabindex="0" aria-label="Post: Embracing Mythic Storytelling in Everyday Life">
+          <h3>Embracing Mythic Storytelling in Everyday Life</h3>
+          <time datetime="2024-04-10">April 10, 2024</time>
+          <p>Explore how mythic tales and symbolism can guide your journey, bringing wisdom and transformative power into your daily rituals.</p>
+          <a href="journal/mythic-storytelling-everyday.html" aria-label="Read more about Embracing Mythic Storytelling in Everyday Life">Read more</a>
+        </article>
       </div>
     </section>
 

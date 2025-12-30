@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,11 @@
 
   <style>
     :root {
-      --bg: #f9f3df;
-      --gradient-bg: linear-gradient(135deg, #f6efd5 0%, #e9e1bb 100%);
+      --bg: #121217;
+      --gradient-bg: linear-gradient(135deg, #1a1a23 0%, #0d0d12 100%);
       --panel: rgba(215, 192, 122, 0.15);
       --panel-strong: rgba(215, 192, 122, 0.40);
-      --text: #3a372e;
+      --text: #e6e2f0;
       --muted: #a89d6e;
       --gold: #d7c07a;
       --gold-soft: rgba(215, 192, 122, 0.35);
@@ -33,31 +34,12 @@
     html, body {
       margin: 0; padding: 0;
       min-height: 100%;
-      background:
-        linear-gradient(#0e1016, #151a2a),
-        radial-gradient(circle at top left, rgba(75,0,130,0.15), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(184,152,40,0.15), transparent 70%);
-      box-shadow: inset 0 0 90px 35px #000c1a;
+      background: var(--gradient-bg);
       color: var(--text);
       font-family: var(--font-body);
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(rgba(255 255 255 / 0.09) 1px, transparent 1.5px),
-        radial-gradient(rgba(255 255 255 / 0.04) 1px, transparent 1.5px);
-      background-size: 150px 150px, 65px 65px;
-      background-position: 0 0, 35px 40px;
-      z-index: 0;
     }
 
     a {
@@ -72,8 +54,6 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      position: relative;
-      z-index: 1;
     }
 
     /* NAVIGATION BAR */
@@ -82,7 +62,7 @@
       top: 16px;
       z-index: 30;
       backdrop-filter: saturate(180%) blur(14px);
-      background: rgba(249,243,223,0.75);
+      background: rgba(18,18,23,0.75);
       padding: 20px 48px;
       margin: 0 0 48px;
       border-radius: var(--radius-lg);
@@ -98,7 +78,7 @@
     header.topbar:hover,
     header.topbar:focus-within {
       box-shadow: 0 6px 48px var(--gold-shadow);
-      background: rgba(249,243,223,0.85);
+      background: rgba(18,18,23,0.85);
     }
 
     .brand {
@@ -123,7 +103,7 @@
       font-family: var(--font-heading);
       font-weight: 900;
       font-size: 24px;
-      color: #5a5135;
+      color: var(--gold);
       letter-spacing: 0.05em;
       line-height: 1.1;
       user-select: text;
@@ -167,7 +147,7 @@
     }
     nav.nav a:hover,
     nav.nav a:focus-visible {
-      color: #5a5135;
+      color: var(--gold);
       background: rgba(215, 192, 122, 0.18);
       border-color: var(--gold-soft);
       box-shadow: 0 0 8px var(--gold-shadow);
@@ -177,7 +157,7 @@
       outline: 2px solid var(--gold);
     }
     nav.nav a[aria-current="page"] {
-      color: #5a5135;
+      color: var(--gold);
       background: rgba(215, 192, 122, 0.22);
       border-color: var(--gold-soft);
       box-shadow: 0 0 10px var(--gold-shadow);
@@ -241,9 +221,9 @@
 
     /* HERO */
     main.hero {
-      background: linear-gradient(135deg, rgba(249,243,223,0.85), rgba(233,225,187,0.95));
+      background: linear-gradient(135deg, rgba(20,20,30,0.85), rgba(18,18,23,0.95));
       border-radius: var(--radius-lg);
-      padding: 47px 31px 42px;
+      padding: 72px 48px 64px;
       box-shadow: 0 30px 80px rgba(215,192,122,0.32);
       text-align: center;
       max-width: 900px;
@@ -254,15 +234,6 @@
       transform: translateY(15px);
       animation: fadeSlideIn 0.9s ease forwards;
       animation-delay: 0.1s;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      z-index: 1;
-    }
-    @media(min-width: 901px) {
-      main.hero {
-        max-height: 72vh;
-      }
     }
     main.hero::before {
       content: "";
@@ -281,8 +252,8 @@
     main.hero .headline-wrapper {
       position: relative;
       display: inline-block;
-      padding: 0 16px 8px;
-      margin-bottom: 10px;
+      padding: 0 16px 12px;
+      margin-bottom: 16px;
       z-index: 1;
     }
     main.hero .headline-wrapper::before {
@@ -303,12 +274,12 @@
       position: relative;
       font-family: var(--font-heading);
       font-weight: 900;
-      font-size: 58.5px;
+      font-size: 72px;
       margin: 0;
       letter-spacing: -0.05em;
-      color: #5a5135;
+      color: var(--gold);
       text-shadow: 0 0 30px rgba(215,192,122,0.9);
-      line-height: 1.0;
+      line-height: 1.05;
       user-select: text;
       z-index: 1;
     }
@@ -316,9 +287,9 @@
     main.hero p.lead {
       position: relative;
       font-size: 20px;
-      line-height: 1.4;
+      line-height: 1.6;
       color: var(--muted);
-      margin: 0 0 18px;
+      margin: 0 0 28px;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
@@ -329,12 +300,12 @@
 
     main.hero .brand-promise {
       position: relative;
-      color: #5a5135;
+      color: var(--gold);
       font-family: var(--font-heading);
       font-weight: 700;
       font-size: 18px;
       max-width: 480px;
-      margin: 0 auto 26px;
+      margin: 0 auto 40px;
       letter-spacing: 0.06em;
       text-shadow: 0 0 12px rgba(215,192,122,0.85);
       user-select: text;
@@ -348,11 +319,11 @@
       font-size: 14px;
       font-weight: 600;
       font-family: var(--font-body);
-      color: #5a5135;
+      color: var(--gold);
       user-select: none;
       text-shadow: 0 0 6px rgba(215,192,122,0.5);
-      margin-bottom: 23px;
-      line-height: 1.2;
+      margin-bottom: 36px;
+      line-height: 1.3;
       z-index: 1;
     }
     main.hero .trust-signals::before,
@@ -390,7 +361,7 @@
       justify-content: center;
       gap: 8px;
       text-decoration: none;
-      color: #5a5135;
+      color: var(--gold);
       background: transparent;
       white-space: nowrap;
     }
@@ -424,7 +395,7 @@
 
     /* SECTIONS */
     section {
-      background: rgba(249, 243, 223, 0.7);
+      background: rgba(18, 18, 23, 0.7);
       border-radius: var(--radius-lg);
       box-shadow: 0 20px 50px rgba(215,192,122,0.18);
       padding: 48px 36px 52px;
@@ -434,8 +405,6 @@
       opacity: 0;
       transform: translateY(15px);
       transition: none;
-      position: relative;
-      z-index: 1;
     }
     section.visible {
       animation: fadeSlideIn 0.8s ease forwards;
@@ -455,7 +424,7 @@
       font-size: 28px;
       letter-spacing: 0.04em;
       margin: 0;
-      color: #5a5135;
+      color: var(--gold);
       text-shadow: 0 0 8px rgba(215,192,122,0.85);
     }
     .section-title .sub {
@@ -474,7 +443,7 @@
     }
     /* Card styling */
     .feature-card {
-      background: #fbf9ee;
+      background: #1f1f29;
       border-radius: var(--radius);
       border: 1px solid var(--gold-soft);
       box-shadow: 0 10px 36px rgba(215,192,122,0.16);
@@ -516,7 +485,7 @@
     .feature-content h3 {
       font-family: var(--font-heading);
       font-weight: 700;
-      color: #5a5135;
+      color: var(--gold);
       font-size: 20px;
       margin: 0 0 4px 0;
       line-height: 1.2;
@@ -540,7 +509,7 @@
     }
     .feature-content a {
       font-weight: 700;
-      color: #5a5135;
+      color: var(--gold);
       align-self: flex-start;
       letter-spacing: 0.04em;
       font-size: 14px;
@@ -595,7 +564,7 @@
       margin: 0 auto;
     }
     .cards-grid .card {
-      background: #fbf9ee;
+      background: #1f1f29;
       border-radius: var(--radius);
       border: 1px solid var(--gold-soft);
       padding: 28px 32px 36px;
@@ -618,7 +587,7 @@
       font-family: var(--font-heading);
       font-weight: 700;
       font-size: 20px;
-      color: #5a5135;
+      color: var(--gold);
       margin: 0;
       text-shadow: 0 0 6px rgba(215,192,122,0.7);
     }
@@ -633,7 +602,7 @@
 
     /* Journal teaser placeholder */
     .journal-placeholder {
-      background: linear-gradient(135deg, #f0eddc, #e8e3bf);
+      background: linear-gradient(135deg, #23232e, #1a1a23);
       border-radius: var(--radius);
       border: 1px solid var(--gold-soft);
       color: var(--gold-soft);
@@ -661,73 +630,6 @@
       cursor: default;
     }
 
-    /* New Journal Card Grid */
-    .journal-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .journal-card {
-      background: #fbf9ee;
-      border-radius: var(--radius);
-      border: 1px solid var(--gold-soft);
-      box-shadow: 0 12px 36px rgba(215,192,122,0.2);
-      padding: 24px 28px 32px;
-      display: flex;
-      flex-direction: column;
-      color: var(--text);
-      font-family: var(--font-body);
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-    .journal-card:hover, 
-    .journal-card:focus-within {
-      box-shadow: 0 24px 60px rgba(215,192,122,0.42);
-      transform: translateY(-4px);
-      cursor: pointer;
-      outline: none;
-    }
-    .journal-card h3 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 20px;
-      color: #5a5135;
-      margin: 0 0 6px 0;
-      text-shadow: 0 0 6px rgba(215,192,122,0.7);
-      line-height: 1.2;
-    }
-    .journal-card time {
-      font-size: 13px;
-      color: var(--muted);
-      font-style: italic;
-      margin: 0 0 12px 0;
-      display: block;
-      font-family: var(--font-body);
-    }
-    .journal-card p {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.4;
-      margin: 0 0 18px 0;
-      flex-grow: 1;
-    }
-    .journal-card a {
-      font-weight: 700;
-      color: #5a5135;
-      font-size: 14px;
-      border-bottom: 2px solid transparent;
-      align-self: flex-start;
-      transition: border-color 0.3s ease;
-    }
-    .journal-card a:hover,
-    .journal-card a:focus-visible {
-      border-color: var(--gold);
-      outline: none;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
     /* FOOTER */
     footer {
       max-width: 1200px;
@@ -745,8 +647,6 @@
       justify-content: space-between;
       gap: 24px;
       border-top: 1px solid var(--gold-soft);
-      position: relative;
-      z-index: 1;
     }
     footer.visible {
       animation: fadeSlideIn 0.8s ease forwards;
@@ -754,7 +654,7 @@
     }
     footer a {
       font-weight: 700;
-      color: #5a5135;
+      color: var(--gold);
       text-decoration: none;
       transition: color 0.3s ease;
       position: relative;
@@ -762,7 +662,7 @@
     }
     footer a:hover,
     footer a:focus-visible {
-      color: var(--gold);
+      color: #fff2aa;
       outline: none;
       text-decoration: underline;
       transform: translateY(-2px);
@@ -775,7 +675,7 @@
       font-family: var(--font-heading);
       font-weight: 700;
       font-size: 16px;
-      color: #5a5135;
+      color: var(--gold);
       margin-bottom: 12px;
       text-shadow: 0 0 6px rgba(215,192,122,0.7);
     }
@@ -854,7 +754,7 @@
       gap: 28px;
     }
     .browse-tile {
-      background: #fbf9ee;
+      background: #1f1f29;
       border-radius: var(--radius);
       border: 1px solid var(--gold-soft);
       box-shadow: 0 10px 36px rgba(215,192,122,0.16);
@@ -914,14 +814,14 @@
       position: relative;
       max-width: 90vw;
       max-height: 90vh;
-      background: #fbf9ee;
+      background: #1f1f29;
       border-radius: var(--radius-lg);
       box-shadow: 0 0 40px var(--gold-shadow);
       padding: 24px 28px 32px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #5a5135;
+      color: var(--gold);
       user-select: none;
     }
     #lightbox-content img {
@@ -931,7 +831,7 @@
       box-shadow: 0 12px 50px rgba(215,192,122,0.6);
       margin-bottom: 20px;
       object-fit: contain;
-      background: #f5f2db;
+      background: #1a1a1a;
     }
     #lightbox-title {
       font-family: var(--font-heading);
@@ -941,7 +841,6 @@
       text-align: center;
       line-height: 1.2;
       text-shadow: 0 0 10px rgba(215,192,122,0.9);
-      color: #5a5135;
     }
     #lightbox-etsy-link {
       font-family: var(--font-heading);
@@ -972,7 +871,7 @@
       right: 12px;
       background: transparent;
       border: none;
-      color: #5a5135;
+      color: var(--gold);
       font-size: 28px;
       font-weight: 900;
       line-height: 1;
@@ -983,7 +882,7 @@
     }
     #lightbox-close:hover,
     #lightbox-close:focus-visible {
-      color: #f2de50;
+      color: #fff2aa;
       outline: none;
     }
 
@@ -1003,7 +902,6 @@
       main.hero {
         padding: 48px 24px 48px;
         margin-bottom: 48px;
-        max-height: none;
       }
       main.hero .headline-wrapper::before {
         width: 140%;
@@ -1011,24 +909,20 @@
       }
       main.hero h1 {
         font-size: 48px;
-        line-height: 1.1;
       }
       main.hero p.lead {
         font-size: 18px;
         max-width: 90%;
         margin-bottom: 24px;
-        line-height: 1.4;
       }
       main.hero .brand-promise {
         font-size: 16px;
         max-width: 90%;
         margin-bottom: 32px;
-        line-height: 1.3;
       }
       main.hero .trust-signals {
         font-size: 13px;
         margin-bottom: 28px;
-        line-height: 1.3;
       }
       .hero-ctas {
         gap: 16px;
@@ -1078,10 +972,6 @@
       }
       footer .copyright {
         margin-top: 12px;
-      }
-      .journal-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px;
       }
     }
 
@@ -1177,7 +1067,7 @@
     <section aria-labelledby="browse-title">
       <div class="section-title">
         <h2 id="browse-title">Browse Collections</h2>
-        <span class="sub">Whispers of the divine, woven through sacred paths</span>
+        <span class="sub">Sacred themes to guide your journey</span>
       </div>
       <div class="browse-grid" role="list" aria-label="Browse Collections categories">
         <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Goddess & Divine Feminine collection">
@@ -1225,25 +1115,8 @@
         <h2 id="journal-title">Journal</h2>
         <span class="sub">Insights, inspirations, and cosmic reflections</span>
       </div>
-      <div class="journal-grid" aria-live="polite" aria-label="Latest journal posts">
-        <article class="journal-card" tabindex="0" aria-label="Post: Aligning Your Spirit with Lunar Cycles">
-          <h3>Aligning Your Spirit with Lunar Cycles</h3>
-          <time datetime="2024-05-08">May 8, 2024</time>
-          <p>Discover how the phases of the moon can deepen your rituals and spiritual practice, fostering growth and renewal in tune with cosmic rhythms.</p>
-          <a href="journal/aligning-lunar-cycles.html" aria-label="Read more about Aligning Your Spirit with Lunar Cycles">Read more</a>
-        </article>
-        <article class="journal-card" tabindex="0" aria-label="Post: Sacred Spaces: Creating Your Personal Altar">
-          <h3>Sacred Spaces: Creating Your Personal Altar</h3>
-          <time datetime="2024-04-22">April 22, 2024</time>
-          <p>Learn practical steps to craft a meaningful altar that serves as a sanctuary for meditation, intention-setting, and cosmic connection.</p>
-          <a href="journal/sacred-spaces-altar-creation.html" aria-label="Read more about Sacred Spaces: Creating Your Personal Altar">Read more</a>
-        </article>
-        <article class="journal-card" tabindex="0" aria-label="Post: Embracing Mythic Storytelling in Everyday Life">
-          <h3>Embracing Mythic Storytelling in Everyday Life</h3>
-          <time datetime="2024-04-10">April 10, 2024</time>
-          <p>Explore how mythic tales and symbolism can guide your journey, bringing wisdom and transformative power into your daily rituals.</p>
-          <a href="journal/mythic-storytelling-everyday.html" aria-label="Read more about Embracing Mythic Storytelling in Everyday Life">Read more</a>
-        </article>
+      <div class="journal-placeholder" aria-live="polite" aria-label="Journal teaser placeholder">
+        * Journal content coming soon...
       </div>
     </section>
 

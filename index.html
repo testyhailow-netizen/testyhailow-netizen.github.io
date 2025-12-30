@@ -630,34 +630,45 @@
       flex-grow: 1;
     }
 
-    /* Journal teaser placeholder */
-    .journal-placeholder {
-      background: linear-gradient(135deg, #f0eddc, #e8e3bf);
-      border-radius: var(--radius);
-      border: 1px solid var(--gold-soft);
-      color: var(--gold-soft);
-      font-style: italic;
-      font-weight: 600;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 180px;
-      font-size: 18px;
-      user-select: none;
-      box-shadow: 0 8px 36px rgba(215,192,122,0.18);
-      max-width: 720px;
-      margin: 0 auto;
-      transition: box-shadow 0.3s ease;
+    /* Blog Section */
+    section#blog {
+      background: rgba(249, 243, 223, 0.75);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 50px rgba(215,192,122,0.18);
+      padding: 48px 36px 52px;
+      max-width: 1200px;
+      margin: 0 auto 56px;
+      color: var(--text);
       opacity: 0;
       transform: translateY(15px);
+      transition: none;
+      position: relative;
+      z-index: 1;
     }
-    .journal-placeholder.visible {
+    section#blog.visible {
       animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.2s;
     }
-    .journal-placeholder:hover {
-      box-shadow: 0 16px 56px rgba(215,192,122,0.38);
-      cursor: default;
+    .blog-post {
+      max-width: 720px;
+      margin: 0 auto;
+      font-family: var(--font-body);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .blog-post h2 {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 26px;
+      color: #36454f;
+      margin-bottom: 16px;
+      text-shadow: 0 0 8px rgba(215,192,122,0.85);
+      user-select: text;
+    }
+    .blog-post p {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: var(--muted);
     }
 
     /* FOOTER */
@@ -984,9 +995,9 @@
         grid-template-columns: 1fr 1fr !important;
         gap: 20px;
       }
-      .journal-placeholder {
-        height: 140px;
-        font-size: 16px;
+      #blog {
+        max-width: 100%;
+        padding: 36px 24px 40px;
       }
       #lightbox-content {
         padding: 16px 18px 24px;
@@ -1149,14 +1160,17 @@
       </div>
     </section>
 
-    <section aria-labelledby="journal-title">
+    <section id="blog" aria-labelledby="blog-title">
       <div class="section-title">
-        <h2 id="journal-title">Journal</h2>
-        <span class="sub">Insights, inspirations, and cosmic reflections</span>
+        <h2 id="blog-title">Blog</h2>
+        <span class="sub">Sacred stories and cosmic reflections</span>
       </div>
-      <div class="journal-placeholder" aria-live="polite" aria-label="Journal teaser placeholder">
-        * Journal content coming soon...
-      </div>
+      <article class="blog-post">
+        <h2>Creating Sacred Space with Mythic Altar Cards</h2>
+        <p>In a world filled with distractions, cultivating a sacred space invites mindfulness and spiritual connection. Our mythic altar cards serve as gateways to timeless stories, cosmic energies, and personal transformation.</p>
+        <p>Each card is thoughtfully designed to evoke symbolism and inspire unique rituals that connect you closer to divine feminine energies, protection, and healing. Use them in your daily meditations or as focal points in your altar to deepen your mythic journey.</p>
+        <p>Explore our collections and find the perfect cards to enrich your sacred space and creative rituals.</p>
+      </article>
     </section>
 
     <footer role="contentinfo">
@@ -1215,9 +1229,6 @@
 
     const sections = document.querySelectorAll('section');
     sections.forEach(section => observer.observe(section));
-
-    const journalPlaceholder = document.querySelector('.journal-placeholder');
-    if(journalPlaceholder) observer.observe(journalPlaceholder);
 
     const footer = document.querySelector('footer');
     if(footer) observer.observe(footer);

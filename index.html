@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,6 +105,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
+      min-width: 0;
     }
 
     .sigil {
@@ -127,6 +129,10 @@
       line-height: 1.1;
       user-select: text;
       margin-right: 20px;
+      white-space: nowrap;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .brand .tag {
@@ -137,6 +143,10 @@
       margin-top: 6px;
       letter-spacing: 0.03em;
       user-select: text;
+      white-space: nowrap;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     nav.nav {
@@ -148,6 +158,8 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       user-select: none;
+      align-items: center;
+      white-space: nowrap;
     }
 
     nav.nav a {
@@ -1043,7 +1055,7 @@
     <header class="topbar" role="banner">
       <div class="brand" aria-label="Virtual Utopia Designz brand identity">
         <div class="sigil" aria-hidden="true"></div>
-        <div>
+        <div style="display: flex; flex-direction: column; justify-content: center; min-width: 0;">
           <div class="name">Virtual Utopia Designz</div>
           <div class="tag">Spiritual altar cards • Cosmic art • Mythic storytelling</div>
         </div>
@@ -1052,7 +1064,7 @@
       <nav class="nav" aria-label="Primary navigation">
         <a href="index.html" aria-current="page">Home</a>
         <a href="packs.html">Blog</a>
-        <a href="about.html">About Us</a>
+        <a href="about.html" style="white-space: nowrap;">About Us</a>
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -1301,3 +1313,4 @@
 </script>
 </body>
 </html>
+```

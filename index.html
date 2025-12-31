@@ -252,7 +252,7 @@
 
     /* HERO */
     main.hero {
-      background: linear-gradient(135deg, rgba(249,243,223,0.85), rgba(233,225,187,0.95));
+      background: #d7c07a;
       border-radius: var(--radius-lg);
       padding: 35px 31px 32px;
       box-shadow: 0 30px 80px rgba(215,192,122,0.32);
@@ -272,7 +272,12 @@
     }
     @media(min-width: 901px) {
       main.hero {
-        max-height: 60vh;
+        max-height: 40vh;
+        min-height: 300px;
+        transition: max-height 0.3s ease;
+      }
+      main.hero.expanded {
+        max-height: 90vh;
       }
     }
     main.hero::before {
@@ -288,6 +293,10 @@
       filter: blur(140px);
       z-index: 0;
       pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    main.hero.expanded::before {
+      opacity: 0.3;
     }
     main.hero .headline-wrapper {
       position: relative;
@@ -960,6 +969,9 @@
         margin-bottom: 48px;
         max-height: none;
       }
+      main.hero.expanded {
+        max-height: none;
+      }
       main.hero .headline-wrapper::before {
         width: 140%;
         height: 160%;
@@ -1072,7 +1084,7 @@
       </a>
     </header>
 
-    <main class="hero" id="top" role="main">
+    <main class="hero" id="top" role="main" aria-expanded="false">
       <div class="headline-wrapper">
         <h1>Virtual Utopia Designz</h1>
       </div>
@@ -1081,10 +1093,11 @@
       <div class="trust-signals" aria-label="Trust signals">
         <span>Instant download</span><span>Printable quality</span><span>Curated symbolism</span>
       </div>
-      <div class="hero-ctas">
+      <div class="hero-ctas" style="margin-bottom: 12px;">
         <a href="#featured" class="btn btn-primary" role="button" aria-label="Explore Gallery section">Explore Gallery</a>
         <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Shop on Etsy (opens new tab)">Shop on Etsy</a>
       </div>
+      <button id="hero-toggle" class="btn" aria-label="Toggle hero section size" aria-pressed="false" style="max-width: 250px; margin: 0 auto;">Show More</button>
     </main>
 
     <section id="featured" aria-labelledby="featured-title">
@@ -1309,6 +1322,16 @@
       if (e.key === 'Escape' && modal.classList.contains('active')) {
         closeModal();
       }
+    });
+
+    // Hero expand/collapse toggle
+    const hero = document.querySelector('main.hero');
+    const heroToggle = document.getElementById('hero-toggle');
+    heroToggle.addEventListener('click', () => {
+      const expanded = hero.classList.toggle('expanded');
+      heroToggle.textContent = expanded ? 'Show Less' : 'Show More';
+      heroToggle.setAttribute('aria-pressed', expanded.toString());
+      hero.setAttribute('aria-expanded', expanded.toString());
     });
   });
 </script>

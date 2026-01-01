@@ -3,33 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact • Virtual Utopia Designz</title>
-  <meta name="description" content="Contact Virtual Utopia Designz — questions, commissions, and collaborations." />
+  <meta name="color-scheme" content="light dark" />
+  <title>Virtual Utopia Designz — Contact</title>
+  <meta name="description" content="Contact Virtual Utopia Designz — questions, commissions, collaborations, and custom altar ideas." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- 🔥 IMPORTANT: SAME CSS AS INDEX -->
   <style>
-    /* === COPY OF INDEX BACKGROUND + HEADER SYSTEM === */
     :root{
       --bg0:#070814;
       --bg1:#0b1026;
       --bg2:#111a3a;
       --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.10);
       --stroke:rgba(255,255,255,.14);
+      --stroke2:rgba(255,255,255,.20);
       --text:#eef1ff;
       --muted:rgba(238,241,255,.72);
+      --faint:rgba(238,241,255,.52);
       --gold:#ffd88a;
+      --gold2:#f5c468;
+      --violet:#bda7ff;
+      --aqua:#7be7ff;
+      --success:#7ff0b7;
+      --danger:#ff7ea6;
       --shadow:0 18px 60px rgba(0,0,0,.55);
+      --shadow2:0 28px 90px rgba(0,0,0,.62);
+      --r12:12px;
+      --r16:16px;
       --r22:22px;
+      --r28:28px;
       --max:1160px;
-      --sans:"Inter", system-ui, sans-serif;
-      --serif:"Fraunces", serif;
+      --sans:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif:"Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+      --ease:cubic-bezier(.2,.8,.2,1);
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family:var(--sans);
@@ -40,31 +53,88 @@
         radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
       background-attachment: fixed;
-      min-height:100vh;
       overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    .stars{
+    a{color:inherit; text-decoration:none}
+
+    .stars, .stars::before, .stars::after{
       position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.35;
+      inset:-200px;
+      content:"";
       background-image:
-        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.55), transparent 55%),
-        radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,.35), transparent 55%);
-      background-size:900px 300px;
-      z-index:-1;
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.55), transparent 55%),
+        radial-gradient(1px 1px at 110px 140px, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(1.2px 1.2px at 260px 220px, rgba(255,255,255,.40), transparent 55%),
+        radial-gradient(1px 1px at 340px 80px, rgba(255,255,255,.28), transparent 55%),
+        radial-gradient(1.2px 1.2px at 480px 160px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1px 1px at 620px 260px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 760px 120px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1.2px 1.2px at 900px 240px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 1040px 90px, rgba(255,255,255,.26), transparent 55%);
+      background-size:1100px 320px;
+      opacity:.35;
+      pointer-events:none;
+      z-index:-2;
     }
+    .stars::before{opacity:.22; filter:blur(.2px)}
+    .stars::after{opacity:.16; filter:blur(.6px)}
 
-    a{color:var(--gold); text-decoration:none}
+    .skip{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      z-index:999;
+    }
+    .skip:focus{left:12px}
 
     .wrap{
       width:min(var(--max), 100%);
       margin:0 auto;
       padding:22px 18px 64px;
+      position:relative;
+      z-index:1;
     }
 
-    /* === HEADER (IDENTICAL STRUCTURE) === */
+    .announce{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(255,216,138,.16), rgba(189,167,255,.14), rgba(123,231,255,.14));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+      margin:14px auto 18px;
+      max-width:980px;
+      backdrop-filter: blur(10px) saturate(140%);
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:.02em;
+    }
+    .announce b{color:var(--text); font-weight:700}
+    .announce .pill{
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#0b1026;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      padding:6px 10px;
+      border-radius:999px;
+      box-shadow:0 10px 28px rgba(255,216,138,.22);
+      flex:0 0 auto;
+    }
+
+    /* Header */
     header{
       position:sticky;
       top:14px;
@@ -74,158 +144,668 @@
       background:rgba(10,12,26,.55);
       border:1px solid rgba(255,255,255,.12);
       box-shadow:var(--shadow);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px) saturate(140%);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
     }
-
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
+      min-width:0;
     }
-
     .mark{
       width:42px;
       height:42px;
       border-radius:14px;
-      background:linear-gradient(135deg, #ffd88a, #7be7ff);
+      background:
+        radial-gradient(circle at 28% 28%, rgba(255,216,138,.98), rgba(255,216,138,.12) 55%, transparent 72%),
+        linear-gradient(135deg, rgba(189,167,255,.82), rgba(123,231,255,.55));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 18px 50px rgba(189,167,255,.22), 0 12px 40px rgba(255,216,138,.12);
+      position:relative;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .mark::after{
+      content:"";
+      position:absolute;
+      inset:-50%;
+      background:conic-gradient(from 180deg, rgba(255,216,138,0), rgba(255,216,138,.45), rgba(123,231,255,.2), rgba(189,167,255,.22), rgba(255,216,138,0));
+      animation: spin 10s linear infinite;
+      opacity:.65;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .brand .name{
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:-.02em;
+      font-size:16px;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand .tag{
+      font-size:12px;
+      color:var(--faint);
+      margin-top:3px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
     nav{
       display:flex;
-      gap:8px;
+      align-items:center;
+      gap:6px;
+      padding:6px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
     }
-
     nav a{
       padding:10px 12px;
       border-radius:999px;
       font-size:13px;
       font-weight:700;
       color:var(--muted);
+      letter-spacing:.02em;
+      transition:transform .18s var(--ease), background-color .18s var(--ease), color .18s var(--ease);
+      outline:none;
     }
-
-    nav a:hover{
+    nav a:hover, nav a:focus-visible{
       background:rgba(255,255,255,.08);
       color:var(--text);
+      transform:translateY(-1px);
     }
-
     nav a[aria-current="page"]{
       background:rgba(255,255,255,.10);
       color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
     }
 
-    /* === CONTACT CONTENT === */
-    main{
-      margin-top:32px;
-      max-width:900px;
-      margin-left:auto;
-      margin-right:auto;
-      padding:28px;
-      border-radius:var(--r22);
-      background:var(--panel);
-      border:1px solid var(--stroke);
+    .actions{display:flex; align-items:center; gap:8px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      letter-spacing:.02em;
+      font-size:13px;
+      transition:transform .18s var(--ease), filter .18s var(--ease), box-shadow .18s var(--ease), background-color .18s var(--ease);
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+      outline:none;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn:focus-visible{box-shadow:0 0 0 4px rgba(123,231,255,.22)}
+    .btn-primary{
+      border:none;
+      color:#0b1026;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      box-shadow:0 18px 52px rgba(255,216,138,.16);
+    }
+    .btn-primary:hover{filter:brightness(1.05)}
+    .menuBtn{display:none}
+    .menuIcon{width:18px;height:18px}
+
+    /* Mobile drawer */
+    .mobile-drawer{
+      position:fixed;
+      inset:0;
+      display:none;
+      background:rgba(0,0,0,.62);
+      z-index:200;
+      padding:18px;
+    }
+    .mobile-drawer.active{display:block}
+    .mobile-panel{
+      width:min(520px, 100%);
+      margin:72px auto 0;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(10,12,26,.92);
+      backdrop-filter: blur(18px) saturate(140%);
+      box-shadow:0 30px 120px rgba(0,0,0,.65);
+      overflow:hidden;
+    }
+    .mobile-panel .head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:14px 14px 12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+    }
+    .mobile-panel .head b{font-family:var(--serif); letter-spacing:-.01em}
+    .close{
+      border:none;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--text);
+      width:40px; height:40px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:18px;
+    }
+    .mobile-links{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      padding:12px 12px 14px;
+    }
+    .mobile-links a{
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      font-weight:900;
+      color:var(--text);
+    }
+    .mobile-links a:active{transform:scale(.99)}
+    .mobile-cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      padding:0 12px 14px;
+    }
+    .mobile-cta a{flex:1}
+
+    /* Contact layout */
+    main{outline:none}
+    .page{
+      margin:18px 0 0;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
       box-shadow:var(--shadow);
+      overflow:hidden;
     }
-
-    h1{
-      font-family:var(--serif);
-      font-size:32px;
-      margin-bottom:10px;
-    }
-
-    p{
-      color:var(--muted);
-      line-height:1.6;
-    }
-
-    form{
-      display:grid;
+    .pageHead{
+      padding:24px 22px 18px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.10);
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
       gap:14px;
-      margin-top:20px;
+      flex-wrap:wrap;
     }
-
-    label{
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
       font-size:12px;
       font-weight:800;
-      letter-spacing:.08em;
+      letter-spacing:.14em;
       text-transform:uppercase;
+      width:max-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:linear-gradient(135deg, var(--gold), var(--aqua));
+      box-shadow:0 0 20px rgba(255,216,138,.18);
+    }
+    .pageHead h1{
+      font-family:var(--serif);
+      margin:10px 0 0;
+      font-size: clamp(30px, 3.4vw, 44px);
+      letter-spacing:-.03em;
+      line-height:1.08;
+    }
+    .pageHead p{
+      margin:10px 0 0;
       color:var(--muted);
+      max-width:70ch;
+      line-height:1.6;
+      font-size:14px;
     }
 
-    input, textarea{
+    .content{
+      padding:18px 22px 24px;
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap:14px;
+    }
+
+    .card{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      padding:16px;
+    }
+
+    .status{
+      display:none;
+      margin:0 0 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      padding:12px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+    .status.good{border-color:rgba(127,240,183,.35); background:rgba(127,240,183,.08); color:rgba(238,241,255,.86)}
+    .status.bad{border-color:rgba(255,126,166,.35); background:rgba(255,126,166,.08); color:rgba(238,241,255,.86)}
+
+    form{display:grid; gap:12px}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    label{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:var(--faint);
+      display:block;
+      margin:0 0 6px;
+    }
+    input, select, textarea{
       width:100%;
       padding:12px 14px;
       border-radius:14px;
-      border:1px solid var(--stroke);
+      border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.05);
       color:var(--text);
+      outline:none;
+      transition:border-color .18s var(--ease), box-shadow .18s var(--ease), background-color .18s var(--ease);
+      font-family:var(--sans);
+      font-size:14px;
+    }
+    textarea{min-height:140px; resize:vertical}
+    input:focus, select:focus, textarea:focus{
+      border-color:rgba(123,231,255,.35);
+      box-shadow:0 0 0 4px rgba(123,231,255,.14);
+      background:rgba(255,255,255,.06);
     }
 
-    textarea{min-height:140px}
+    .formActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:2px;
+    }
+    .btnWide{flex:1}
 
-    button{
-      margin-top:10px;
-      padding:12px 16px;
-      border-radius:999px;
-      border:none;
-      font-weight:800;
-      background:linear-gradient(135deg, #ffd88a, #f5c468);
+    .side .mini{
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      padding:12px;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .side .mini:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.16);
+      box-shadow:0 18px 70px rgba(0,0,0,.25);
+    }
+    .side .mini b{display:block}
+    .side .mini p{margin:6px 0 0; color:var(--muted); line-height:1.55; font-size:13px}
+
+    details{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+    summary{
       cursor:pointer;
+      list-style:none;
+      padding:12px 12px;
+      font-weight:900;
+      color:rgba(238,241,255,.88);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .faqBody{
+      padding:0 12px 12px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:13px;
     }
 
-    @media(max-width:980px){
+    footer{
+      margin-top:22px;
+      padding:22px;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap:16px;
+    }
+    footer h5{
+      font-family:var(--serif);
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    footer p{margin:0; color:var(--faint); font-size:13px; line-height:1.6}
+    .links{display:flex; flex-direction:column; gap:10px; font-size:13px}
+    .links a{color:var(--muted); font-weight:700}
+    .links a:hover{text-decoration:underline; color:var(--text)}
+
+    @media (max-width: 980px){
       nav{display:none}
+      .menuBtn{display:inline-flex}
+      .content{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      footer{grid-template-columns:1fr}
     }
   </style>
 </head>
 
 <body>
-  <div class="stars"></div>
+  <div class="stars" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
 
   <div class="wrap">
-    <header>
-      <a class="brand" href="index.html">
-        <div class="mark"></div>
-        <strong>Virtual Utopia Designz</strong>
+    <div class="announce" role="status" aria-live="polite">
+      <span class="pill">Contact</span>
+      <span><b>Questions?</b> · commissions · collaborations · custom altar ideas</span>
+    </div>
+
+    <header role="banner" aria-label="Site header">
+      <a class="brand" href="index.html" aria-label="Virtual Utopia Designz home">
+        <span class="mark" aria-hidden="true"></span>
+        <span style="display:flex; flex-direction:column; min-width:0">
+          <span class="name">Virtual Utopia Designz</span>
+          <span class="tag">The Enchanted Atelier • Altar cards • Cosmic art • Mythic packs</span>
+        </span>
       </a>
 
-      <nav>
+      <nav aria-label="Primary">
         <a href="index.html">Home</a>
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#collections">Collections</a>
+        <a href="index.html#why">Why Us</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
         <a href="contact.html" aria-current="page">Contact</a>
       </nav>
+
+      <div class="actions">
+        <button class="btn menuBtn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg class="menuIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Menu
+        </button>
+
+        <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">
+          Shop on Etsy
+        </a>
+      </div>
     </header>
 
-    <main>
-      <h1>Contact</h1>
-      <p>
-        Questions, commissions, collaborations, or custom altar card ideas —
-        use the form below and I’ll get back to you within 1–2 business days.
-      </p>
-
-      <form>
-        <div>
-          <label>Name</label>
-          <input type="text" placeholder="Your name" required />
+    <!-- Mobile menu drawer -->
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+        <div class="head">
+          <b>Menu</b>
+          <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
         </div>
-
-        <div>
-          <label>Email</label>
-          <input type="email" placeholder="you@email.com" required />
+        <div class="mobile-links" role="navigation" aria-label="Mobile primary">
+          <a href="index.html">Home</a>
+          <a href="index.html#featured">Featured</a>
+          <a href="index.html#collections">Collections</a>
+          <a href="index.html#why">Why Us</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" aria-current="page" style="outline:1px solid rgba(255,255,255,.12)">Contact</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="agb.html">AGB</a>
         </div>
-
-        <div>
-          <label>Message</label>
-          <textarea placeholder="Tell me what’s on your mind…"></textarea>
+        <div class="mobile-cta">
+          <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Shop on Etsy</a>
         </div>
+      </div>
+    </div>
 
-        <button type="submit">Send message</button>
-      </form>
+    <main id="main" class="page" tabindex="-1">
+      <div class="pageHead">
+        <div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> SEND A NOTE</div>
+          <h1>Send a message from your corner of the cosmos.</h1>
+          <p>
+            Use this form for questions, commissions, wholesale inquiries, or custom altar card ideas.
+            I usually reply within <b>1–2 business days</b>.
+          </p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn" id="copyEmailBtn" href="javascript:void(0)">Copy Email</a>
+          <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Etsy Shop</a>
+        </div>
+      </div>
+
+      <div class="content">
+        <section class="card" aria-label="Contact form">
+          <div class="status" id="statusBox" aria-live="polite"></div>
+
+          <!-- Migration-friendly: connect "action" later to your host (Netlify Forms / Formspree / server endpoint). -->
+          <form id="contactFormEl">
+            <div class="row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@email.com" autocomplete="email" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="topic">Subject</label>
+                <select id="topic" required>
+                  <option value="" selected disabled>Choose…</option>
+                  <option>Order question</option>
+                  <option>Custom altar card idea</option>
+                  <option>Collaboration / commission</option>
+                  <option>Wholesale / licensing</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="ref">Order / Reference (optional)</label>
+                <input id="ref" type="text" placeholder="e.g. Etsy order number" />
+              </div>
+            </div>
+
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell me what you’re imagining… (10+ characters)" required></textarea>
+            </div>
+
+            <div class="formActions">
+              <button class="btn btn-primary btnWide" type="submit">Prepare Message</button>
+              <a class="btn btnWide" href="about.html">About the Studio</a>
+            </div>
+
+            <p style="margin:10px 0 0; color:var(--faint); font-size:12px; line-height:1.6">
+              This page is <b>hosting-ready</b>: later you can connect the form to your domain host (Netlify Forms, Formspree, or your own backend).
+              For now, it prepares a mail draft as a safe fallback.
+            </p>
+          </form>
+        </section>
+
+        <aside class="side" style="display:grid; gap:12px" aria-label="Contact sidebar">
+          <div class="mini">
+            <b>Direct email</b>
+            <p>
+              Prefer email? Write to: <span id="emailText" style="color:rgba(238,241,255,.88); font-weight:900"></span>
+            </p>
+          </div>
+
+          <details>
+            <summary>FAQ: How fast do you reply?</summary>
+            <div class="faqBody">Usually within 1–2 business days. If it’s urgent, email is best.</div>
+          </details>
+
+          <details>
+            <summary>FAQ: Do you do custom designs?</summary>
+            <div class="faqBody">Yes—tell me your theme, mood, and how you want to use it (altar, journaling, printable pack, etc.).</div>
+          </details>
+
+          <details>
+            <summary>FAQ: Can I use your digital art commercially?</summary>
+            <div class="faqBody">Not by default. If you need commercial licensing, pick “Wholesale / licensing” in the subject.</div>
+          </details>
+        </aside>
+      </div>
     </main>
+
+    <footer>
+      <div>
+        <h5>Virtual Utopia Designz</h5>
+        <p>Cosmic art, altar cards, and mythic packs — designed with intention.</p>
+      </div>
+
+      <div>
+        <h5>Quick links</h5>
+        <div class="links">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Store policies</h5>
+        <div class="links">
+          <a href="agb.html">AGB</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="impressum.html#datenschutz">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
   </div>
+
+  <script>
+    // ===== Mobile menu (same behavior as blog/index) =====
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const drawer = document.getElementById('mobileMenu');
+      const close = document.getElementById('menuClose');
+      if(!btn || !drawer || !close) return;
+
+      const open = () => {
+        drawer.classList.add('active');
+        drawer.setAttribute('aria-hidden','false');
+        btn.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      };
+      const shut = () => {
+        drawer.classList.remove('active');
+        drawer.setAttribute('aria-hidden','true');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      };
+
+      btn.addEventListener('click', open);
+      close.addEventListener('click', shut);
+      drawer.addEventListener('click', (e)=>{ if(e.target === drawer) shut(); });
+      window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') shut(); });
+
+      const mq = window.matchMedia('(max-width: 980px)');
+      const sync = () => { btn.style.display = mq.matches ? 'inline-flex' : 'none'; if(!mq.matches) shut(); };
+      sync();
+      mq.addEventListener?.('change', sync);
+    })();
+
+    // ===== Contact form (migration-friendly demo submit) =====
+    const form = document.getElementById('contactFormEl');
+    const statusBox = document.getElementById('statusBox');
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const email = 'tylerreed@outlook.de';
+
+    document.getElementById('emailText').textContent = email;
+
+    function setStatus(type, msg){
+      statusBox.className = 'status ' + (type || '');
+      statusBox.style.display = 'block';
+      statusBox.textContent = msg;
+    }
+    function clearStatus(){
+      statusBox.style.display = 'none';
+      statusBox.textContent = '';
+      statusBox.className = 'status';
+    }
+    function isEmailValid(v){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    copyEmailBtn && copyEmailBtn.addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(email);
+        setStatus('good', 'Copied: ' + email);
+      }catch(err){
+        setStatus('bad', 'Copy failed. You can email: ' + email);
+      }
+    });
+
+    form && form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      clearStatus();
+
+      const name = (document.getElementById('name')||{}).value?.trim();
+      const mail = (document.getElementById('email')||{}).value?.trim();
+      const topic = (document.getElementById('topic')||{}).value?.trim();
+      const ref = (document.getElementById('ref')||{}).value?.trim();
+      const message = (document.getElementById('message')||{}).value?.trim();
+
+      if(!name){ setStatus('bad', 'Please add your name.'); return; }
+      if(!mail || !isEmailValid(mail)){ setStatus('bad', 'Please enter a valid email.'); return; }
+      if(!topic){ setStatus('bad', 'Please choose a subject.'); return; }
+      if(!message || message.length < 10){ setStatus('bad', 'Please write a little more in your message (10+ characters).'); return; }
+
+      const subject = encodeURIComponent('[' + topic + '] Message from ' + name + (ref ? ' (Ref: ' + ref + ')' : ''));
+      const bodyMsg = encodeURIComponent(
+        message +
+        '\n\n—\nName: ' + name +
+        '\nEmail: ' + mail +
+        (ref ? '\nReference: ' + ref : '')
+      );
+      const mailto = 'mailto:' + email + '?subject=' + subject + '&body=' + bodyMsg;
+
+      setStatus('good', "Ready! Click “Open Email” to send using your email app (safe fallback). When you migrate to hosting, connect the form action to send automatically.");
+
+      // prevent stacking buttons
+      const existing = form.querySelector('a.btn[href^="mailto:"]');
+      if(existing) existing.remove();
+
+      const openBtn = document.createElement('a');
+      openBtn.className = 'btn btnWide';
+      openBtn.href = mailto;
+      openBtn.textContent = 'Open Email';
+      openBtn.style.textDecoration = 'none';
+
+      form.querySelector('.formActions')?.appendChild(openBtn);
+      form.reset();
+    });
+  </script>
 </body>
 </html>

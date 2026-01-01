@@ -534,9 +534,9 @@
     .product:hover{transform:translateY(-4px); border-color:rgba(255,255,255,.18); box-shadow:var(--shadow2)}
     .product img{
       width:100%;
-      height:auto;
+      height: clamp(220px, 28vw, 340px);
       display:block;
-      aspect-ratio:4/5;
+      border-radius:18px 18px 0 0;
       object-fit:cover;
       cursor:pointer;
       background:#0b1026;
@@ -770,6 +770,21 @@
       *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
     }
   </style>
+
+<script>
+  // If you open the site on GitHub Pages, call your Netlify Functions with the full Netlify domain.
+  (function(){
+    const host = location.hostname;
+    const isNetlify = host.endsWith('netlify.app') || host.endsWith('netlify.com');
+    const isLocal = host === 'localhost' || host === '127.0.0.1';
+    if (!isNetlify && !isLocal) {
+      window.__NETLIFY_BASE__ = 'https://singular-salamander-9cc66f.netlify.app';
+    } else {
+      window.__NETLIFY_BASE__ = '';
+    }
+  })();
+</script>
+
 </head>
 
 <body>
@@ -897,50 +912,13 @@
         <a class="btn btn-sm" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="View all products on Etsy">View all →</a>
       </div>
 
-            <div class="grid3" id="featuredProducts" role="list" aria-live="polite">
-        <!-- Filled by JS (Etsy RSS) -->
-        <article class="product is-loading" role="listitem" aria-label="Loading product">
-          <span class="pill-badge">Loading</span>
-          <img class="img-skel" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='720'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='20%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%231a2450'/%3E%3Cstop offset='60%25' stop-color='%230b102a'/%3E%3Cstop offset='100%25' stop-color='%23060a1a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' rx='28' fill='url(%23g)'/%3E%3C/svg%3E" />
+      <div class="grid3" role="list">
+        <article class="product" role="listitem">
+          <span class="pill-badge">New</span>
+          <img src="https://i.etsystatic.com/46666994/r/il/ee2458/7231062688/il_794xN.7231062688_3j40.jpg" alt="Isis — Inner Transformation altar card" loading="lazy" decoding="async" data-title="Isis — Inner Transformation" data-etsy="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" data-blurb="A profound meditation card symbolizing rebirth and spiritual awakening through inner transformation." />
           <div class="body">
-            <div class="title">Loading…</div>
-            <div class="meta"><span>Please wait</span><span class="price">—</span></div>
-            <div class="desc">Fetching the latest items from Etsy…</div>
-            <div class="row">
-              <button class="btn btn-sm" type="button" disabled>Preview</button>
-              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Buy on Etsy</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product is-loading" role="listitem" aria-label="Loading product">
-          <span class="pill-badge">Loading</span>
-          <img class="img-skel" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='720'%3E%3Cdefs%3E%3CradialGradient id='g' cx='70%25' cy='30%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%23132247'/%3E%3Cstop offset='55%25' stop-color='%230b102a'/%3E%3Cstop offset='100%25' stop-color='%23060a1a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' rx='28' fill='url(%23g)'/%3E%3C/svg%3E" />
-          <div class="body">
-            <div class="title">Loading…</div>
-            <div class="meta"><span>Please wait</span><span class="price">—</span></div>
-            <div class="desc">Fetching the latest items from Etsy…</div>
-            <div class="row">
-              <button class="btn btn-sm" type="button" disabled>Preview</button>
-              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Buy on Etsy</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product is-loading" role="listitem" aria-label="Loading product">
-          <span class="pill-badge">Loading</span>
-          <img class="img-skel" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='720'%3E%3Cdefs%3E%3CradialGradient id='g' cx='45%25' cy='35%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%231b2a55'/%3E%3Cstop offset='55%25' stop-color='%230b102a'/%3E%3Cstop offset='100%25' stop-color='%23060a1a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' rx='28' fill='url(%23g)'/%3E%3C/svg%3E" />
-          <div class="body">
-            <div class="title">Loading…</div>
-            <div class="meta"><span>Please wait</span><span class="price">—</span></div>
-            <div class="desc">Fetching the latest items from Etsy…</div>
-            <div class="row">
-              <button class="btn btn-sm" type="button" disabled>Preview</button>
-              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Buy on Etsy</a>
-            </div>
-          </div>
-        </article>
-      </div><div class="meta"><span>Digital download</span><span class="price">From €9.99</span></div>
+            <div class="title">Isis — Inner Transformation</div>
+            <div class="meta"><span>Digital download</span><span class="price">From €9.99</span></div>
             <div class="desc">A portal for renewal, clarity, and inner alchemy. Perfect for altar focus, journaling, or moon rituals.</div>
             <div class="row">
               <button class="btn btn-sm" type="button" data-preview="true" aria-label="Preview Isis — Inner Transformation">Preview</button>
@@ -1283,111 +1261,5 @@ document.addEventListener('keydown', (e) => {
       }
     });
   </script>
-<script>
-(function(){
-  const container = document.getElementById('featuredProducts');
-  if(!container) return;
-
-  const ENDPOINTS = [
-    '/.netlify/functions/etsy-products',   // RSS-to-JSON (recommended)
-    '/.netlify/functions/etsy-shop'        // fallback if you named it differently
-  ];
-
-  const decodeHtml = (s) => {
-    const t = document.createElement('textarea');
-    t.innerHTML = s || '';
-    return t.value;
-  };
-
-  const isoOrDate = (d) => {
-    try {
-      const dt = new Date(d);
-      if (isNaN(dt.getTime())) return '';
-      return dt.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
-    } catch(e){ return ''; }
-  };
-
-  const pickImage = (p) => {
-    // RSS sometimes has no image. Keep the site looking premium with a consistent placeholder.
-    if (p && p.image) return p.image;
-    return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='720'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='25%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%231a2450'/%3E%3Cstop offset='55%25' stop-color='%230b102a'/%3E%3Cstop offset='100%25' stop-color='%23060a1a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' rx='28' fill='url(%23g)'/%3E%3C/svg%3E";
-  };
-
-  const makeCard = (p, idx) => {
-    const title = decodeHtml(p.title || 'Untitled');
-    const link = (p.link || 'https://www.etsy.com/de/shop/VirtualUtopiaDesignz');
-    const date = isoOrDate(p.pubDate || p.created_at || '');
-    const img = pickImage(p);
-
-    const badge = idx === 0 ? 'New' : (idx === 1 ? 'Fresh' : (idx === 2 ? 'Latest' : 'Shop'));
-    const subtitle = date ? `Listed ${date}` : 'Now in the shop';
-
-    // Keep your existing product card markup/classes so the style does not change.
-    return `
-      <article class="product" role="listitem">
-        <span class="pill-badge">${badge}</span>
-        <img src="${img}" alt="${title}" loading="lazy" decoding="async" />
-        <div class="body">
-          <div class="title">${title}</div>
-          <div class="meta"><span>${subtitle}</span><span class="price">View on Etsy</span></div>
-          <div class="desc">Tap to open this listing on Etsy and see full details, photos, and options.</div>
-          <div class="row">
-            <a class="btn btn-sm" href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Preview ${title} on Etsy">Preview</a>
-            <a class="btn btn-sm btn-primary" href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Buy ${title} on Etsy">Buy on Etsy</a>
-          </div>
-        </div>
-      </article>
-    `;
-  };
-
-  async function fetchJson(url){
-    const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
-    if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  }
-
-  async function load(){
-    let data = null;
-    let lastErr = null;
-
-    for (const url of ENDPOINTS) {
-      try {
-        data = await fetchJson(url);
-        break;
-      } catch (e) { lastErr = e; }
-    }
-
-    const products = (data && (data.products || data.items)) ? (data.products || data.items) : [];
-    if (!products.length) {
-      container.innerHTML = `
-        <article class="product" role="listitem">
-          <span class="pill-badge">Info</span>
-          <img alt="" src="${pickImage({})}" />
-          <div class="body">
-            <div class="title">Couldn’t load products</div>
-            <div class="meta"><span>Try again in a moment</span><span class="price">—</span></div>
-            <div class="desc">If this keeps happening, the Netlify function may not be deployed yet.</div>
-            <div class="row">
-              <a class="btn btn-sm" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Open Etsy</a>
-              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Shop now</a>
-            </div>
-          </div>
-        </article>
-      `;
-      if (lastErr) console.warn('Etsy feed load failed:', lastErr);
-      return;
-    }
-
-    container.innerHTML = products.slice(0, 3).map(makeCard).join('');
-  }
-
-  // load after first paint so your hero/menu stay smooth
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', load, { once:true });
-  } else {
-    load();
-  }
-})();
-</script>
 </body>
 </html>

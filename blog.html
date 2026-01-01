@@ -904,7 +904,7 @@
     .pager{display:flex; gap:10px; justify-content:center; margin:16px 0 0}
 
     /* Article modal */
-    .articleModal{position:fixed; inset:0; display:none; z-index:300; background:rgba(0,0,0,.65); padding:18px}
+    .articleModal{position:fixed; inset:0; display:none; z-index:300; background:rgba(0,0,0,.65); padding:18px; overflow-y:auto; -webkit-overflow-scrolling:touch}
     .articleModal.active{display:block}
     .articleBox{
       width:min(980px, 100%);
@@ -914,11 +914,14 @@
       background:rgba(10,12,26,.94);
       backdrop-filter: blur(18px) saturate(140%);
       box-shadow:0 30px 120px rgba(0,0,0,.65);
+      max-height: calc(100vh - 36px);
+      display:flex;
+      flex-direction:column;
       overflow:hidden;
     }
     .articleHead{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.03)}
     .articleHead b{font-family:var(--serif); letter-spacing:-.01em}
-    .articleBody{padding:16px}
+    .articleBody{padding:16px; overflow:auto}
     .articleBody h2{margin:0 0 8px; font-family:var(--serif); letter-spacing:-.02em; font-size:34px; line-height:1.08}
     .articleBody .sub{margin:0 0 12px; color:var(--faint); font-weight:900; letter-spacing:.06em; text-transform:uppercase; font-size:12px}
     .articleBody .content{color:var(--muted); line-height:1.8}

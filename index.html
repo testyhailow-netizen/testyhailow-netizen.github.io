@@ -57,6 +57,7 @@
         radial-gradient(900px 500px at 85% 20%, rgba(123,231,255,.14), transparent 55%),
         radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      background-attachment: fixed;
       overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -83,10 +84,10 @@
       opacity:.35;
       pointer-events:none;
       z-index:-2;
-      animation: drift 32s linear infinite;
+      /* animation removed to prevent moving background on zoom */
     }
-    .stars::before{opacity:.22; filter:blur(.2px); animation-duration:54s}
-    .stars::after{opacity:.16; filter:blur(.6px); animation-duration:78s}
+    .stars::before{opacity:.22; filter:blur(.2px)}
+    .stars::after{opacity:.16; filter:blur(.6px)}
     @keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-160px, 220px, 0)}}
 
     /* Layout */
@@ -229,6 +230,62 @@
       align-items:center;
       gap:8px;
     }
+
+
+/* Mobile menu (keeps desktop unchanged) */
+.menuBtn{display:none}
+.mobile-drawer{
+  position:fixed;
+  inset:0;
+  display:none;
+  background:rgba(0,0,0,.62);
+  z-index:200;
+  padding:18px;
+}
+.mobile-drawer.active{display:block}
+.mobile-panel{
+  width:min(520px, 100%);
+  margin:72px auto 0;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(10,12,26,.92);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:0 30px 120px rgba(0,0,0,.65);
+  overflow:hidden;
+}
+.mobile-panel .head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:14px 14px 12px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+}
+.mobile-panel .head b{font-family:var(--serif); letter-spacing:-.01em}
+.mobile-links{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:12px 12px 14px;
+}
+.mobile-links a{
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  font-weight:900;
+  color:var(--text);
+}
+.mobile-links a:active{transform:scale(.99)}
+.mobile-cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:0 12px 14px;
+}
+.mobile-cta a{flex:1}
+.menuIcon{width:18px;height:18px}
 
     .btn{
       display:inline-flex;
@@ -695,6 +752,9 @@
 
     /* Responsive */
     @media (max-width: 980px){
+      .menuBtn{display:inline-flex}
+      .actions{gap:6px}
+      .actions .btn{padding:10px 12px}
       .hero-inner{grid-template-columns:1fr; padding:24px}
       nav{display:none}
       .grid3{grid-template-columns:1fr}
@@ -742,6 +802,13 @@
       </nav>
 
       <div class="actions">
+
+<button class="btn menuBtn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+  <svg class="menuIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+  Menu
+</button>
         <a class="btn" href="#featured" aria-label="Browse products">
           <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h14l-2 9H8L7 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 7 6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/><path d="M18 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>
           Shop
@@ -752,6 +819,30 @@
         </a>
       </div>
     </header>
+
+
+<!-- Mobile menu drawer -->
+<div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="head">
+      <b>Menu</b>
+      <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
+    </div>
+    <div class="mobile-links" role="navigation" aria-label="Mobile primary">
+      <a href="index.html">Home</a>
+      <a href="#featured">Featured</a>
+      <a href="#collections">Collections</a>
+      <a href="#why">Why Us</a>
+      <a href="packs.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="mobile-cta" aria-label="Mobile actions">
+      <a class="btn" href="#featured" aria-label="Browse products">Shop</a>
+      <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Open Etsy shop in a new tab">Shop on Etsy</a>
+    </div>
+  </div>
+</div>
 
     <main id="main" class="hero" role="main" aria-label="Hero">
       <div class="hero-inner">
@@ -1098,6 +1189,50 @@
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
+
+
+// Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuClose = document.getElementById('menuClose');
+
+function openMenu(){
+  if(!mobileMenu) return;
+  mobileMenu.classList.add('active');
+  mobileMenu.setAttribute('aria-hidden','false');
+  menuBtn?.setAttribute('aria-expanded','true');
+  document.body.style.overflow = 'hidden';
+  // focus first link for keyboard users
+  const firstLink = mobileMenu.querySelector('a');
+  firstLink?.focus?.();
+}
+function closeMenu(){
+  if(!mobileMenu) return;
+  mobileMenu.classList.remove('active');
+  mobileMenu.setAttribute('aria-hidden','true');
+  menuBtn?.setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+  menuBtn?.focus?.();
+}
+
+menuBtn?.addEventListener('click', () => {
+  const isOpen = mobileMenu?.classList.contains('active');
+  isOpen ? closeMenu() : openMenu();
+});
+menuClose?.addEventListener('click', closeMenu);
+
+// close on backdrop click
+mobileMenu?.addEventListener('click', (e) => {
+  if(e.target === mobileMenu) closeMenu();
+});
+
+// close after tapping a link
+mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+// close with Esc (only if menu is open)
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape' && mobileMenu?.classList.contains('active')) closeMenu();
+});
 
     mCopy?.addEventListener('click', async () => {
       const url = mBuy.href;

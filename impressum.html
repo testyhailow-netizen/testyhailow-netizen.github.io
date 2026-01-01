@@ -2,137 +2,345 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Impressum – Virtual Utopia Designz</title>
-  <meta name="description"
-    content="Impressum von Virtual Utopia Designz – Betreiberinformationen, Kontakt & rechtliche Angaben." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impressum & Datenschutz – Virtual Utopia Designz</title>
+  <meta name="description" content="Impressum und Datenschutzerklärung von Virtual Utopia Designz – Rechtliche Angaben gemäß § 5 TMG und DSGVO." />
 
-  <!-- Match your site’s OG/social style -->
-  <meta property="og:title" content="Impressum – Virtual Utopia Designz" />
-  <meta property="og:description"
-    content="Rechtliche Angaben & Betreiberinformationen von Virtual Utopia Designz." />
-  <meta property="og:image" content="assets/og-impressum.jpg" />
-  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* Basic reset + cosmic style */
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #0a0f2c;
-      color: #e6eaf3;
-      min-height: 100vh;
-      line-height: 1.6;
+    :root{
+      --bg0:#070814;
+      --bg1:#0b1026;
+      --bg2:#111a3a;
+      --panel:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:#eef1ff;
+      --muted:rgba(238,241,255,.72);
+      --faint:rgba(238,241,255,.55);
+      --gold:#ffd88a;
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --r22:22px;
+      --max:860px;
+      --sans:"Inter", system-ui, sans-serif;
+      --serif:"Fraunces", serif;
     }
-    header,
-    footer {
-      padding: 1rem 2rem;
-      background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(8px);
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 15%, rgba(189,167,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(123,231,255,.14), transparent 55%),
+        radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      background-attachment: fixed;
+      min-height:100vh;
     }
-    main {
-      max-width: 860px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+
+    a{color:var(--gold); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    header{
+      max-width:var(--max);
+      margin:24px auto 0;
+      padding:12px 14px;
+      border-radius:999px;
+      background:rgba(10,12,26,.55);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
     }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #f8f4d6;
-      text-align: center;
+    .brand{
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:-.02em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 1.8rem;
-      color: #f8f4d6;
+    .toplinks{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
     }
-    p,
-    li {
-      font-size: 1rem;
-      margin: 0.5rem 0;
+    .toplinks a{
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
     }
-    a {
-      color: #f8d95f;
-      text-decoration: none;
+    .toplinks a:hover{color:var(--text); background:rgba(255,255,255,.07); text-decoration:none}
+
+    main{
+      max-width:var(--max);
+      margin:18px auto 24px;
+      padding:22px;
+      border-radius:var(--r22);
+      background:var(--panel);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
     }
-    a:hover {
-      text-decoration: underline;
+
+    h1{
+      font-family:var(--serif);
+      text-align:center;
+      margin:6px 0 14px;
+      font-size:30px;
+      letter-spacing:-.03em;
     }
-    .section {
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    h2{
+      font-family:var(--serif);
+      margin:26px 0 8px;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+    h3{
+      margin:14px 0 6px;
+      font-size:14px;
+      letter-spacing:.01em;
+      color:var(--text);
+    }
+
+    p, li{
+      margin:6px 0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+    }
+
+    .note{
+      margin-top:10px;
+      color:var(--faint);
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .divider{
+      margin:22px 0 8px;
+      height:1px;
+      background:rgba(255,255,255,.10);
+      border:0;
+    }
+
+    .toc{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin:10px 0 6px;
+    }
+    .toc a{
+      color:var(--muted);
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+    .toc a:hover{color:var(--text); background:rgba(255,255,255,.07); text-decoration:none}
+
+    footer{
+      max-width:var(--max);
+      margin:0 auto 32px;
+      padding:12px 18px;
+      text-align:center;
+      color:rgba(238,241,255,.55);
+      font-size:12px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- You can copy your same header/nav here -->
-  <header>
-    <nav>
-      <a href="index.html">Virtual Utopia Designz</a> •
-      <a href="index.html#featured">Home</a> •
-      <a href="blog.html">Blog</a> •
-      <a href="contact.html">Kontakt</a> •
-      <a href="shop.html">Shop</a>
-    </nav>
-  </header>
+<header>
+  <div class="brand">Virtual Utopia Designz</div>
+  <nav class="toplinks" aria-label="Seitenlinks">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Kontakt</a>
+    <a href="#impressum">Impressum</a>
+    <a href="#datenschutz">Datenschutz</a>
+  </nav>
+</header>
 
-  <main>
-    <h1>Impressum</h1>
+<main>
+  <h1>Impressum &amp; Datenschutz</h1>
 
-    <div class="section">
-      <h2>Angaben gem. § 5 TMG</h2>
-      <p><strong>Virtual Utopia Designz</strong></p>
-      <p>Inhaber: Tyler Reed</p>
-      <p>Steindamm 9<br />
-        25479 Ellerau<br />
-        Deutschland</p>
-    </div>
+  <div class="toc" aria-label="Sprungmarken">
+    <a href="#impressum">Impressum</a>
+    <a href="#datenschutz">Datenschutz</a>
+  </div>
 
-    <div class="section">
-      <h2>Kontakt</h2>
-      <p>Telefon: <a href="tel:+491737387382">+49 173 7387382</a></p>
-      <p>Email: <a href="mailto:tylerreed202@gmail.com">tylerreed202@gmail.com</a></p>
-    </div>
+  <!-- =================== IMPRESSUM =================== -->
+  <section id="impressum" aria-label="Impressum">
+    <h2>Impressum</h2>
+    <p><strong>Angaben gemäß § 5 TMG</strong></p>
 
-    <div class="section">
-      <h2>Umsatzsteuer-ID</h2>
-      <p>Umsatzsteuer-Identifikationsnummer wird derzeit nicht angegeben.</p>
-      <p>(Falls vorhanden, kann diese hier ergänzt werden.)</p>
-    </div>
+    <p>Der Virtual Utopia Designs Shop wird betrieben von:</p>
+    <p>
+      <strong>Tyler Reed</strong><br>
+      Steindamm 9<br>
+      25479 Ellerau<br>
+      Deutschland
+    </p>
 
-    <div class="section">
-      <h2>Haftungsausschluss – Disclaimer</h2>
-      <h3>Haftung für Inhalte</h3>
-      <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die
-        Aktualität, Vollständigkeit und Richtigkeit der Inhalte können wir jedoch
-        keine Gewähr übernehmen.</p>
+    <h3>Kontakt</h3>
+    <p>Telefon: <a href="tel:+4915901320659">+49 159 01320659</a></p>
+    <p>E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a></p>
 
-      <h3>Haftung für Links</h3>
-      <p>Verweise und Links auf externe Webseiten liegen außerhalb unseres
-        Verantwortungsbereichs. Für den Inhalt der verlinkten Seiten ist stets
-        der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+    <h3>Umsatzsteuer</h3>
+    <p>Umsatzsteuer-Identifikationsnummer: <strong>DE361684923</strong></p>
+    <p>Einzelunternehmen (Kleingewerbe)</p>
+    <p>Kleinunternehmerregelung nach § 19 UStG</p>
 
-      <h3>Urheberrecht</h3>
-      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
-        unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche
-        gekennzeichnet.</p>
-    </div>
+    <h3>Haftung für Inhalte</h3>
+    <p>
+      Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
+      nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter
+      jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen
+      oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+    </p>
 
-    <div class="section">
-      <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-      <p>Tyler Reed<br />
-        Steindamm 9, 25479 Ellerau</p>
-    </div>
+    <h3>Haftung für Links</h3>
+    <p>
+      Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+      Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+      Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+    </p>
 
-  </main>
+    <h3>Urheberrecht</h3>
+    <p>
+      Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+      Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+    </p>
 
-  <footer>
-    <p>&copy; 2026 Virtual Utopia Designz</p>
-    <p><a href="impressum.html">Impressum</a> • <a href="privacy.html">Datenschutz</a> •
-      <a href="contact.html">Kontakt</a></p>
-  </footer>
+    <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+    <p>
+      Tyler Reed<br>
+      Steindamm 9<br>
+      25479 Ellerau
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- =================== DATENSCHUTZ =================== -->
+  <section id="datenschutz" aria-label="Datenschutzerklärung">
+    <h2>Datenschutzerklärung</h2>
+
+    <h3>1. Verantwortlicher</h3>
+    <p>
+      Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+      <strong>Tyler Reed</strong>, Steindamm 9, 25479 Ellerau, Deutschland<br>
+      Telefon: <a href="tel:+4915901320659">+49 159 01320659</a> ·
+      E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a>
+    </p>
+
+    <h3>2. Allgemeine Hinweise</h3>
+    <p>
+      Wir nehmen den Schutz Ihrer personenbezogenen Daten ernst. Personenbezogene Daten sind alle Daten,
+      mit denen Sie persönlich identifiziert werden können. Diese Datenschutzerklärung erläutert,
+      welche Daten wir erheben und wofür wir sie nutzen.
+    </p>
+
+    <h3>3. Zugriffsdaten / Server-Logfiles</h3>
+    <p>
+      Beim Aufrufen dieser Website kann der Hosting-Anbieter automatisch Informationen in sogenannten Server-Logfiles speichern
+      (z. B. Browsertyp, Betriebssystem, Referrer-URL, Uhrzeit der Anfrage, IP-Adresse). Diese Daten sind technisch erforderlich,
+      um die Website auszuliefern und Stabilität/Sicherheit zu gewährleisten.
+    </p>
+    <p class="note">
+      Hinweis: Die konkrete Speicherdauer und der genaue Umfang hängen von Ihrem späteren Hosting-Anbieter ab. Wenn du mir sagst,
+      ob du z. B. Netlify, IONOS, Strato oder Vercel nutzt, kann ich das sauber anpassen.
+    </p>
+
+    <h3>4. Kontaktaufnahme</h3>
+    <p>
+      Wenn Sie uns per E-Mail oder Kontaktformular kontaktieren, werden Ihre Angaben (z. B. Name, E-Mail-Adresse, Nachricht)
+      zur Bearbeitung der Anfrage gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+    </p>
+
+    <h3>5. Newsletter / E-Mail-Liste</h3>
+    <p>
+      Sofern auf der Website eine Newsletter-Funktion angeboten wird, werden die dafür eingegebenen Daten ausschließlich
+      zum Versand genutzt. Eine Abmeldung ist jederzeit möglich.
+    </p>
+    <p class="note">
+      Wenn du später Mailchimp/Klaviyo o. ä. nutzt, muss hier der konkrete Anbieter + Rechtsgrundlage + Speicherdauer ergänzt werden.
+    </p>
+
+    <h3>6. Cookies</h3>
+    <p>
+      Diese Website kann Cookies verwenden. Cookies richten auf Ihrem Endgerät keinen Schaden an.
+      Sie dienen dazu, Angebote nutzerfreundlicher zu machen. Sie können Ihren Browser so einstellen, dass er Cookies blockiert
+      oder Sie darüber informiert.
+    </p>
+    <p class="note">
+      Wenn du später Tracking (z. B. Google Analytics, Meta Pixel) einbaust, brauchst du ein Cookie-Banner + detaillierte Angaben.
+    </p>
+
+    <h3>7. Externe Links (z. B. Etsy)</h3>
+    <p>
+      Diese Website kann Links zu externen Plattformen (z. B. Etsy) enthalten. Wenn Sie einen solchen Link anklicken,
+      verlassen Sie unsere Website. Für die Datenverarbeitung auf externen Seiten ist der jeweilige Betreiber verantwortlich.
+    </p>
+
+    <h3>8. Ihre Rechte</h3>
+    <p>
+      Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger
+      sowie den Zweck der Verarbeitung. Außerdem haben Sie das Recht auf Berichtigung, Löschung, Einschränkung der Verarbeitung
+      sowie Datenübertragbarkeit, soweit anwendbar.
+    </p>
+    <p>
+      Außerdem haben Sie das Recht, eine erteilte Einwilligung jederzeit zu widerrufen sowie sich bei einer Datenschutzaufsichtsbehörde
+      zu beschweren.
+    </p>
+
+    <h3>9. Rechtsgrundlagen</h3>
+    <p>
+      Die Verarbeitung erfolgt je nach Fall auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertrag/Anbahnung),
+      Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, z. B. sichere Bereitstellung der Website) oder
+      Art. 6 Abs. 1 lit. a DSGVO (Einwilligung, z. B. Newsletter).
+    </p>
+
+    <h3>10. SSL-/TLS-Verschlüsselung</h3>
+    <p>
+      Wenn diese Seite über HTTPS betrieben wird, werden Daten verschlüsselt übertragen. So können Dritte die Daten nicht mitlesen.
+    </p>
+
+    <h3>11. Stand</h3>
+    <p>Stand: <span id="policyDate"></span></p>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Virtual Utopia Designz · <a href="index.html">Home</a> · <a href="contact.html">Kontakt</a>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  // show a friendly "last updated" date
+  const d = new Date();
+  const fmt = new Intl.DateTimeFormat('de-DE', { year:'numeric', month:'long', day:'2-digit' });
+  document.getElementById("policyDate").textContent = fmt.format(d);
+</script>
 
 </body>
 </html>

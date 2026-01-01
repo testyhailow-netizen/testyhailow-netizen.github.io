@@ -807,7 +807,7 @@
     .pageHero h1{margin:0 0 8px; font-family:var(--serif); letter-spacing:-.02em; font-size:40px; line-height:1.05}
     .pageHero p{margin:0; color:var(--muted); line-height:1.6}
 
-    .blogWrap{display:grid; grid-template-columns: 1fr 360px; gap:18px; align-items:start}
+    .blogWrap{display:grid; grid-template-columns: minmax(0,1fr) minmax(280px,360px); gap:22px; align-items:start}
 
     .searchRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .input{
@@ -878,7 +878,7 @@
     .postActions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-top:12px}
     .readBtn{display:inline-flex}
 
-    .sidePanel{position:sticky; top:106px; display:grid; gap:14px}
+    .sidePanel{position:sticky; top:24px; display:grid; gap:16px; align-self:start}
     .panel{
       border-radius:22px;
       border:1px solid rgba(255,255,255,.12);
@@ -1064,8 +1064,8 @@
             </div>
           </div>
 
-          <div class="panel" aria-label="Popular posts">
-            <h3>Popular spells</h3>
+          <div class="panel" aria-label="Newest posts">
+            <h3>Newest Posts</h3>
             <div class="list" id="popular"></div>
           </div>
           </div>

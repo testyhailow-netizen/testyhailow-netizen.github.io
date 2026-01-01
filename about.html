@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About • Virtual Utopia Designz</title>
-  <meta name="description" content="Learn about Virtual Utopia Designz — a cosmic atelier creating altar cards, mystical art, and intention-driven designs." />
+  <meta name="color-scheme" content="light dark" />
+  <title>Virtual Utopia Designz — About</title>
+  <meta name="description" content="About Virtual Utopia Designz — an enchanted atelier for altar cards, cosmic art, and mythic packs." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,21 +17,32 @@
       --bg1:#0b1026;
       --bg2:#111a3a;
       --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.10);
       --stroke:rgba(255,255,255,.14);
+      --stroke2:rgba(255,255,255,.20);
       --text:#eef1ff;
       --muted:rgba(238,241,255,.72);
       --faint:rgba(238,241,255,.52);
       --gold:#ffd88a;
       --gold2:#f5c468;
+      --violet:#bda7ff;
+      --aqua:#7be7ff;
+      --success:#7ff0b7;
+      --danger:#ff7ea6;
       --shadow:0 18px 60px rgba(0,0,0,.55);
+      --shadow2:0 28px 90px rgba(0,0,0,.62);
+      --r12:12px;
+      --r16:16px;
       --r22:22px;
       --r28:28px;
       --max:1160px;
-      --sans:"Inter", system-ui, sans-serif;
-      --serif:"Fraunces", serif;
+      --sans:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif:"Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+      --ease:cubic-bezier(.2,.8,.2,1);
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family:var(--sans);
@@ -41,33 +53,90 @@
         radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
       background-attachment: fixed;
-      min-height:100vh;
       overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    .stars{
+    a{color:inherit; text-decoration:none}
+
+    /* Starfield (static on zoom) */
+    .stars, .stars::before, .stars::after{
       position:fixed;
       inset:-200px;
-      pointer-events:none;
-      opacity:.28;
+      content:"";
       background-image:
-        radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,.45), transparent 55%),
-        radial-gradient(1px 1px at 420px 260px, rgba(255,255,255,.35), transparent 55%),
-        radial-gradient(1px 1px at 780px 180px, rgba(255,255,255,.30), transparent 55%);
-      background-size:1000px 320px;
-      z-index:-1;
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.55), transparent 55%),
+        radial-gradient(1px 1px at 110px 140px, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(1.2px 1.2px at 260px 220px, rgba(255,255,255,.40), transparent 55%),
+        radial-gradient(1px 1px at 340px 80px, rgba(255,255,255,.28), transparent 55%),
+        radial-gradient(1.2px 1.2px at 480px 160px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1px 1px at 620px 260px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 760px 120px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1.2px 1.2px at 900px 240px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 1040px 90px, rgba(255,255,255,.26), transparent 55%);
+      background-size:1100px 320px;
+      opacity:.35;
+      pointer-events:none;
+      z-index:-2;
     }
+    .stars::before{opacity:.22; filter:blur(.2px)}
+    .stars::after{opacity:.16; filter:blur(.6px)}
 
-    a{color:var(--gold); text-decoration:none}
-    a:hover{text-decoration:underline}
+    .skip{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      z-index:999;
+    }
+    .skip:focus{left:12px}
 
     .wrap{
       width:min(var(--max), 100%);
       margin:0 auto;
       padding:22px 18px 64px;
+      position:relative;
+      z-index:1;
     }
 
-    /* Header (same logic as index) */
+    /* Announcement */
+    .announce{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(255,216,138,.16), rgba(189,167,255,.14), rgba(123,231,255,.14));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+      margin:14px auto 18px;
+      max-width:980px;
+      backdrop-filter: blur(10px) saturate(140%);
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:.02em;
+    }
+    .announce b{color:var(--text); font-weight:700}
+    .announce .pill{
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#0b1026;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      padding:6px 10px;
+      border-radius:999px;
+      box-shadow:0 10px 28px rgba(255,216,138,.22);
+      flex:0 0 auto;
+    }
+
+    /* Header (same as blog/index) */
     header{
       position:sticky;
       top:14px;
@@ -77,31 +146,67 @@
       background:rgba(10,12,26,.55);
       border:1px solid rgba(255,255,255,.12);
       box-shadow:var(--shadow);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px) saturate(140%);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
     }
-
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
-      font-family:var(--serif);
-      font-weight:700;
-      letter-spacing:-.02em;
+      min-width:0;
     }
     .mark{
       width:42px;
       height:42px;
       border-radius:14px;
-      background:linear-gradient(135deg, var(--gold), #7be7ff);
+      background:
+        radial-gradient(circle at 28% 28%, rgba(255,216,138,.98), rgba(255,216,138,.12) 55%, transparent 72%),
+        linear-gradient(135deg, rgba(189,167,255,.82), rgba(123,231,255,.55));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 18px 50px rgba(189,167,255,.22), 0 12px 40px rgba(255,216,138,.12);
+      position:relative;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .mark::after{
+      content:"";
+      position:absolute;
+      inset:-50%;
+      background:conic-gradient(from 180deg, rgba(255,216,138,0), rgba(255,216,138,.45), rgba(123,231,255,.2), rgba(189,167,255,.22), rgba(255,216,138,0));
+      animation: spin 10s linear infinite;
+      opacity:.65;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .brand .name{
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:-.02em;
+      font-size:16px;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand .tag{
+      font-size:12px;
+      color:var(--faint);
+      margin-top:3px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
     nav{
       display:flex;
-      gap:8px;
+      align-items:center;
+      gap:6px;
+      padding:6px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
     }
     nav a{
       padding:10px 12px;
@@ -109,244 +214,562 @@
       font-size:13px;
       font-weight:700;
       color:var(--muted);
+      letter-spacing:.02em;
+      transition:transform .18s var(--ease), background-color .18s var(--ease), color .18s var(--ease);
+      outline:none;
     }
-    nav a:hover{
+    nav a:hover, nav a:focus-visible{
       background:rgba(255,255,255,.08);
       color:var(--text);
+      transform:translateY(-1px);
     }
     nav a[aria-current="page"]{
       background:rgba(255,255,255,.10);
       color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
     }
 
-    /* Page */
-    .page{
-      margin-top:32px;
-      border-radius:var(--r28);
-      background:var(--panel);
-      border:1px solid var(--stroke);
-      box-shadow:var(--shadow);
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      letter-spacing:.02em;
+      font-size:13px;
+      transition:transform .18s var(--ease), filter .18s var(--ease), box-shadow .18s var(--ease), background-color .18s var(--ease);
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+      outline:none;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn:focus-visible{box-shadow:0 0 0 4px rgba(123,231,255,.22)}
+    .btn-primary{
+      border:none;
+      color:#0b1026;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      box-shadow:0 18px 52px rgba(255,216,138,.16);
+    }
+    .btn-primary:hover{filter:brightness(1.05)}
+    .menuBtn{display:none}
+    .menuIcon{width:18px;height:18px}
+
+    /* Mobile drawer */
+    .mobile-drawer{
+      position:fixed;
+      inset:0;
+      display:none;
+      background:rgba(0,0,0,.62);
+      z-index:200;
+      padding:18px;
+    }
+    .mobile-drawer.active{display:block}
+    .mobile-panel{
+      width:min(520px, 100%);
+      margin:72px auto 0;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(10,12,26,.92);
+      backdrop-filter: blur(18px) saturate(140%);
+      box-shadow:0 30px 120px rgba(0,0,0,.65);
       overflow:hidden;
     }
-
-    .pageHead{
-      padding:28px;
+    .mobile-panel .head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:14px 14px 12px;
       border-bottom:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.10);
+      background:rgba(255,255,255,.03);
     }
+    .mobile-panel .head b{font-family:var(--serif); letter-spacing:-.01em}
+    .close{
+      border:none;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--text);
+      width:40px; height:40px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:18px;
+    }
+    .mobile-links{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      padding:12px 12px 14px;
+    }
+    .mobile-links a{
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      font-weight:900;
+      color:var(--text);
+    }
+    .mobile-links a:active{transform:scale(.99)}
+    .mobile-cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      padding:0 12px 14px;
+    }
+    .mobile-cta a{flex:1}
 
+    /* Page */
+    main{outline:none}
+    .hero{
+      margin:18px 0 18px;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(900px 420px at 20% 25%, rgba(189,167,255,.18), transparent 55%),
+        radial-gradient(700px 380px at 80% 15%, rgba(123,231,255,.14), transparent 55%),
+        radial-gradient(900px 520px at 60% 90%, rgba(255,216,138,.12), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:linear-gradient(90deg, rgba(255,216,138,.28), rgba(189,167,255,.24), rgba(123,231,255,.22));
+      opacity:.12;
+      filter:blur(18px);
+      pointer-events:none;
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:22px;
+      padding:34px;
+      position:relative;
+      z-index:1;
+      align-items:center;
+    }
     .kicker{
-      display:inline-block;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
       padding:8px 12px;
       border-radius:999px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
       font-size:12px;
       font-weight:800;
       letter-spacing:.14em;
       text-transform:uppercase;
-      color:var(--muted);
+      width:max-content;
     }
-
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:linear-gradient(135deg, var(--gold), var(--aqua));
+      box-shadow:0 0 20px rgba(255,216,138,.18);
+    }
     h1{
       font-family:var(--serif);
-      font-size: clamp(30px, 3.5vw, 48px);
+      font-weight:700;
+      letter-spacing:-.03em;
       margin:14px 0 10px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.04;
     }
-
     .lead{
       color:var(--muted);
-      max-width:75ch;
-      line-height:1.6;
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height:1.55;
+      margin:0 0 18px;
+      max-width:58ch;
     }
-
-    .content{
-      padding:28px;
-      display:grid;
-      gap:22px;
+    .trust{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+      color:var(--faint);
+      font-size:13px;
     }
-
-    .block{
-      border-radius:18px;
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      padding:20px;
     }
+    .chip b{color:var(--text)}
 
-    .block h2{
+    .sideCard{
+      border-radius:24px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 18px 60px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .sideCard .top{
+      padding:18px 18px 14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .sideCard h2{
       font-family:var(--serif);
-      margin:0 0 10px;
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.01em;
+    }
+    .sideCard .sub{
+      margin:6px 0 0;
+      color:var(--faint);
+      font-size:13px;
+      line-height:1.4;
+    }
+    .steps{
+      display:grid;
+      gap:10px;
+      padding:0 18px 18px;
+    }
+    .step{
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      padding:12px 12px;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .step:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.16);
+      box-shadow:0 16px 60px rgba(0,0,0,.25);
+    }
+    .step .t{font-weight:900; letter-spacing:.02em}
+    .step .p{margin-top:4px; color:var(--faint); font-size:13px; line-height:1.45}
+
+    section.panel{
+      margin:18px 0;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .sec-head{
+      padding:22px 22px 14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      background:rgba(0,0,0,.10);
+    }
+    .sec-head h3{
+      margin:0;
+      font-family:var(--serif);
+      letter-spacing:-.02em;
       font-size:22px;
     }
-
-    .block p{
-      margin:8px 0;
+    .sec-head p{
+      margin:0;
       color:var(--muted);
-      line-height:1.7;
-      font-size:15px;
+      font-size:13px;
+      max-width:70ch;
+      line-height:1.55;
     }
-
-    .values{
+    .grid{
+      padding:18px 22px 22px;
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap:16px;
+      grid-template-columns:repeat(12, 1fr);
+      gap:12px;
     }
-
-    .value{
-      padding:18px;
+    .card{
+      grid-column: span 6;
       border-radius:18px;
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.03);
+      padding:16px;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
     }
-
-    .value h3{
-      margin:0 0 6px;
-      font-size:16px;
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.16);
+      box-shadow:0 18px 70px rgba(0,0,0,.30);
     }
+    .card b{display:block; font-weight:900; letter-spacing:.01em}
+    .card p{margin:8px 0 0; color:var(--muted); line-height:1.65}
 
     footer{
-      margin-top:24px;
+      margin-top:22px;
       padding:22px;
       border-radius:var(--r28);
       border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.03);
       box-shadow:var(--shadow);
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap:16px;
     }
-
     footer h5{
       font-family:var(--serif);
       margin:0 0 8px;
       font-size:16px;
+      letter-spacing:-.01em;
     }
-
-    .links{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      font-size:13px;
-    }
+    footer p{margin:0; color:var(--faint); font-size:13px; line-height:1.6}
+    .links{display:flex; flex-direction:column; gap:10px; font-size:13px}
     .links a{color:var(--muted); font-weight:700}
-    .links a:hover{color:var(--text)}
+    .links a:hover{text-decoration:underline; color:var(--text)}
 
-    @media(max-width:900px){
+    @media (max-width: 980px){
       nav{display:none}
+      .menuBtn{display:inline-flex}
+      .hero-inner{grid-template-columns:1fr}
+      .card{grid-column:span 12}
       footer{grid-template-columns:1fr}
     }
   </style>
 </head>
 
 <body>
-  <div class="stars"></div>
+  <div class="stars" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
 
   <div class="wrap">
-    <header>
-      <a href="index.html" class="brand">
-        <div class="mark"></div>
-        Virtual Utopia Designz
+    <div class="announce" role="status" aria-live="polite">
+      <span class="pill">About</span>
+      <span><b>Meet the studio</b> · intention-led design · altar art · cosmic storytelling</span>
+    </div>
+
+    <header role="banner" aria-label="Site header">
+      <a class="brand" href="index.html" aria-label="Virtual Utopia Designz home">
+        <span class="mark" aria-hidden="true"></span>
+        <span style="display:flex; flex-direction:column; min-width:0">
+          <span class="name">Virtual Utopia Designz</span>
+          <span class="tag">The Enchanted Atelier • Altar cards • Cosmic art • Mythic packs</span>
+        </span>
       </a>
-      <nav>
+
+      <nav aria-label="Primary">
         <a href="index.html">Home</a>
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#collections">Collections</a>
+        <a href="index.html#why">Why Us</a>
         <a href="blog.html">Blog</a>
         <a href="about.html" aria-current="page">About</a>
         <a href="contact.html">Contact</a>
       </nav>
+
+      <div class="actions">
+        <button class="btn menuBtn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg class="menuIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Menu
+        </button>
+
+        <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">
+          Shop on Etsy
+        </a>
+      </div>
     </header>
 
-    <main class="page">
-      <section class="pageHead">
-        <span class="kicker">Our Story</span>
-        <h1>Where imagination, intention, and design meet.</h1>
-        <p class="lead">
-          Virtual Utopia Designz is a small creative atelier inspired by mythology,
-          spirituality, symbolism, and the unseen worlds that shape our inner lives.
-        </p>
-      </section>
-
-      <section class="content">
-        <div class="block">
-          <h2>The origin of Virtual Utopia</h2>
-          <p>
-            Virtual Utopia Designz began as a personal exploration of symbolism, altar imagery,
-            and cosmic aesthetics — a space where creativity could merge with intention.
-            What started as experimental designs soon grew into a collection of altar cards,
-            mystical packs, and digital creations shared with others seeking meaning, beauty,
-            and reflection.
-          </p>
-          <p>
-            Each piece is created with care, attention, and respect for the symbolism it carries.
-            This is not mass-produced art — it’s slow, intentional design.
-          </p>
+    <!-- Mobile menu drawer -->
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+        <div class="head">
+          <b>Menu</b>
+          <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
         </div>
-
-        <div class="block">
-          <h2>What we create</h2>
-          <p>
-            The shop focuses on altar cards, cosmic artwork, and themed digital packs
-            designed to support personal rituals, meditation, journaling, or creative inspiration.
-          </p>
-          <p>
-            Many designs draw inspiration from mythology, archetypes, celestial motifs,
-            and intuitive symbolism — meant to be interpreted personally by each viewer.
-          </p>
-        </div>
-
-        <div class="block">
-          <h2>Values & philosophy</h2>
-          <div class="values">
-            <div class="value">
-              <h3>Intentional creation</h3>
-              <p>Every design is made with a clear concept and emotional direction.</p>
-            </div>
-            <div class="value">
-              <h3>Symbolic depth</h3>
-              <p>Artwork is layered with meaning, not just decoration.</p>
-            </div>
-            <div class="value">
-              <h3>Small & independent</h3>
-              <p>This is an independent, artist-run project — not a factory brand.</p>
-            </div>
-            <div class="value">
-              <h3>Personal connection</h3>
-              <p>Each piece is meant to resonate differently with each individual.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="block">
-          <h2>From Etsy to our own space</h2>
-          <p>
-            Virtual Utopia Designz originally grew through Etsy, connecting with people
-            from all over the world. This website is the next step — a dedicated home
-            for the brand, its story, and future creations.
-          </p>
-          <p>
-            Thank you for being part of this journey.
-          </p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div>
-        <h5>Virtual Utopia Designz</h5>
-        <p class="faint">
-          A cosmic atelier for altar art, symbolism, and intentional design.
-        </p>
-      </div>
-      <div>
-        <h5>Quick links</h5>
-        <div class="links">
+        <div class="mobile-links" role="navigation" aria-label="Mobile primary">
+          <a href="index.html">Home</a>
+          <a href="index.html#featured">Featured</a>
+          <a href="index.html#collections">Collections</a>
+          <a href="index.html#why">Why Us</a>
           <a href="blog.html">Blog</a>
+          <a href="about.html" aria-current="page" style="outline:1px solid rgba(255,255,255,.12)">About</a>
           <a href="contact.html">Contact</a>
           <a href="impressum.html">Impressum</a>
           <a href="agb.html">AGB</a>
         </div>
+        <div class="mobile-cta">
+          <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Shop on Etsy</a>
+        </div>
       </div>
-    </footer>
+    </div>
+
+    <main id="main" tabindex="-1">
+      <section class="hero" aria-label="About hero">
+        <div class="hero-inner">
+          <div>
+            <div class="kicker"><span class="dot" aria-hidden="true"></span> THE STUDIO</div>
+            <h1>Where myth meets modern design.</h1>
+            <p class="lead">
+              Virtual Utopia Designz is a small enchanted atelier focused on altar cards, cosmic art, and mythic packs —
+              made for rituals, journaling, and the quiet moments where your inner world gets loud.
+            </p>
+
+            <div class="trust" aria-label="Highlights">
+              <span class="chip">✨ <b>Intentional</b> concepts</span>
+              <span class="chip">🌙 <b>Symbolic</b> storytelling</span>
+              <span class="chip">🧿 <b>Ritual-ready</b> formats</span>
+            </div>
+          </div>
+
+          <aside class="sideCard" aria-label="How it works">
+            <div class="top">
+              <div>
+                <h2>How a piece is born</h2>
+                <div class="sub">A quick look behind the veil.</div>
+              </div>
+            </div>
+            <div class="steps">
+              <div class="step">
+                <div class="t">1) A theme appears</div>
+                <div class="p">A symbol, archetype, or mood anchors the whole piece.</div>
+              </div>
+              <div class="step">
+                <div class="t">2) The palette is chosen</div>
+                <div class="p">Gold + violet + night tones — calm, luminous, protective.</div>
+              </div>
+              <div class="step">
+                <div class="t">3) It becomes usable</div>
+                <div class="p">Not just pretty: made to print, place, and return to.</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Story and values">
+        <div class="sec-head">
+          <div>
+            <h3>The story</h3>
+            <p>From Etsy beginnings to a home of our own — still handmade, still small, still cosmic.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <b>Why “Virtual Utopia”?</b>
+            <p>
+              A utopia is a place that doesn’t exist — but you can still feel it. This studio builds small portals:
+              images that help you name what you want to protect, invite, release, or become.
+            </p>
+          </div>
+
+          <div class="card">
+            <b>What we make</b>
+            <p>
+              Altar cards, printable packs, and atmospheric artwork designed to be used:
+              in rituals, journaling prompts, vision boards, and personal ceremonies.
+            </p>
+          </div>
+
+          <div class="card">
+            <b>The promise</b>
+            <p>
+              Every design should be two things at once: beautiful at first glance, and deeper the second time you return.
+              If it doesn’t *mean* something, it doesn’t ship.
+            </p>
+          </div>
+
+          <div class="card">
+            <b>Where it’s going</b>
+            <p>
+              This website is the foundation for future releases, collections, and a smoother buying experience.
+              Today: curated pages. Tomorrow: a full cosmic storefront.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Call to action">
+        <div class="sec-head">
+          <div>
+            <h3>Want to collaborate?</h3>
+            <p>Commissions, collaborations, custom altar concepts — if it’s aligned, let’s talk.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn" href="contact.html">Contact</a>
+            <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Visit Etsy</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <h5>Virtual Utopia Designz</h5>
+          <p>Cosmic art, altar cards, and mythic packs — designed with intention.</p>
+        </div>
+
+        <div>
+          <h5>Quick links</h5>
+          <div class="links">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h5>Store policies</h5>
+          <div class="links">
+            <a href="agb.html">AGB</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="impressum.html#datenschutz">Datenschutz</a>
+          </div>
+        </div>
+      </footer>
+    </main>
   </div>
+
+  <script>
+    // Mobile menu logic (same behavior style as blog/index)
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const drawer = document.getElementById('mobileMenu');
+      const close = document.getElementById('menuClose');
+      if(!btn || !drawer || !close) return;
+
+      const open = () => {
+        drawer.classList.add('active');
+        drawer.setAttribute('aria-hidden','false');
+        btn.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      };
+      const shut = () => {
+        drawer.classList.remove('active');
+        drawer.setAttribute('aria-hidden','true');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      };
+
+      btn.addEventListener('click', open);
+      close.addEventListener('click', shut);
+      drawer.addEventListener('click', (e)=>{ if(e.target === drawer) shut(); });
+      window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') shut(); });
+
+      const mq = window.matchMedia('(max-width: 980px)');
+      const sync = () => { btn.style.display = mq.matches ? 'inline-flex' : 'none'; if(!mq.matches) shut(); };
+      sync();
+      mq.addEventListener?.('change', sync);
+    })();
+  </script>
 </body>
 </html>
-

@@ -84,6 +84,7 @@
       opacity:.35;
       pointer-events:none;
       z-index:-2;
+      /* animation removed to prevent moving background on zoom */
     }
     .stars::before{opacity:.22; filter:blur(.2px)}
     .stars::after{opacity:.16; filter:blur(.6px)}
@@ -230,60 +231,61 @@
       gap:8px;
     }
 
-    /* Mobile menu (keeps desktop unchanged) */
-    .menuBtn{display:none}
-    .mobile-drawer{
-      position:fixed;
-      inset:0;
-      display:none;
-      background:rgba(0,0,0,.62);
-      z-index:200;
-      padding:18px;
-    }
-    .mobile-drawer.active{display:block}
-    .mobile-panel{
-      width:min(520px, 100%);
-      margin:72px auto 0;
-      border-radius:24px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(10,12,26,.92);
-      backdrop-filter: blur(18px) saturate(140%);
-      box-shadow:0 30px 120px rgba(0,0,0,.65);
-      overflow:hidden;
-    }
-    .mobile-panel .head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:14px 14px 12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-    }
-    .mobile-panel .head b{font-family:var(--serif); letter-spacing:-.01em}
-    .mobile-links{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      padding:12px 12px 14px;
-    }
-    .mobile-links a{
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      font-weight:900;
-      color:var(--text);
-    }
-    .mobile-links a:active{transform:scale(.99)}
-    .mobile-cta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      padding:0 12px 14px;
-    }
-    .mobile-cta a{flex:1}
-    .menuIcon{width:18px;height:18px}
+
+/* Mobile menu (keeps desktop unchanged) */
+.menuBtn{display:none}
+.mobile-drawer{
+  position:fixed;
+  inset:0;
+  display:none;
+  background:rgba(0,0,0,.62);
+  z-index:200;
+  padding:18px;
+}
+.mobile-drawer.active{display:block}
+.mobile-panel{
+  width:min(520px, 100%);
+  margin:72px auto 0;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(10,12,26,.92);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:0 30px 120px rgba(0,0,0,.65);
+  overflow:hidden;
+}
+.mobile-panel .head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:14px 14px 12px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+}
+.mobile-panel .head b{font-family:var(--serif); letter-spacing:-.01em}
+.mobile-links{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:12px 12px 14px;
+}
+.mobile-links a{
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  font-weight:900;
+  color:var(--text);
+}
+.mobile-links a:active{transform:scale(.99)}
+.mobile-cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:0 12px 14px;
+}
+.mobile-cta a{flex:1}
+.menuIcon{width:18px;height:18px}
 
     .btn{
       display:inline-flex;
@@ -800,18 +802,17 @@
       </nav>
 
       <div class="actions">
-        <button class="btn menuBtn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <svg class="menuIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          Menu
-        </button>
 
+<button class="btn menuBtn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+  <svg class="menuIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+  Menu
+</button>
         <a class="btn" href="#featured" aria-label="Browse products">
           <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h14l-2 9H8L7 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 7 6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/><path d="M18 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>
           Shop
         </a>
-
         <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Open Etsy shop in a new tab">
           Shop on Etsy
           <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5h5v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 14 19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M19 14v5H5V5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -819,28 +820,29 @@
       </div>
     </header>
 
-    <!-- Mobile menu drawer -->
-    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
-      <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
-        <div class="head">
-          <b>Menu</b>
-          <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
-        </div>
-        <div class="mobile-links" role="navigation" aria-label="Mobile primary">
-          <a href="index.html">Home</a>
-          <a href="#featured">Featured</a>
-          <a href="#collections">Collections</a>
-          <a href="#why">Why Us</a>
-          <a href="blog.html">Blog</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="mobile-cta" aria-label="Mobile actions">
-          <a class="btn" href="#featured" aria-label="Browse products">Shop</a>
-          <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Open Etsy shop in a new tab">Shop on Etsy</a>
-        </div>
-      </div>
+
+<!-- Mobile menu drawer -->
+<div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="head">
+      <b>Menu</b>
+      <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
     </div>
+    <div class="mobile-links" role="navigation" aria-label="Mobile primary">
+      <a href="index.html">Home</a>
+      <a href="#featured">Featured</a>
+      <a href="#collections">Collections</a>
+      <a href="#why">Why Us</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="mobile-cta" aria-label="Mobile actions">
+      <a class="btn" href="#featured" aria-label="Browse products">Shop</a>
+      <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Open Etsy shop in a new tab">Shop on Etsy</a>
+    </div>
+  </div>
+</div>
 
     <main id="main" class="hero" role="main" aria-label="Hero">
       <div class="hero-inner">
@@ -886,7 +888,6 @@
       </div>
     </main>
 
-    <!-- FEATURED (now filled from RSS automatically) -->
     <section id="featured" aria-label="Featured products">
       <div class="sec-head">
         <div>
@@ -896,47 +897,82 @@
         <a class="btn btn-sm" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="View all products on Etsy">View all →</a>
       </div>
 
-      <!-- This grid gets replaced by RSS cards in JS -->
-      <div class="grid3" id="featuredGrid" role="list" aria-busy="true">
-        <!-- minimal “loading” placeholders (keep style) -->
-        <article class="product" role="listitem">
+            <div class="grid3" id="featuredProducts" role="list" aria-live="polite">
+        <!-- Filled by JS (Etsy RSS) -->
+        <article class="product is-loading" role="listitem" aria-label="Loading product">
           <span class="pill-badge">Loading</span>
-          <img src="" alt="Loading product" data-title="Loading…" data-etsy="#" data-blurb="Loading from Etsy…" />
+          <img class="img-skel" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='720'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='20%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%231a2450'/%3E%3Cstop offset='60%25' stop-color='%230b102a'/%3E%3Cstop offset='100%25' stop-color='%23060a1a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' rx='28' fill='url(%23g)'/%3E%3C/svg%3E" />
           <div class="body">
             <div class="title">Loading…</div>
             <div class="meta"><span>Please wait</span><span class="price">—</span></div>
             <div class="desc">Fetching the latest items from Etsy…</div>
             <div class="row">
               <button class="btn btn-sm" type="button" disabled>Preview</button>
-              <a class="btn btn-sm btn-primary" href="#" aria-disabled="true">Buy on Etsy</a>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Buy on Etsy</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product is-loading" role="listitem" aria-label="Loading product">
+          <span class="pill-badge">Loading</span>
+          <img class="img-skel" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='720'%3E%3Cdefs%3E%3CradialGradient id='g' cx='70%25' cy='30%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%23132247'/%3E%3Cstop offset='55%25' stop-color='%230b102a'/%3E%3Cstop offset='100%25' stop-color='%23060a1a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' rx='28' fill='url(%23g)'/%3E%3C/svg%3E" />
+          <div class="body">
+            <div class="title">Loading…</div>
+            <div class="meta"><span>Please wait</span><span class="price">—</span></div>
+            <div class="desc">Fetching the latest items from Etsy…</div>
+            <div class="row">
+              <button class="btn btn-sm" type="button" disabled>Preview</button>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Buy on Etsy</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product is-loading" role="listitem" aria-label="Loading product">
+          <span class="pill-badge">Loading</span>
+          <img class="img-skel" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='720'%3E%3Cdefs%3E%3CradialGradient id='g' cx='45%25' cy='35%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%231b2a55'/%3E%3Cstop offset='55%25' stop-color='%230b102a'/%3E%3Cstop offset='100%25' stop-color='%23060a1a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' rx='28' fill='url(%23g)'/%3E%3C/svg%3E" />
+          <div class="body">
+            <div class="title">Loading…</div>
+            <div class="meta"><span>Please wait</span><span class="price">—</span></div>
+            <div class="desc">Fetching the latest items from Etsy…</div>
+            <div class="row">
+              <button class="btn btn-sm" type="button" disabled>Preview</button>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Buy on Etsy</a>
+            </div>
+          </div>
+        </article>
+      </div><div class="meta"><span>Digital download</span><span class="price">From €9.99</span></div>
+            <div class="desc">A portal for renewal, clarity, and inner alchemy. Perfect for altar focus, journaling, or moon rituals.</div>
+            <div class="row">
+              <button class="btn btn-sm" type="button" data-preview="true" aria-label="Preview Isis — Inner Transformation">Preview</button>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" target="_blank" rel="noopener noreferrer" aria-label="Buy Isis — Inner Transformation on Etsy">Buy on Etsy</a>
             </div>
           </div>
         </article>
 
         <article class="product" role="listitem">
-          <span class="pill-badge">Loading</span>
-          <img src="" alt="Loading product" data-title="Loading…" data-etsy="#" data-blurb="Loading from Etsy…" />
+          <span class="pill-badge best">Bestseller</span>
+          <img src="https://i.etsystatic.com/46666994/r/il/c2986a/7366219886/il_794xN.7366219886_bczg.jpg" alt="Quan Yin — Spiritual Growth altar card" loading="lazy" decoding="async" data-title="Quan Yin — Spiritual Growth" data-etsy="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" data-blurb="A prayer card inspiring compassion and continuous spiritual growth along your sacred journey." />
           <div class="body">
-            <div class="title">Loading…</div>
-            <div class="meta"><span>Please wait</span><span class="price">—</span></div>
-            <div class="desc">Fetching the latest items from Etsy…</div>
+            <div class="title">Quan Yin — Spiritual Growth</div>
+            <div class="meta"><span>Digital download</span><span class="price">From €8.50</span></div>
+            <div class="desc">Invite compassion, steady progress, and gentle healing. A best-selling centerpiece for daily devotion.</div>
             <div class="row">
-              <button class="btn btn-sm" type="button" disabled>Preview</button>
-              <a class="btn btn-sm btn-primary" href="#" aria-disabled="true">Buy on Etsy</a>
+              <button class="btn btn-sm" type="button" data-preview="true" aria-label="Preview Quan Yin — Spiritual Growth">Preview</button>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" target="_blank" rel="noopener noreferrer" aria-label="Buy Quan Yin — Spiritual Growth on Etsy">Buy on Etsy</a>
             </div>
           </div>
         </article>
 
         <article class="product" role="listitem">
-          <span class="pill-badge">Loading</span>
-          <img src="" alt="Loading product" data-title="Loading…" data-etsy="#" data-blurb="Loading from Etsy…" />
+          <span class="pill-badge">New</span>
+          <img src="https://i.etsystatic.com/46666994/r/il/c1726f/7323640672/il_794xN.7323640672_fqnt.jpg" alt="Durga — Strength & Resilience altar card" loading="lazy" decoding="async" data-title="Durga — Strength & Resilience" data-etsy="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" data-blurb="A meditation card celebrating strength, resilience, and the power to overcome life's challenges." />
           <div class="body">
-            <div class="title">Loading…</div>
-            <div class="meta"><span>Please wait</span><span class="price">—</span></div>
-            <div class="desc">Fetching the latest items from Etsy…</div>
+            <div class="title">Durga — Strength & Resilience</div>
+            <div class="meta"><span>Digital download</span><span class="price">From €7.75</span></div>
+            <div class="desc">For protection, courage, and fierce calm. A powerful companion for boundaries, breakthroughs, and change.</div>
             <div class="row">
-              <button class="btn btn-sm" type="button" disabled>Preview</button>
-              <a class="btn btn-sm btn-primary" href="#" aria-disabled="true">Buy on Etsy</a>
+              <button class="btn btn-sm" type="button" data-preview="true" aria-label="Preview Durga — Strength & Resilience">Preview</button>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" target="_blank" rel="noopener noreferrer" aria-label="Buy Durga — Strength & Resilience on Etsy">Buy on Etsy</a>
             </div>
           </div>
         </article>
@@ -1157,34 +1193,33 @@
       mBuy.href = '#';
     }
 
-    function bindPreviewHandlers(){
-      document.querySelectorAll('[data-preview="true"]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const card = btn.closest('.product');
-          const img = card?.querySelector('img');
-          if(!img) return;
-          openModal({
-            src: img.src,
-            title: img.dataset.title,
-            etsy: img.dataset.etsy,
-            blurb: img.dataset.blurb,
-            alt: img.alt
-          });
+    document.querySelectorAll('[data-preview="true"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.product');
+        const img = card?.querySelector('img');
+        if(!img) return;
+        openModal({
+          src: img.src,
+          title: img.dataset.title,
+          etsy: img.dataset.etsy,
+          blurb: img.dataset.blurb,
+          alt: img.alt
         });
       });
+    });
 
-      document.querySelectorAll('.product img').forEach(img => {
-        img.addEventListener('click', () => {
-          openModal({
-            src: img.src,
-            title: img.dataset.title,
-            etsy: img.dataset.etsy,
-            blurb: img.dataset.blurb,
-            alt: img.alt
-          });
+    // Also allow clicking product images
+    document.querySelectorAll('.product img').forEach(img => {
+      img.addEventListener('click', () => {
+        openModal({
+          src: img.src,
+          title: img.dataset.title,
+          etsy: img.dataset.etsy,
+          blurb: img.dataset.blurb,
+          alt: img.alt
         });
       });
-    }
+    });
 
     mClose?.addEventListener('click', closeModal);
     modal?.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
@@ -1192,39 +1227,49 @@
       if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
 
-    // Mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuClose = document.getElementById('menuClose');
 
-    function openMenu(){
-      if(!mobileMenu) return;
-      mobileMenu.classList.add('active');
-      mobileMenu.setAttribute('aria-hidden','false');
-      menuBtn?.setAttribute('aria-expanded','true');
-      document.body.style.overflow = 'hidden';
-      const firstLink = mobileMenu.querySelector('a');
-      firstLink?.focus?.();
-    }
-    function closeMenu(){
-      if(!mobileMenu) return;
-      mobileMenu.classList.remove('active');
-      mobileMenu.setAttribute('aria-hidden','true');
-      menuBtn?.setAttribute('aria-expanded','false');
-      document.body.style.overflow = '';
-      menuBtn?.focus?.();
-    }
+// Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuClose = document.getElementById('menuClose');
 
-    menuBtn?.addEventListener('click', () => {
-      const isOpen = mobileMenu?.classList.contains('active');
-      isOpen ? closeMenu() : openMenu();
-    });
-    menuClose?.addEventListener('click', closeMenu);
-    mobileMenu?.addEventListener('click', (e) => { if(e.target === mobileMenu) closeMenu(); });
-    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape' && mobileMenu?.classList.contains('active')) closeMenu();
-    });
+function openMenu(){
+  if(!mobileMenu) return;
+  mobileMenu.classList.add('active');
+  mobileMenu.setAttribute('aria-hidden','false');
+  menuBtn?.setAttribute('aria-expanded','true');
+  document.body.style.overflow = 'hidden';
+  // focus first link for keyboard users
+  const firstLink = mobileMenu.querySelector('a');
+  firstLink?.focus?.();
+}
+function closeMenu(){
+  if(!mobileMenu) return;
+  mobileMenu.classList.remove('active');
+  mobileMenu.setAttribute('aria-hidden','true');
+  menuBtn?.setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+  menuBtn?.focus?.();
+}
+
+menuBtn?.addEventListener('click', () => {
+  const isOpen = mobileMenu?.classList.contains('active');
+  isOpen ? closeMenu() : openMenu();
+});
+menuClose?.addEventListener('click', closeMenu);
+
+// close on backdrop click
+mobileMenu?.addEventListener('click', (e) => {
+  if(e.target === mobileMenu) closeMenu();
+});
+
+// close after tapping a link
+mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+// close with Esc (only if menu is open)
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape' && mobileMenu?.classList.contains('active')) closeMenu();
+});
 
     mCopy?.addEventListener('click', async () => {
       const url = mBuy.href;
@@ -1237,136 +1282,112 @@
         setTimeout(() => (mCopy.textContent = 'Copy link'), 1200);
       }
     });
+  </script>
+<script>
+(function(){
+  const container = document.getElementById('featuredProducts');
+  if(!container) return;
 
-    // ---------- RSS -> Featured grid ----------
-    function decodeHtmlEntities(str){
-      const t = document.createElement('textarea');
-      t.innerHTML = str || '';
-      return t.value;
+  const ENDPOINTS = [
+    '/.netlify/functions/etsy-products',   // RSS-to-JSON (recommended)
+    '/.netlify/functions/etsy-shop'        // fallback if you named it differently
+  ];
+
+  const decodeHtml = (s) => {
+    const t = document.createElement('textarea');
+    t.innerHTML = s || '';
+    return t.value;
+  };
+
+  const isoOrDate = (d) => {
+    try {
+      const dt = new Date(d);
+      if (isNaN(dt.getTime())) return '';
+      return dt.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
+    } catch(e){ return ''; }
+  };
+
+  const pickImage = (p) => {
+    // RSS sometimes has no image. Keep the site looking premium with a consistent placeholder.
+    if (p && p.image) return p.image;
+    return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='720'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='25%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%231a2450'/%3E%3Cstop offset='55%25' stop-color='%230b102a'/%3E%3Cstop offset='100%25' stop-color='%23060a1a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' rx='28' fill='url(%23g)'/%3E%3C/svg%3E";
+  };
+
+  const makeCard = (p, idx) => {
+    const title = decodeHtml(p.title || 'Untitled');
+    const link = (p.link || 'https://www.etsy.com/de/shop/VirtualUtopiaDesignz');
+    const date = isoOrDate(p.pubDate || p.created_at || '');
+    const img = pickImage(p);
+
+    const badge = idx === 0 ? 'New' : (idx === 1 ? 'Fresh' : (idx === 2 ? 'Latest' : 'Shop'));
+    const subtitle = date ? `Listed ${date}` : 'Now in the shop';
+
+    // Keep your existing product card markup/classes so the style does not change.
+    return `
+      <article class="product" role="listitem">
+        <span class="pill-badge">${badge}</span>
+        <img src="${img}" alt="${title}" loading="lazy" decoding="async" />
+        <div class="body">
+          <div class="title">${title}</div>
+          <div class="meta"><span>${subtitle}</span><span class="price">View on Etsy</span></div>
+          <div class="desc">Tap to open this listing on Etsy and see full details, photos, and options.</div>
+          <div class="row">
+            <a class="btn btn-sm" href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Preview ${title} on Etsy">Preview</a>
+            <a class="btn btn-sm btn-primary" href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Buy ${title} on Etsy">Buy on Etsy</a>
+          </div>
+        </div>
+      </article>
+    `;
+  };
+
+  async function fetchJson(url){
+    const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  }
+
+  async function load(){
+    let data = null;
+    let lastErr = null;
+
+    for (const url of ENDPOINTS) {
+      try {
+        data = await fetchJson(url);
+        break;
+      } catch (e) { lastErr = e; }
     }
 
-    function makePlaceholderDataUrl(title){
-      const safeTitle = (title || 'Virtual Utopia').slice(0, 60);
-      const initials = safeTitle
-        .replace(/&[^;]+;/g, ' ')
-        .replace(/[^a-zA-Z0-9 ]/g,' ')
-        .trim()
-        .split(/\s+/)
-        .slice(0,2)
-        .map(w => w[0] ? w[0].toUpperCase() : '')
-        .join('') || 'VU';
-
-      const svg =
-`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125">
-  <defs>
-    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#bda7ff" stop-opacity="0.95"/>
-      <stop offset="0.5" stop-color="#7be7ff" stop-opacity="0.75"/>
-      <stop offset="1" stop-color="#ffd88a" stop-opacity="0.70"/>
-    </linearGradient>
-    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="22"/>
-    </filter>
-  </defs>
-  <rect width="900" height="1125" fill="#0b1026"/>
-  <circle cx="220" cy="260" r="240" fill="url(#g)" filter="url(#blur)" opacity="0.35"/>
-  <circle cx="720" cy="260" r="210" fill="url(#g)" filter="url(#blur)" opacity="0.22"/>
-  <circle cx="560" cy="940" r="310" fill="url(#g)" filter="url(#blur)" opacity="0.22"/>
-  <rect x="70" y="820" width="760" height="220" rx="28" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
-  <text x="450" y="520" text-anchor="middle" font-family="Inter, Arial" font-weight="900" font-size="120" fill="rgba(238,241,255,0.92)">${initials}</text>
-  <text x="450" y="900" text-anchor="middle" font-family="Inter, Arial" font-weight="800" font-size="28" fill="rgba(238,241,255,0.86)">Virtual Utopia Designz</text>
-  <text x="450" y="950" text-anchor="middle" font-family="Inter, Arial" font-weight="600" font-size="18" fill="rgba(238,241,255,0.62)">${safeTitle.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</text>
-</svg>`;
-      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
-    }
-
-    function niceDate(pubDate){
-      try{
-        const d = new Date(pubDate);
-        if(Number.isNaN(d.getTime())) return '';
-        return d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
-      }catch(e){ return ''; }
-    }
-
-    async function fetchFirstWorkingJson(urls){
-      for (const u of urls){
-        try{
-          const res = await fetch(u, { cache: 'no-store' });
-          if(!res.ok) continue;
-          const data = await res.json();
-          if(data && (data.products || data.items)) return data;
-        }catch(e){}
-      }
-      return null;
-    }
-
-    function buildFeaturedCard(p, badgeText, badgeClass){
-      const rawTitle = decodeHtmlEntities(p.title || 'New item');
-      const title = rawTitle.replace(/\s+by\s+VirtualUtopiaDesignz\s*$/i, '').trim() || rawTitle.trim();
-      const link = p.link || 'https://www.etsy.com/de/shop/VirtualUtopiaDesignz';
-      const img = (p.image && String(p.image).trim()) ? p.image : makePlaceholderDataUrl(title);
-      const dateStr = niceDate(p.pubDate);
-      const blurb = dateStr ? `Listed ${dateStr}. Open on Etsy to purchase.` : 'Open on Etsy to purchase.';
-
-      const badge = badgeText ? `<span class="pill-badge ${badgeClass || ''}">${badgeText}</span>` : '';
-
-      return `
+    const products = (data && (data.products || data.items)) ? (data.products || data.items) : [];
+    if (!products.length) {
+      container.innerHTML = `
         <article class="product" role="listitem">
-          ${badge}
-          <img src="${img}" alt="${title} (Etsy listing)" loading="lazy" decoding="async"
-            data-title="${title.replace(/"/g,'&quot;')}"
-            data-etsy="${link}"
-            data-blurb="${blurb.replace(/"/g,'&quot;')}" />
+          <span class="pill-badge">Info</span>
+          <img alt="" src="${pickImage({})}" />
           <div class="body">
-            <div class="title">${title}</div>
-            <div class="meta"><span>${dateStr ? dateStr : 'New on Etsy'}</span><span class="price">On Etsy</span></div>
-            <div class="desc">Tap preview to open full-screen, then buy safely on Etsy.</div>
+            <div class="title">Couldn’t load products</div>
+            <div class="meta"><span>Try again in a moment</span><span class="price">—</span></div>
+            <div class="desc">If this keeps happening, the Netlify function may not be deployed yet.</div>
             <div class="row">
-              <button class="btn btn-sm" type="button" data-preview="true" aria-label="Preview ${title}">Preview</button>
-              <a class="btn btn-sm btn-primary" href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Buy ${title} on Etsy">Buy on Etsy</a>
+              <a class="btn btn-sm" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Open Etsy</a>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Shop now</a>
             </div>
           </div>
         </article>
       `;
+      if (lastErr) console.warn('Etsy feed load failed:', lastErr);
+      return;
     }
 
-    async function renderFeaturedFromRss(){
-      const grid = document.getElementById('featuredGrid');
-      if(!grid) return;
+    container.innerHTML = products.slice(0, 3).map(makeCard).join('');
+  }
 
-      const endpoints = [
-        '/.netlify/functions/etsy-rss',
-        '/.netlify/functions/etsy-products',
-        '/.netlify/functions/etsy-shop'
-      ];
-
-      const data = await fetchFirstWorkingJson(endpoints);
-      const items = (data?.products || data?.items || []).slice(0, 3);
-
-      // If RSS fails, keep placeholders but mark not busy
-      if(!items.length){
-        grid.setAttribute('aria-busy', 'false');
-        return;
-      }
-
-      const cards = items.map((p, i) => {
-        if(i === 0) return buildFeaturedCard(p, 'New', '');
-        if(i === 1) return buildFeaturedCard(p, 'Hot', 'best');
-        return buildFeaturedCard(p, 'Fresh', '');
-      }).join('');
-
-      grid.innerHTML = cards;
-      grid.setAttribute('aria-busy', 'false');
-
-      // Re-bind preview handlers because we replaced HTML
-      bindPreviewHandlers();
-    }
-
-    // Bind handlers for initial content (hero etc.)
-    bindPreviewHandlers();
-
-    // Load featured from RSS
-    renderFeaturedFromRss();
-  </script>
+  // load after first paint so your hero/menu stay smooth
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', load, { once:true });
+  } else {
+    load();
+  }
+})();
+</script>
 </body>
 </html>

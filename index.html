@@ -3,1369 +3,1113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Virtual Utopia Designz - Mythical Cosmic Altar Cards</title>
-  <meta name="description" content="Explore sacred spiritual altar cards, cosmic art, and mythic packs by Virtual Utopia Designz." />
+  <meta name="color-scheme" content="light dark" />
+  <title>Virtual Utopia Designz — The Enchanted Atelier</title>
+  <meta name="description" content="An enchanted boutique of sacred altar cards, cosmic art, and mythic packs — crafted for rituals, storytelling, and spiritual journeys." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Virtual Utopia Designz — The Enchanted Atelier" />
+  <meta property="og:description" content="Sacred altar cards and cosmic art — a magical store designed to sell with elegance." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg: #f9f3df;
-      --gradient-bg: linear-gradient(135deg, #f6efd5 0%, #e9e1bb 100%);
-      --panel: rgba(215, 192, 122, 0.15);
-      --panel-strong: rgba(215, 192, 122, 0.40);
-      --text: #36454f;
-      --muted: #a89d6e;
-      --gold: #d7c07a;
-      --gold-soft: rgba(215, 192, 122, 0.35);
-      --gold-shadow: rgba(215, 192, 122, 0.5);
-      --radius: 16px;
-      --radius-lg: 32px;
-      --shadow: 0 12px 40px rgba(215, 192, 122, 0.24);
-      --shadow-hover: 0 22px 60px rgba(215, 192, 122, 0.36);
-      --font-heading: 'Montserrat', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      --font-body: "Open Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    :root{
+      --bg0:#070814;
+      --bg1:#0b1026;
+      --bg2:#111a3a;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.10);
+      --stroke:rgba(255,255,255,.14);
+      --stroke2:rgba(255,255,255,.20);
+      --text:#eef1ff;
+      --muted:rgba(238,241,255,.72);
+      --faint:rgba(238,241,255,.52);
+      --gold:#ffd88a;
+      --gold2:#f5c468;
+      --violet:#bda7ff;
+      --aqua:#7be7ff;
+      --success:#7ff0b7;
+      --danger:#ff7ea6;
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --shadow2:0 28px 90px rgba(0,0,0,.62);
+      --r12:12px;
+      --r16:16px;
+      --r22:22px;
+      --r28:28px;
+      --max:1160px;
+      --sans:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif:"Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+      --ease:cubic-bezier(.2,.8,.2,1);
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans&display=swap');
-
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
-      margin: 0; padding: 0;
-      min-height: 100%;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
       background:
-        radial-gradient(circle at 20% 30%, #fdf9eb, transparent 70%),
-        radial-gradient(circle at 80% 80%, #f2eec7, transparent 60%),
-        radial-gradient(circle, #f9f3df 50%, #e9e1bb 90%);
-      color: var(--text);
-      font-family: var(--font-body);
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      position: relative;
-      overflow-x: hidden;
+        radial-gradient(1200px 600px at 10% 15%, rgba(189,167,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(123,231,255,.14), transparent 55%),
+        radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
+    a{color:inherit; text-decoration:none}
+
+    /* Starfield */
+    .stars, .stars::before, .stars::after{
+      position:fixed;
+      inset:-200px;
+      content:"";
       background-image:
-        radial-gradient(rgba(255 255 255 / 0.09) 1px, transparent 1.5px),
-        radial-gradient(rgba(255 255 255 / 0.04) 1px, transparent 1.5px);
-      background-size: 150px 150px, 65px 65px;
-      background-position: 0 0, 35px 40px;
-      z-index: 0;
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.55), transparent 55%),
+        radial-gradient(1px 1px at 110px 140px, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(1.2px 1.2px at 260px 220px, rgba(255,255,255,.40), transparent 55%),
+        radial-gradient(1px 1px at 340px 80px, rgba(255,255,255,.28), transparent 55%),
+        radial-gradient(1.2px 1.2px at 480px 160px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1px 1px at 620px 260px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 760px 120px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1.2px 1.2px at 900px 240px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 1040px 90px, rgba(255,255,255,.26), transparent 55%);
+      background-size:1100px 320px;
+      opacity:.35;
+      pointer-events:none;
+      z-index:-2;
+      animation: drift 32s linear infinite;
+    }
+    .stars::before{opacity:.22; filter:blur(.2px); animation-duration:54s}
+    .stars::after{opacity:.16; filter:blur(.6px); animation-duration:78s}
+    @keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-160px, 220px, 0)}}
+
+    /* Layout */
+    .wrap{
+      width:min(var(--max), 100%);
+      margin:0 auto;
+      padding:22px 18px 64px;
+      position:relative;
+      z-index:1;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    /* Top announcement */
+    .announce{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(255,216,138,.16), rgba(189,167,255,.14), rgba(123,231,255,.14));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+      margin:14px auto 18px;
+      max-width:980px;
+      backdrop-filter: blur(10px) saturate(140%);
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:.02em;
+    }
+    .announce b{color:var(--text); font-weight:700}
+    .announce .pill{
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#0b1026;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      padding:6px 10px;
+      border-radius:999px;
+      box-shadow:0 10px 28px rgba(255,216,138,.22);
+      flex:0 0 auto;
     }
 
-    .wrap {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px 48px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      z-index: 1;
+    /* Header */
+    header{
+      position:sticky;
+      top:14px;
+      z-index:50;
+      border-radius:999px;
+      padding:10px 12px;
+      background:rgba(10,12,26,.55);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px) saturate(140%);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
     }
-
-    /* NAVIGATION BAR */
-    header.topbar {
-      position: sticky;
-      top: 16px;
-      z-index: 30;
-      backdrop-filter: saturate(180%) blur(14px);
-      background: rgba(249,243,223,0.75);
-      padding: 20px 48px;
-      margin: 0 0 48px;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 8px 40px rgba(215,192,122,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: box-shadow 0.3s ease, background-color 0.3s ease;
-      font-feature-settings: "liga" 1;
-      font-variant-numeric: tabular-nums;
-      user-select: none;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
     }
-    header.topbar:hover,
-    header.topbar:focus-within {
-      box-shadow: 0 6px 48px var(--gold-shadow);
-      background: rgba(249,243,223,0.85);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      min-width: 0;
-    }
-
-    .sigil {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+    .mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(215,192,122,0.9), rgba(215,192,122,0.18) 55%, transparent 70%),
-        linear-gradient(135deg, rgba(215,192,122,0.80), rgba(255, 223, 102, 0.72));
-      box-shadow: 0 14px 42px rgba(215,192,122,0.65);
-      border: 1px solid var(--gold-soft);
-      flex-shrink: 0;
+        radial-gradient(circle at 28% 28%, rgba(255,216,138,.98), rgba(255,216,138,.12) 55%, transparent 72%),
+        linear-gradient(135deg, rgba(189,167,255,.82), rgba(123,231,255,.55));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 18px 50px rgba(189,167,255,.22), 0 12px 40px rgba(255,216,138,.12);
+      position:relative;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .mark::after{
+      content:"";
+      position:absolute;
+      inset:-50%;
+      background:conic-gradient(from 180deg, rgba(255,216,138,.0), rgba(255,216,138,.45), rgba(123,231,255,.2), rgba(189,167,255,.22), rgba(255,216,138,.0));
+      animation: spin 10s linear infinite;
+      opacity:.65;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .brand .name{
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:-.02em;
+      font-size:16px;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand .tag{
+      font-size:12px;
+      color:var(--faint);
+      margin-top:3px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    .brand .name {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 20px;
-      color: #36454f;
-      letter-spacing: 0.05em;
-      line-height: 1.1;
-      user-select: text;
-      margin-right: 20px;
-      white-space: nowrap;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    nav{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:6px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+    nav a{
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      color:var(--muted);
+      letter-spacing:.02em;
+      transition:transform .18s var(--ease), background-color .18s var(--ease), color .18s var(--ease);
+      outline:none;
+    }
+    nav a:hover, nav a:focus-visible{
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      transform:translateY(-1px);
+    }
+    nav a[aria-current="page"]{
+      background:rgba(255,255,255,.10);
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
     }
 
-    .brand .tag {
-      font-family: var(--font-body);
-      font-size: 13px;
-      color: var(--muted);
-      font-style: italic;
-      margin-top: 6px;
-      letter-spacing: 0.03em;
-      user-select: text;
-      white-space: nowrap;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
 
-    nav.nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      letter-spacing:.02em;
+      font-size:13px;
+      transition:transform .18s var(--ease), filter .18s var(--ease), box-shadow .18s var(--ease), background-color .18s var(--ease);
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+      outline:none;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn:focus-visible{box-shadow:0 0 0 4px rgba(123,231,255,.22)}
 
-      /* "Pill" container so the menu feels like the product cards */
-      padding: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.55);
-      border: 1px solid rgba(215, 192, 122, 0.35);
-      box-shadow:
-        0 8px 30px rgba(215, 192, 122, 0.14),
-        inset 0 0 0 1px rgba(255,255,255,0.35);
+    .btn-primary{
+      border:none;
+      color:#0b1026;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      box-shadow:0 18px 52px rgba(255,216,138,.16);
+    }
+    .btn-primary:hover{filter:brightness(1.05)}
 
-      font-family: var(--font-body);
-      font-weight: 800;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      user-select: none;
-      white-space: nowrap;
-    }
-
-    nav.nav a {
-      position: relative;
-      padding: 10px 14px;
-      border-radius: 999px;
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                  background-color 0.25s ease,
-                  border-color 0.25s ease,
-                  color 0.25s ease,
-                  box-shadow 0.25s ease;
-
-      color: var(--muted);
-      border: 1.5px solid transparent;
-      font-weight: 800;
-      outline-offset: 4px;
-      outline: none;
-      cursor: pointer;
-    }
-    nav.nav a:hover,
-    nav.nav a:focus-visible {
-      color: #36454f;
-      background: rgba(215, 192, 122, 0.16);
-      border-color: rgba(215, 192, 122, 0.55);
-      box-shadow: 0 8px 24px rgba(215, 192, 122, 0.18);
-      transform: translateY(-1px);
-      z-index: 2;
-      outline-offset: 2px;
-      outline: 2px solid rgba(215,192,122,0.55);
-    }
-    nav.nav a[aria-current="page"] {
-      color: #36454f;
-      background: rgba(215, 192, 122, 0.22);
-      border-color: rgba(215, 192, 122, 0.65);
-      box-shadow: 0 10px 30px rgba(215, 192, 122, 0.22);
-      cursor: default;
-      transform: none;
-      font-weight: 900;
-    }
-    nav.nav a::after {
-      content: "";
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 6px;
-      height: 2px;
-      border-radius: 2px;
-      background: linear-gradient(90deg, transparent, rgba(215,192,122,0.95), transparent);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.28s ease, opacity 0.28s ease;
-      opacity: 0.9;
-      pointer-events: none;
-    }
-    nav.nav a:hover::after,
-    nav.nav a:focus-visible::after,
-    nav.nav a[aria-current="page"]::after {
-      transform: scaleX(1);
-      opacity: 1;
+    .icon{
+      width:16px; height:16px; display:inline-block; flex:0 0 auto;
     }
 
-    .topbar .cta {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 16.2px;
-      padding: 14px 28px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, #fee588, #d7c07a 75%);
-      color: #1a1a1a;
-      box-shadow: 0 18px 56px rgba(255, 230, 90, 0.48);
-      border: none;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      user-select: none;
-      transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
-      letter-spacing: 0.07em;
-      text-shadow: 0 0 3px #f0de75;
-      cursor: pointer;
-    }
-    .topbar .cta:hover {
-      filter: brightness(1.15);
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 30px 80px rgba(255, 230, 90, 0.74);
-      text-decoration: none;
-    }
-    .topbar .cta:focus-visible {
-      outline-offset: 4px;
-      outline: 3px solid #ffec87;
-    }
-
-    /* HERO */
-    main.hero {
-      background: linear-gradient(135deg, rgba(251, 249, 238, 0.95) 0%, rgba(249, 243, 223, 0.88) 55%, rgba(233, 225, 187, 0.55) 100%);
-      border-radius: var(--radius-lg);
-      padding: 34px 28px 30px;
-      border: 1px solid var(--gold-soft);
-      box-shadow: 0 18px 56px rgba(215,192,122,0.18);
-      text-align: center;
-      max-width: 960px;
-      margin: 0 auto 72px;
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fadeSlideIn 0.9s ease forwards;
-      animation-delay: 0.1s;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      z-index: 1;
-      height: auto;
-    }
-    /* A soft "crown" highlight that matches the card accents */
-    main.hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 18px;
-      right: 18px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, transparent, rgba(215,192,122,0.95), transparent);
-      opacity: 0.9;
-      pointer-events: none;
-      z-index: 1;
-    }
-    @media(min-width: 901px) {
-      main.hero {
-        /* Avoid clipping when users zoom in on laptops */
-        padding: 54px 50px 50px;
-      }
-    }
-    main.hero::before {
-      content: "";
-      position: absolute;
-      inset: -140px;
+    /* Hero */
+    .hero{
+      margin:18px 0 34px;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
       background:
-        radial-gradient(circle at 25% 20%, rgba(215,192,122,0.18), transparent 55%),
-        radial-gradient(circle at 80% 70%, rgba(215,192,122,0.10), transparent 60%),
-        radial-gradient(circle at 55% 45%, rgba(255,255,255,0.18), transparent 55%);
-      filter: blur(90px);
-      z-index: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      opacity: 0.85;
+        radial-gradient(900px 420px at 20% 25%, rgba(189,167,255,.18), transparent 55%),
+        radial-gradient(700px 380px at 80% 15%, rgba(123,231,255,.14), transparent 55%),
+        radial-gradient(900px 520px at 60% 90%, rgba(255,216,138,.12), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
     }
-main.hero .headline-wrapper {
-      position: relative;
-      display: inline-block;
-      padding: 0 16px 8px;
-      margin-bottom: 10px;
-      z-index: 1;
-    }
-    main.hero .headline-wrapper::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 120%;
-      height: 140%;
-      background: radial-gradient(ellipse at center, rgba(215,192,122,0.25), transparent 80%);
-      filter: blur(28px);
-      border-radius: 24px;
-      z-index: -1;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:linear-gradient(90deg, rgba(255,216,138,.28), rgba(189,167,255,.24), rgba(123,231,255,.22));
+      opacity:.12;
+      filter:blur(18px);
+      pointer-events:none;
     }
 
-    main.hero h1 {
-      position: relative;
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: clamp(38px, 5vw, 58.5px);
-      margin: 0;
-      letter-spacing: -0.05em;
-      color: #36454f;
-            text-shadow: 0 10px 28px rgba(215,192,122,0.22);
-      line-height: 1.06;
-      user-select: text;
-      z-index: 1;
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap:24px;
+      padding:34px;
+      position:relative;
+      z-index:1;
+      align-items:center;
     }
 
-    main.hero p.lead {
-      position: relative;
-      font-size: clamp(16px, 1.8vw, 20px);
-      line-height: 1.4;
-            color: rgba(54,69,79,0.72);
-      margin: 0 0 18px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 600;
-            font-style: normal;
-      z-index: 1;
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      width:max-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:linear-gradient(135deg, var(--gold), var(--aqua));
+      box-shadow:0 0 20px rgba(255,216,138,.18);
     }
 
-    main.hero .brand-promise {
-      position: relative;
-      color: #36454f;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: clamp(14px, 1.4vw, 18px);
-      max-width: 480px;
-      margin: 0 auto 26px;
-            letter-spacing: 0.04em;
-            text-shadow: 0 10px 26px rgba(215,192,122,0.18);
-      user-select: text;
-      z-index: 1;
+    h1{
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:-.03em;
+      margin:14px 0 10px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.04;
     }
 
-    main.hero .trust-signals {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      font-size: 14px;
-      font-weight: 600;
-      font-family: var(--font-body);
-            color: rgba(54,69,79,0.78);
-      user-select: none;
-            text-shadow: 0 8px 18px rgba(215,192,122,0.18);
-      margin-bottom: 23px;
-      line-height: 1.2;
-      z-index: 1;
-    }
-    main.hero .trust-signals::before,
-    main.hero .trust-signals::after {
-      content: '';
-      display: none;
-    }
-    main.hero .trust-signals span:not(:last-child)::after {
-      content: "•";
-      color: var(--gold);
-      margin: 0 8px;
+    .lead{
+      color:var(--muted);
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height:1.55;
+      margin:0 0 18px;
+      max-width:55ch;
     }
 
-    /* Buttons container inside hero */
-    .hero-ctas {
-      display: inline-flex;
-      gap: 24px;
-      row-gap: 14px;
-      z-index: 1;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    /* Make hero CTAs match the site's card aesthetic */
-    main.hero .btn {
-      background: rgba(251, 249, 238, 0.72);
-      border-color: rgba(215, 192, 122, 0.75);
-      box-shadow: 0 12px 30px rgba(215,192,122,0.20);
-      backdrop-filter: blur(8px);
-    }
-    main.hero .btn:hover,
-    main.hero .btn:focus-visible {
-      background: rgba(255, 255, 255, 0.90);
-      box-shadow: 0 22px 60px rgba(215,192,122,0.30);
-    }
-    main.hero .btn-primary {
-      background: linear-gradient(135deg, rgba(215,192,122,0.95), rgba(255, 236, 135, 0.92));
-      color: #1a1a1a;
-      border-color: rgba(215, 192, 122, 0.95);
-      box-shadow: 0 16px 48px rgba(215,192,122,0.35);
-    }
-    main.hero .btn-primary:hover,
-    main.hero .btn-primary:focus-visible {
-      background: linear-gradient(135deg, rgba(255, 242, 170, 0.98), rgba(255, 255, 255, 0.92));
-      border-color: rgba(255, 232, 124, 0.95);
-      transform: translateY(-2px);
+    .hero-ctas{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
     }
 
-    .btn {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 15.5px;
-      padding: 16px 36px;
-      border-radius: var(--radius-lg);
-      border: 2px solid var(--gold);
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.24s ease;
-      box-shadow: 0 12px 30px rgba(215,192,122,0.3);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-decoration: none;
-      color: #36454f;
-      background: transparent;
-      white-space: nowrap;
+    .trust{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+      color:var(--faint);
+      font-size:13px;
     }
-    .btn-primary {
-      background: var(--gold);
-      color: #1a1a1a;
-      border-color: var(--gold);
-      box-shadow: 0 12px 40px rgba(215,192,122,0.5);
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
     }
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
-      background: #fff2aa;
-      color: #0a0a08;
-      box-shadow: 0 24px 60px rgba(215,192,122,0.7);
-      outline: none;
-      transform: translateY(-2px);
-      border-color: #ffe87c;
+    .chip b{color:var(--text)}
+
+    /* Right hero card */
+    .hero-card{
+      border-radius:24px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 18px 60px rgba(0,0,0,.35);
+      overflow:hidden;
     }
-    .btn:hover,
-    .btn:focus-visible {
-      color: #fff2aa;
-      border-color: #fff2aa;
-      box-shadow: 0 12px 40px rgba(215,192,122,0.45);
-      transform: translateY(-2px);
-      outline: none;
+    .hero-card .top{
+      padding:18px 18px 14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
     }
-    .btn:focus-visible {
-      outline-offset: 3px;
-      outline: 2px solid var(--gold);
+    .hero-card h2{
+      font-family:var(--serif);
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.01em;
+    }
+    .hero-card .sub{
+      margin:6px 0 0;
+      color:var(--faint);
+      font-size:13px;
+      line-height:1.4;
     }
 
-    /* SECTIONS */
-    section {
-      background: rgba(249, 243, 223, 0.7);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 20px 50px rgba(215,192,122,0.18);
-      padding: 48px 36px 52px;
-      max-width: 1200px;
-      margin: 0 auto 56px;
-      color: var(--text);
-      opacity: 0;
-      transform: translateY(15px);
-      transition: none;
-      position: relative;
-      z-index: 1;
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      padding:0 18px 18px;
     }
-    section.visible {
-      animation: fadeSlideIn 0.8s ease forwards;
+    .mini{
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      position:relative;
+      transition: transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s var(--ease);
+    }
+    .mini:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.16); box-shadow:0 16px 60px rgba(0,0,0,.35)}
+    .mini img{width:100%; height:auto; display:block; aspect-ratio:4/5; object-fit:cover; filter:saturate(1.05) contrast(1.05)}
+    .mini .cap{padding:10px 10px 12px}
+    .mini .cap .t{font-weight:800; font-size:13px; letter-spacing:.01em}
+    .mini .cap .p{color:var(--faint); font-size:12px; margin-top:4px}
+    .tag-badge{
+      position:absolute;
+      top:10px; left:10px;
+      padding:6px 9px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#0b1026;
+      background:linear-gradient(135deg, var(--success), rgba(123,231,255,.85));
+      box-shadow:0 14px 40px rgba(127,240,183,.12);
+    }
+    .tag-badge.hot{background:linear-gradient(135deg, var(--gold), var(--gold2)); box-shadow:0 14px 40px rgba(255,216,138,.14)}
+
+    /* Sections */
+    section{
+      margin:18px 0;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .sec-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      padding:22px 22px 16px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.10);
+    }
+    .sec-head h3{
+      font-family:var(--serif);
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+    .sec-head p{
+      margin:0;
+      color:var(--faint);
+      font-size:13px;
+      line-height:1.35;
     }
 
-    .section-title {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .section-title h2 {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 28px;
-      letter-spacing: 0.04em;
-      margin: 0;
-      color: #36454f;
-      text-shadow: 0 0 8px rgba(215,192,122,0.85);
-    }
-    .section-title .sub {
-      font-family: var(--font-body);
-      font-size: 14px;
-      color: var(--muted);
-      font-style: italic;
-      user-select: none;
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      padding:18px 18px 22px;
     }
 
-    /* Featured Altar Cards grid container */
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+    .product{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.035);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
+      position:relative;
+      isolation:isolate;
     }
-    /* Card styling */
-    .feature-card {
-      background: #fbf9ee;
-      border-radius: var(--radius);
-      border: 1px solid var(--gold-soft);
-      box-shadow: 0 10px 36px rgba(215,192,122,0.16);
-      color: var(--text);
-      font-family: var(--font-body);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      box-sizing: border-box;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      position: relative;
+    .product:hover{transform:translateY(-4px); border-color:rgba(255,255,255,.18); box-shadow:var(--shadow2)}
+    .product img{
+      width:100%;
+      height:auto;
+      display:block;
+      aspect-ratio:4/5;
+      object-fit:cover;
+      cursor:pointer;
+      background:#0b1026;
     }
-    .feature-card:hover {
-      box-shadow: 0 20px 60px rgba(215,192,122,0.45);
-      transform: translateY(-6px);
-      cursor: pointer;
-      z-index: 1;
-    }
-    .feature-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      flex-shrink: 0;
-      aspect-ratio: 4 / 5;
-      border-bottom: 1px solid var(--gold-soft);
-      transition: transform 0.3s ease;
-      display: block;
-      cursor: pointer;
-    }
-    .feature-card:hover img {
-      transform: scale(1.05);
-    }
-    .feature-content {
-      padding: 16px 20px 24px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .feature-content h3 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      color: #36454f;
-      font-size: 20px;
-      margin: 0 0 4px 0;
-      line-height: 1.2;
-      text-shadow: 0 0 6px rgba(215,192,122,0.7);
-      position: relative;
-    }
-    .feature-meta {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 0 0 12px 0;
-      font-style: italic;
-      font-family: var(--font-body);
-    }
-    .feature-content p {
-      font-size: 15px;
-      color: var(--muted);
-      flex-grow: 1;
-      margin: 0 0 16px 0;
-      font-style: normal;
-      line-height: 1.4;
-    }
-    .feature-content a {
-      font-weight: 700;
-      color: #36454f;
-      align-self: flex-start;
-      letter-spacing: 0.04em;
-      font-size: 14px;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-    .feature-content a:hover,
-    .feature-content a:focus-visible {
-      border-color: var(--gold);
-      outline: none;
-      text-decoration: none;
-      cursor: pointer;
-    }
+    .product .body{padding:14px 14px 16px; display:flex; flex-direction:column; gap:10px; flex:1}
+    .product .title{font-weight:900; letter-spacing:-.01em}
+    .product .meta{display:flex; align-items:center; justify-content:space-between; gap:8px; color:var(--faint); font-size:13px}
+    .price{font-weight:900; color:var(--text)}
+    .product .desc{color:var(--muted); font-size:13px; line-height:1.5; flex:1}
+    .product .row{display:flex; gap:10px; flex-wrap:wrap}
+    .product .row a{flex:1}
 
-    /* Badge styling */
-    .badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: var(--gold);
-      color: #1a1a1a;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 12px;
-      box-shadow: 0 0 6px rgba(215,192,122,0.8);
-      user-select: none;
-      pointer-events: none;
-      z-index: 10;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+    .pill-badge{
+      position:absolute;
+      top:12px; left:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#0b1026;
+      background:linear-gradient(135deg, rgba(189,167,255,.95), rgba(123,231,255,.85));
+      box-shadow:0 14px 44px rgba(189,167,255,.14);
+      z-index:2;
     }
-    .badge.bestseller {
-      background: #ffb84d;
-      box-shadow: 0 0 8px #ffb84d;
-      color: #3b2300;
-    }
-    .badge.new {
-      background: #7bd07a;
-      box-shadow: 0 0 8px #7bd07a;
-      color: #1a2900;
-    }
+    .pill-badge.best{background:linear-gradient(135deg, var(--gold), var(--gold2)); box-shadow:0 14px 44px rgba(255,216,138,.14)}
 
-    /* Cards container for What We Create */
-    .cards-grid {
-      display: flex;
-      gap: 28px;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .cards-grid .card {
-      background: #fbf9ee;
-      border-radius: var(--radius);
-      border: 1px solid var(--gold-soft);
-      padding: 28px 32px 36px;
-      box-shadow: 0 10px 30px rgba(215,192,122,0.14);
-      flex: 1 1 280px;
-      max-width: 320px;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      user-select: none;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-    .cards-grid .card:hover {
-      box-shadow: 0 20px 52px rgba(215,192,122,0.37);
-      transform: translateY(-3px);
-      cursor: pointer;
-    }
-    .cards-grid .card h3 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 20px;
-      color: #36454f;
-      margin: 0;
-      text-shadow: 0 0 6px rgba(215,192,122,0.7);
-    }
-    .cards-grid .card p {
-      font-family: var(--font-body);
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--muted);
-      margin: 0;
-      flex-grow: 1;
-    }
+    .btn-sm{padding:10px 12px; font-size:13px}
 
-    /* Blog Section */
-    section#blog {
-      background: rgba(249, 243, 223, 0.75);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 20px 50px rgba(215,192,122,0.18);
-      padding: 48px 36px 52px;
-      max-width: 1200px;
-      margin: 0 auto 56px;
-      color: var(--text);
-      opacity: 0;
-      transform: translateY(15px);
-      transition: none;
-      position: relative;
-      z-index: 1;
+    /* Collections */
+    .tiles{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:12px;
+      padding:18px;
     }
-    section#blog.visible {
-      animation: fadeSlideIn 0.8s ease forwards;
+    .tile{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      padding:16px 14px;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background-color .2s var(--ease);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      min-height:120px;
     }
-    .blog-post {
-      max-width: 720px;
-      margin: 0 auto;
-      font-family: var(--font-body);
-      color: var(--text);
-      line-height: 1.5;
-      font-size: 16px;
-    }
-    .blog-post h2 {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 26px;
-      color: #36454f;
-      margin-bottom: 16px;
-      text-shadow: 0 0 8px rgba(215,192,122,0.85);
-      user-select: text;
-    }
-    .blog-post p {
-      margin-top: 0;
-      margin-bottom: 16px;
-      color: var(--muted);
-    }
+    .tile:hover{transform:translateY(-3px); border-color:rgba(255,255,255,.18); background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04))}
+    .tile .t{font-weight:900}
+    .tile .s{color:var(--faint); font-size:13px; line-height:1.4}
 
-    /* FOOTER */
-    footer {
-      max-width: 1200px;
-      margin: 0 auto 24px;
-      font-family: var(--font-body);
-      font-size: 13px;
-      color: var(--muted);
-      user-select: none;
-      letter-spacing: 0.05em;
-      padding: 32px 24px 20px;
-      opacity: 0;
-      transform: translateY(15px);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 24px;
-      border-top: 1px solid var(--gold-soft);
-      position: relative;
-      z-index: 1;
+    /* Value props */
+    .value{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+      padding:18px;
     }
-    footer.visible {
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.3s;
+    .vcard{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.035);
+      padding:16px 14px;
     }
-    footer a {
-      font-weight: 700;
-      color: #36454f;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      position: relative;
-      transition: color 0.3s ease, transform 0.2s ease;
-    }
-    footer a:hover,
-    footer a:focus-visible {
-      color: var(--gold);
-      outline: none;
-      text-decoration: underline;
-      transform: translateY(-2px);
-    }
-    footer .footer-col {
-      flex: 1 1 200px;
-      min-width: 160px;
-    }
-    footer .footer-col h3 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 16px;
-      color: #36454f;
-      margin-bottom: 12px;
-      text-shadow: 0 0 6px rgba(215,192,122,0.7);
-    }
-    footer .brand-blurb {
-      font-style: italic;
-      color: var(--muted);
-      line-height: 1.4;
-      max-width: 320px;
-      user-select: text;
-    }
-    footer .quick-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    footer .quick-links a {
-      font-size: 14px;
-      color: var(--muted);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: color 0.3s ease, transform 0.2s ease;
-    }
-    footer .quick-links a:hover,
-    footer .quick-links a:focus-visible {
-      color: var(--gold);
-      transform: translateX(4px);
-      outline: none;
-      text-decoration: none;
-    }
-    footer .cta-footer {
-      margin-top: 0;
-    }
-    footer .cta-footer .btn-footer {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 15px;
-      padding: 12px 28px;
-      border-radius: var(--radius-lg);
-      background: var(--gold);
-      color: #1a1a1a;
-      box-shadow: 0 14px 40px rgba(215,192,122,0.6);
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      white-space: nowrap;
-      display: inline-block;
-      user-select: none;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      letter-spacing: 0.06em;
-      text-shadow: 0 0 5px #f0de75;
-    }
-    footer .cta-footer .btn-footer:hover,
-    footer .cta-footer .btn-footer:focus-visible {
-      background: #fff2aa;
-      color: #0a0a08;
-      box-shadow: 0 24px 60px rgba(215,192,122,0.8);
-      outline: none;
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
-    footer .copyright {
-      flex-basis: 100%;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-      color: var(--muted);
-      user-select: none;
-    }
+    .vcard h4{margin:0 0 6px; font-size:14px; letter-spacing:.01em}
+    .vcard p{margin:0; color:var(--faint); font-size:13px; line-height:1.5}
 
-    /* Browse Collections grid */
-    .browse-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+    /* Reviews */
+    .reviews{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+      padding:18px;
     }
-    .browse-tile {
-      background: #fbf9ee;
-      border-radius: var(--radius);
-      border: 1px solid var(--gold-soft);
-      box-shadow: 0 10px 36px rgba(215,192,122,0.16);
-      padding: 20px 20px 28px;
-      color: var(--text);
-      font-family: var(--font-body);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      user-select: none;
+    .review{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.035);
+      padding:16px 14px;
     }
-    .browse-tile:hover,
-    .browse-tile:focus-visible {
-      box-shadow: 0 20px 60px rgba(215,192,122,0.45);
-      transform: translateY(-6px);
-      outline: none;
-      border-color: var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      z-index: 1;
-    }
-    .browse-tile h3 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      color: inherit;
-      font-size: 20px;
-      margin: 0 0 8px 0;
-      line-height: 1.2;
-      user-select: text;
-    }
-    .browse-tile p {
-      font-size: 14px;
-      color: var(--muted);
-      margin: 0;
-      font-style: italic;
-      user-select: text;
-    }
+    .starsRow{color:var(--gold); letter-spacing:.12em; font-weight:900; font-size:12px}
+    .quote{margin:10px 0 12px; color:var(--muted); font-size:13px; line-height:1.6}
+    .who{display:flex; align-items:center; justify-content:space-between; gap:10px; color:var(--faint); font-size:12px}
+    .who b{color:var(--text)}
 
-    /* Lightbox Modal Styles */
-    #lightbox-modal {
-      position: fixed;
-      z-index: 1000;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.85);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+    /* FAQ */
+    details{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      padding:12px 14px;
     }
-    #lightbox-modal.active {
-      display: flex;
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:900; list-style:none}
+    summary::-webkit-details-marker{display:none}
+    details p{margin:10px 0 0; color:var(--faint); font-size:13px; line-height:1.55}
+
+    /* Footer */
+    footer{
+      margin-top:24px;
+      padding:22px;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap:16px;
     }
-    #lightbox-content {
-      position: relative;
-      max-width: 90vw;
-      max-height: 90vh;
-      background: #fbf9ee;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 0 40px var(--gold-shadow);
-      padding: 24px 28px 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: #36454f;
-      user-select: none;
+    footer h5{
+      font-family:var(--serif);
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-.01em;
     }
-    #lightbox-content img {
-      max-width: 100%;
-      max-height: 70vh;
-      border-radius: var(--radius);
-      box-shadow: 0 12px 50px rgba(215,192,122,0.6);
-      margin-bottom: 20px;
-      object-fit: contain;
-      background: #f5f2db;
+    footer p{margin:0; color:var(--faint); font-size:13px; line-height:1.6}
+    .links{display:flex; flex-direction:column; gap:10px; font-size:13px}
+    .links a{color:var(--muted); font-weight:700}
+    .links a:hover{text-decoration:underline; color:var(--text)}
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(0,0,0,.72);
+      z-index:999;
     }
-    #lightbox-title {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 24px;
-      margin: 0 0 20px;
-      text-align: center;
-      line-height: 1.2;
-      text-shadow: 0 0 10px rgba(215,192,122,0.9);
-      color: #36454f;
+    .modal.active{display:flex}
+    .modal-card{
+      width:min(920px, 100%);
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(10,12,26,.86);
+      backdrop-filter: blur(18px) saturate(140%);
+      box-shadow:0 30px 120px rgba(0,0,0,.65);
+      overflow:hidden;
     }
-    #lightbox-etsy-link {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 16px;
-      padding: 12px 36px;
-      border-radius: var(--radius-lg);
-      border: 2px solid var(--gold);
-      background: var(--gold);
-      color: #1a1a1a;
-      box-shadow: 0 14px 40px rgba(215,192,122,0.6);
-      text-decoration: none;
-      user-select: none;
-      transition: all 0.3s ease;
-      white-space: nowrap;
+    .modal-grid{display:grid; grid-template-columns: 1.1fr .9fr}
+    .modal-media{background:rgba(255,255,255,.03)}
+    .modal-media img{width:100%; height:100%; object-fit:contain; display:block; max-height:78vh}
+    .modal-body{padding:18px 18px 20px}
+    .modal-top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
+    .modal-title{font-family:var(--serif); margin:0; font-size:22px; letter-spacing:-.01em}
+    .close{
+      border:none;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--text);
+      width:40px; height:40px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:18px;
     }
-    #lightbox-etsy-link:hover,
-    #lightbox-etsy-link:focus-visible {
-      background: #fff2aa;
-      color: #0a0a08;
-      box-shadow: 0 24px 60px rgba(215,192,122,0.8);
-      outline: none;
-      transform: translateY(-2px);
+    .modal-body p{margin:10px 0 14px; color:var(--muted); font-size:13px; line-height:1.65}
+    .modal-actions{display:flex; gap:10px; flex-wrap:wrap}
+
+    /* Newsletter */
+    .newsletter{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:12px;
     }
-    #lightbox-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: transparent;
-      border: none;
-      color: #36454f;
-      font-size: 28px;
-      font-weight: 900;
-      line-height: 1;
-      cursor: pointer;
-      user-select: none;
-      padding: 4px 10px 0 10px;
-      transition: color 0.3s ease;
+    .field{
+      flex:1 1 220px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
     }
-    #lightbox-close:hover,
-    #lightbox-close:focus-visible {
-      color: #f2de50;
-      outline: none;
+    .field input{
+      width:100%;
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--text);
+      font-weight:600;
+      font-size:13px;
+    }
+    .field input::placeholder{color:rgba(238,241,255,.55)}
+
+    /* Accessibility */
+    .skip{
+      position:absolute;
+      left:-999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip:focus{
+      left:18px;
+      top:18px;
+      width:auto;
+      height:auto;
+      padding:10px 12px;
+      border-radius:12px;
+      z-index:1000;
+      background:rgba(10,12,26,.9);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:var(--shadow);
+      color:var(--text);
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
-      header.topbar {
-        flex-wrap: wrap;
-        gap: 16px;
-        justify-content: center;
-        padding: 16px 24px;
-        top: 0;
-        margin: 0 0 40px;
-      }
-      nav.nav {
-        display:none;
-      }
-      main.hero {
-        padding: 48px 24px 48px;
-        margin-bottom: 48px;
-        max-height: none;
-      }
-main.hero .headline-wrapper::before {
-        width: 140%;
-        height: 160%;
-      }
-      main.hero h1 {
-        font-size: 48px;
-        line-height: 1.1;
-      }
-      main.hero p.lead {
-        font-size: 18px;
-        max-width: 90%;
-        margin-bottom: 24px;
-        line-height: 1.4;
-      }
-      main.hero .brand-promise {
-        font-size: 16px;
-        max-width: 90%;
-        margin-bottom: 32px;
-        line-height: 1.3;
-      }
-      main.hero .trust-signals {
-        font-size: 13px;
-        margin-bottom: 28px;
-        line-height: 1.3;
-      }
-      .hero-ctas {
-        gap: 16px;
-      }
-      section {
-        padding: 36px 24px 40px;
-      }
-      .cards-grid {
-        flex-direction: column;
-        gap: 36px;
-        max-width: 100%;
-      }
-      .cards-grid .card {
-        max-width: 100%;
-      }
-      .featured-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px;
-      }
-      .browse-grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 20px;
-      }
-      #blog {
-        max-width: 100%;
-        padding: 36px 24px 40px;
-      }
-      #lightbox-content {
-        padding: 16px 18px 24px;
-      }
-      #lightbox-title {
-        font-size: 20px;
-        margin-bottom: 16px;
-      }
-      #lightbox-etsy-link {
-        font-size: 14px;
-        padding: 10px 28px;
-      }
-      footer {
-        flex-direction: column;
-        gap: 20px;
-        padding: 24px 16px 16px;
-      }
-      footer .footer-col {
-        flex-basis: auto;
-        width: 100%;
-      }
-      footer .copyright {
-        margin-top: 12px;
-      }
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:1fr; padding:24px}
+      nav{display:none}
+      .grid3{grid-template-columns:1fr}
+      .tiles{grid-template-columns:1fr 1fr}
+      .value{grid-template-columns:1fr}
+      .reviews{grid-template-columns:1fr}
+      footer{grid-template-columns:1fr}
+      .modal-grid{grid-template-columns:1fr}
+      .modal-media img{max-height:52vh}
     }
 
-    /* Animation keyframes */
-    @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
     }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header class="topbar" role="banner">
-      <div class="brand" aria-label="Virtual Utopia Designz brand identity">
-        <div class="sigil" aria-hidden="true"></div>
-        <div style="display: flex; flex-direction: column; justify-content: center; min-width: 0;">
-          <div class="name">Virtual Utopia Designz</div>
-          <div class="tag">Spiritual altar cards • Cosmic art • Mythic storytelling</div>
-        </div>
-      </div>
 
-      <nav class="nav" aria-label="Primary navigation">
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <div class="announce" role="status" aria-live="polite">
+      <span class="pill">Magical Drop</span>
+      <span><b>Instant digital downloads</b> · Print-ready altar art · Curated symbolism for rituals & storytelling</span>
+    </div>
+
+    <header role="banner" aria-label="Site header">
+      <a class="brand" href="#top" aria-label="Virtual Utopia Designz home">
+        <span class="mark" aria-hidden="true"></span>
+        <span style="display:flex; flex-direction:column; min-width:0">
+          <span class="name">Virtual Utopia Designz</span>
+          <span class="tag">The Enchanted Atelier • Altar cards • Cosmic art • Mythic packs</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary">
         <a href="index.html" aria-current="page">Home</a>
+        <a href="#featured">Featured</a>
+        <a href="#collections">Collections</a>
+        <a href="#why">Why Us</a>
         <a href="packs.html">Blog</a>
-        <a href="about.html" style="white-space: nowrap;">About Us</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <a class="cta" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Shop on Etsy (opens new tab)">
-        Shop on Etsy →
-      </a>
+      <div class="actions">
+        <a class="btn" href="#featured" aria-label="Browse products">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h14l-2 9H8L7 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 7 6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/><path d="M18 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>
+          Shop
+        </a>
+        <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Open Etsy shop in a new tab">
+          Shop on Etsy
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5h5v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 14 19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M19 14v5H5V5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
     </header>
 
-    <main class="hero" id="top" role="main">
-      <div class="headline-wrapper">
-        <h1>Virtual Utopia Designz</h1>
-      </div>
-      <p class="lead">Enchant your spiritual altar with sacred cards and cosmic art, curated for mythic journeys and mystical storytelling.</p>
-      <p class="brand-promise">Elevating your sacred space with artful symbolism and spiritual depth.</p>
-      <div class="trust-signals" aria-label="Trust signals">
-        <span>Instant download</span><span>Printable quality</span><span>Curated symbolism</span>
-      </div>
-      <div class="hero-ctas" style="margin-bottom: 12px;">
-        <a href="#featured" class="btn btn-primary" role="button" aria-label="Explore Gallery section">Explore Gallery</a>
-        <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Shop on Etsy (opens new tab)">Shop on Etsy</a>
+    <main id="main" class="hero" role="main" aria-label="Hero">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> Enchant your altar. Elevate your story.</div>
+          <h1>A magical store for sacred cards & cosmic art — built to convert.</h1>
+          <p class="lead">Step into an enchanted boutique where each altar card is a portal: designed to inspire rituals, healing, protection, and mythic storytelling. Instant downloads. Print-ready quality. Beautifully curated symbolism.</p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#featured" aria-label="Explore featured altar cards">Explore featured</a>
+            <a class="btn" href="#collections" aria-label="Browse collections">Browse collections</a>
+          </div>
+
+          <div class="trust" aria-label="Trust indicators">
+            <span class="chip"><span aria-hidden="true">⚡</span> <b>Instant</b> digital delivery</span>
+            <span class="chip"><span aria-hidden="true">🖨️</span> <b>Print-ready</b> files</span>
+            <span class="chip"><span aria-hidden="true">✨</span> <b>Curated</b> symbolism</span>
+            <span class="chip"><span aria-hidden="true">🔒</span> Secure checkout on Etsy</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Top picks">
+          <div class="top">
+            <div>
+              <h2>Top picks this week</h2>
+              <p class="sub">Open any card for a full-screen preview + direct Etsy link.</p>
+            </div>
+            <div class="kicker" style="margin:0; font-size:11px; letter-spacing:.16em; padding:8px 10px;">Curated</div>
+          </div>
+          <div class="mini-grid">
+            <a class="mini" href="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" target="_blank" rel="noopener noreferrer" aria-label="Quan Yin — Spiritual Growth">
+              <span class="tag-badge hot">Bestseller</span>
+              <img src="https://i.etsystatic.com/46666994/r/il/c2986a/7366219886/il_794xN.7366219886_bczg.jpg" alt="Quan Yin — Spiritual Growth altar card" loading="lazy" decoding="async" />
+              <div class="cap"><div class="t">Quan Yin</div><div class="p">Compassion • Growth</div></div>
+            </a>
+            <a class="mini" href="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" target="_blank" rel="noopener noreferrer" aria-label="Isis — Inner Transformation">
+              <span class="tag-badge">New</span>
+              <img src="https://i.etsystatic.com/46666994/r/il/ee2458/7231062688/il_794xN.7231062688_3j40.jpg" alt="Isis — Inner Transformation altar card" loading="lazy" decoding="async" />
+              <div class="cap"><div class="t">Isis</div><div class="p">Rebirth • Awakening</div></div>
+            </a>
+          </div>
+        </aside>
       </div>
     </main>
 
-    <section id="featured" aria-labelledby="featured-title">
-      <div class="section-title">
-        <h2 id="featured-title">Featured Altar Cards</h2>
-        <span class="sub">A glimpse into our sacred selections</span>
+    <section id="featured" aria-label="Featured products">
+      <div class="sec-head">
+        <div>
+          <h3>Featured altar cards</h3>
+          <p>High-intent favorites with premium presentation — ready to shop in one click.</p>
+        </div>
+        <a class="btn btn-sm" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="View all products on Etsy">View all →</a>
       </div>
-      <div class="featured-grid" aria-live="polite" aria-label="Featured altar cards">
-        <article class="feature-card" tabindex="0" aria-label="Isis — Inner Transformation altar card">
-          <div class="badge new" aria-label="New badge">New</div>
-          <img src="https://i.etsystatic.com/46666994/r/il/ee2458/7231062688/il_794xN.7231062688_3j40.jpg" alt="Isis — Inner Transformation altar card image" data-title="Isis — Inner Transformation" data-etsy="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" />
-          <div class="feature-content">
-            <h3>Isis — Inner Transformation</h3>
-            <p class="feature-meta">Digital download · From €9.99</p>
-            <p>A profound meditation card symbolizing rebirth and spiritual awakening through inner transformation.</p>
-            <a href="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" target="_blank" rel="noopener noreferrer" aria-label="View Isis — Inner Transformation on Etsy (opens new tab)">View on Etsy</a>
+
+      <div class="grid3" role="list">
+        <article class="product" role="listitem">
+          <span class="pill-badge">New</span>
+          <img src="https://i.etsystatic.com/46666994/r/il/ee2458/7231062688/il_794xN.7231062688_3j40.jpg" alt="Isis — Inner Transformation altar card" loading="lazy" decoding="async" data-title="Isis — Inner Transformation" data-etsy="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" data-blurb="A profound meditation card symbolizing rebirth and spiritual awakening through inner transformation." />
+          <div class="body">
+            <div class="title">Isis — Inner Transformation</div>
+            <div class="meta"><span>Digital download</span><span class="price">From €9.99</span></div>
+            <div class="desc">A portal for renewal, clarity, and inner alchemy. Perfect for altar focus, journaling, or moon rituals.</div>
+            <div class="row">
+              <button class="btn btn-sm" type="button" data-preview="true" aria-label="Preview Isis — Inner Transformation">Preview</button>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de-en/listing/4376101227/isis-inner-transformation-meditation" target="_blank" rel="noopener noreferrer" aria-label="Buy Isis — Inner Transformation on Etsy">Buy on Etsy</a>
+            </div>
           </div>
         </article>
-        <article class="feature-card" tabindex="0" aria-label="Quan Yin — Spiritual Growth altar card">
-          <div class="badge bestseller" aria-label="Bestseller badge">Bestseller</div>
-          <img src="https://i.etsystatic.com/46666994/r/il/c2986a/7366219886/il_794xN.7366219886_bczg.jpg" alt="Quan Yin — Spiritual Growth altar card image" data-title="Quan Yin — Spiritual Growth" data-etsy="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" />
-          <div class="feature-content">
-            <h3>Quan Yin — Spiritual Growth</h3>
-            <p class="feature-meta">Digital download · From €8.50</p>
-            <p>A prayer card inspiring compassion and continuous spiritual growth along your sacred journey.</p>
-            <a href="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" target="_blank" rel="noopener noreferrer" aria-label="View Quan Yin — Spiritual Growth on Etsy (opens new tab)">View on Etsy</a>
+
+        <article class="product" role="listitem">
+          <span class="pill-badge best">Bestseller</span>
+          <img src="https://i.etsystatic.com/46666994/r/il/c2986a/7366219886/il_794xN.7366219886_bczg.jpg" alt="Quan Yin — Spiritual Growth altar card" loading="lazy" decoding="async" data-title="Quan Yin — Spiritual Growth" data-etsy="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" data-blurb="A prayer card inspiring compassion and continuous spiritual growth along your sacred journey." />
+          <div class="body">
+            <div class="title">Quan Yin — Spiritual Growth</div>
+            <div class="meta"><span>Digital download</span><span class="price">From €8.50</span></div>
+            <div class="desc">Invite compassion, steady progress, and gentle healing. A best-selling centerpiece for daily devotion.</div>
+            <div class="row">
+              <button class="btn btn-sm" type="button" data-preview="true" aria-label="Preview Quan Yin — Spiritual Growth">Preview</button>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de-en/listing/4400129362/quan-yin-spiritual-growth-prayer-card" target="_blank" rel="noopener noreferrer" aria-label="Buy Quan Yin — Spiritual Growth on Etsy">Buy on Etsy</a>
+            </div>
           </div>
         </article>
-        <article class="feature-card" tabindex="0" aria-label="Durga — Strength & Resilience altar card">
-          <div class="badge new" aria-label="New badge">New</div>
-          <img src="https://i.etsystatic.com/46666994/r/il/c1726f/7323640672/il_794xN.7323640672_fqnt.jpg" alt="Durga — Strength & Resilience altar card image" data-title="Durga — Strength & Resilience" data-etsy="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" />
-          <div class="feature-content">
-            <h3>Durga — Strength & Resilience</h3>
-            <p class="feature-meta">Digital download · From €7.75</p>
-            <p>A meditation card celebrating strength, resilience, and the power to overcome life's challenges.</p>
-            <a href="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" target="_blank" rel="noopener noreferrer" aria-label="View Durga — Strength & Resilience on Etsy (opens new tab)">View on Etsy</a>
+
+        <article class="product" role="listitem">
+          <span class="pill-badge">New</span>
+          <img src="https://i.etsystatic.com/46666994/r/il/c1726f/7323640672/il_794xN.7323640672_fqnt.jpg" alt="Durga — Strength & Resilience altar card" loading="lazy" decoding="async" data-title="Durga — Strength & Resilience" data-etsy="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" data-blurb="A meditation card celebrating strength, resilience, and the power to overcome life's challenges." />
+          <div class="body">
+            <div class="title">Durga — Strength & Resilience</div>
+            <div class="meta"><span>Digital download</span><span class="price">From €7.75</span></div>
+            <div class="desc">For protection, courage, and fierce calm. A powerful companion for boundaries, breakthroughs, and change.</div>
+            <div class="row">
+              <button class="btn btn-sm" type="button" data-preview="true" aria-label="Preview Durga — Strength & Resilience">Preview</button>
+              <a class="btn btn-sm btn-primary" href="https://www.etsy.com/de-en/listing/4393112265/durga-strength-resilience-meditation" target="_blank" rel="noopener noreferrer" aria-label="Buy Durga — Strength & Resilience on Etsy">Buy on Etsy</a>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section aria-labelledby="browse-title">
-      <div class="section-title">
-        <h2 id="browse-title">Browse Collections</h2>
-        <span class="sub">Whispers of the divine, woven through sacred paths</span>
+    <section id="collections" aria-label="Browse collections">
+      <div class="sec-head">
+        <div>
+          <h3>Browse collections</h3>
+          <p>Choose a path — each collection is a themed gateway for your altar and creative work.</p>
+        </div>
+        <a class="btn btn-sm" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Browse all collections on Etsy">Browse on Etsy →</a>
       </div>
-      <div class="browse-grid" role="list" aria-label="Browse Collections categories">
-        <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Goddess & Divine Feminine collection">
-          <h3>Goddess &amp; Divine Feminine</h3>
-          <p>Embody grace and celestial power in sacred embrace.</p>
+
+      <div class="tiles" role="list">
+        <a class="tile" role="listitem" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Goddess & Divine Feminine">
+          <div class="t">Goddess &amp; Divine Feminine</div>
+          <div class="s">Grace, intuition, and celestial power for devotion and self-trust.</div>
         </a>
-        <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Protection & Strength collection">
-          <h3>Protection &amp; Strength</h3>
-          <p>Guardians arise with fortitude and fierce light.</p>
+        <a class="tile" role="listitem" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Protection & Strength">
+          <div class="t">Protection &amp; Strength</div>
+          <div class="s">Guardians, courage, resilience — for boundaries and bold transformation.</div>
         </a>
-        <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Compassion & Healing collection">
-          <h3>Compassion &amp; Healing</h3>
-          <p>Gentle whispers soothe the wounded soul’s flight.</p>
+        <a class="tile" role="listitem" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Compassion & Healing">
+          <div class="t">Compassion &amp; Healing</div>
+          <div class="s">Gentle restoration for heart, spirit, and inner peace.</div>
         </a>
-        <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" class="browse-tile" role="listitem" tabindex="0" aria-label="Browse Ritual & Transformation collection">
-          <h3>Ritual &amp; Transformation</h3>
-          <p>Cycles unfold, renewing spirit’s flight.</p>
+        <a class="tile" role="listitem" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Ritual & Transformation">
+          <div class="t">Ritual &amp; Transformation</div>
+          <div class="s">Cycles, rebirth, shadow-work, and luminous upgrades.</div>
         </a>
       </div>
     </section>
 
-    <section aria-labelledby="create-title">
-      <div class="section-title">
-        <h2 id="create-title">What We Create</h2>
-        <span class="sub">Unique offerings for your spiritual and creative path</span>
+    <section id="why" aria-label="Why choose us">
+      <div class="sec-head">
+        <div>
+          <h3>Designed for impact</h3>
+          <p>A premium storefront experience: clarity, trust, and magical storytelling — without sacrificing conversion.</p>
+        </div>
+        <div class="kicker" style="margin:0; font-size:11px; letter-spacing:.16em; padding:8px 10px;">Power-selling</div>
       </div>
-      <div class="cards-grid">
-        <article class="card" tabindex="0" aria-label="Altar Cards description">
-          <h3>Altar Cards</h3>
-          <p>Beautifully crafted sacred cards designed to empower your spiritual rituals and cosmic altars with symbolism and energy.</p>
-        </article>
-        <article class="card" tabindex="0" aria-label="Digital Downloads description">
-          <h3>Digital Downloads</h3>
-          <p>Curated digital art files ready to inspire, transform, and personalize your creative projects and sacred spaces.</p>
-        </article>
-        <article class="card" tabindex="0" aria-label="Mythic Packs description">
-          <h3>Mythic Packs</h3>
-          <p>Immersive collections of spiritual stories, characters, and cosmic themes to enrich your storytelling and world-building.</p>
-        </article>
+
+      <div class="value">
+        <div class="vcard">
+          <h4>Instant downloads, zero friction</h4>
+          <p>Digital products delivered immediately — ideal for last-minute gifting, rituals, and creative sessions.</p>
+        </div>
+        <div class="vcard">
+          <h4>Print-ready quality</h4>
+          <p>High-resolution art built to look beautiful on paper, in journals, and on altars — crisp details, rich symbolism.</p>
+        </div>
+        <div class="vcard">
+          <h4>Curated meaning, not clutter</h4>
+          <p>Every listing communicates a clear intention so customers can choose confidently and feel the difference.</p>
+        </div>
       </div>
     </section>
 
-    <section id="blog" aria-labelledby="blog-title">
-      <div class="section-title">
-        <h2 id="blog-title">Blog</h2>
-        <span class="sub">Sacred stories and cosmic reflections</span>
+    <section aria-label="Customer love">
+      <div class="sec-head">
+        <div>
+          <h3>Customer love</h3>
+          <p>Social proof that builds trust — crafted as elegant testimonials.</p>
+        </div>
+        <a class="btn btn-sm" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" aria-label="Read reviews on Etsy">Read on Etsy →</a>
       </div>
-      <article class="blog-post">
-        <h2>Creating Sacred Space with Mythic Altar Cards</h2>
-        <p>In a world filled with distractions, cultivating a sacred space invites mindfulness and spiritual connection. Our mythic altar cards serve as gateways to timeless stories, cosmic energies, and personal transformation.</p>
-        <p>Each card is thoughtfully designed to evoke symbolism and inspire unique rituals that connect you closer to divine feminine energies, protection, and healing. Use them in your daily meditations or as focal points in your altar to deepen your mythic journey.</p>
-        <p>Explore our collections and find the perfect cards to enrich your sacred space and creative rituals.</p>
-      </article>
+
+      <div class="reviews" role="list" aria-label="Testimonials">
+        <div class="review" role="listitem">
+          <div class="starsRow" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="quote">“Stunning artwork — the symbolism feels intentional and powerful. Printed beautifully for my altar.”</div>
+          <div class="who"><span><b>Verified buyer</b></span><span>Instant download</span></div>
+        </div>
+        <div class="review" role="listitem">
+          <div class="starsRow" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="quote">“Exactly what I needed for my ritual space. The design is calming and radiant at the same time.”</div>
+          <div class="who"><span><b>Repeat customer</b></span><span>Print-ready</span></div>
+        </div>
+        <div class="review" role="listitem">
+          <div class="starsRow" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="quote">“Fast, beautiful, and meaningful. These cards help me focus my intentions during meditation.”</div>
+          <div class="who"><span><b>Verified buyer</b></span><span>High-res art</span></div>
+        </div>
+      </div>
     </section>
 
-    <footer role="contentinfo">
-      <div class="footer-col brand-blurb">
-        <h3>About Virtual Utopia Designz</h3>
-        Bringing cosmic symbolism and spiritual art to your sacred spaces, our altar cards and designs inspire transformation and mythic storytelling.
+    <section aria-label="FAQ">
+      <div class="sec-head">
+        <div>
+          <h3>FAQ</h3>
+          <p>Quick answers that remove purchase hesitation.</p>
+        </div>
       </div>
-      <nav class="footer-col quick-links" aria-label="Quick links">
-        <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="packs.html">Blog</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="#featured">Featured</a>
-        <a href="agb.html">AGB</a>
-        <a href="impressum.html">Impressum</a>
-      </nav>
-      <div class="footer-col cta-footer">
-        <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer" class="btn-footer" aria-label="Visit Etsy Shop (opens new tab)">Visit Etsy Shop</a>
+      <div style="padding:18px">
+        <details>
+          <summary>What do I receive after purchase?</summary>
+          <p>You’ll receive a digital download (no physical shipping). Your Etsy order provides immediate access to the files so you can print or use them right away.</p>
+        </details>
+        <details>
+          <summary>Can I print these at home?</summary>
+          <p>Yes — home printing works well for most customers. For the most luxurious results, use a local print shop with thicker matte or fine-art paper.</p>
+        </details>
+        <details>
+          <summary>Do you offer bundles or packs?</summary>
+          <p>Yes. Mythic packs and themed sets are available inside the Etsy shop. Browse collections above to find the best fit.</p>
+        </details>
       </div>
-      <div class="copyright">© <span id="year"></span> Virtual Utopia Designz</div>
+    </section>
+
+    <footer role="contentinfo" aria-label="Footer">
+      <div>
+        <h5>About the Enchanted Atelier</h5>
+        <p>Virtual Utopia Designz creates sacred altar cards and cosmic art designed to transform everyday rituals into mythic moments — with a premium storefront experience that sells.</p>
+        <div class="newsletter" aria-label="Newsletter signup">
+          <div class="field" role="group" aria-label="Email address">
+            <span aria-hidden="true">✉️</span>
+            <input id="email" type="email" placeholder="Get new drops & ritual prompts" autocomplete="email" />
+          </div>
+          <button class="btn btn-primary" type="button" id="notifyBtn" aria-label="Notify me">Notify me</button>
+        </div>
+        <p id="note" style="margin-top:10px; color:var(--faint); font-size:12px; display:none;">Thanks — your request is noted locally (demo). For a real list, connect this button to your email provider.</p>
+      </div>
+
+      <div>
+        <h5>Quick links</h5>
+        <div class="links">
+          <a href="#featured">Featured</a>
+          <a href="#collections">Collections</a>
+          <a href="packs.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Store policies</h5>
+        <div class="links">
+          <a href="agb.html">AGB</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Etsy shop</a>
+        </div>
+        <p style="margin-top:14px; font-size:12px; color:rgba(238,241,255,.55)">© <span id="year"></span> Virtual Utopia Designz</p>
+      </div>
     </footer>
   </div>
 
-  <div id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" tabindex="-1">
-    <div id="lightbox-content">
-      <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
-      <img id="lightbox-image" src="" alt="" />
-      <h3 id="lightbox-title"></h3>
-      <a id="lightbox-etsy-link" href="#" target="_blank" rel="noopener noreferrer">View on Etsy</a>
+  <!-- Preview modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" tabindex="-1">
+    <div class="modal-card">
+      <div class="modal-grid">
+        <div class="modal-media">
+          <img id="mImg" src="" alt="" />
+        </div>
+        <div class="modal-body">
+          <div class="modal-top">
+            <h3 class="modal-title" id="mTitle">Preview</h3>
+            <button class="close" type="button" id="mClose" aria-label="Close preview">✕</button>
+          </div>
+          <p id="mBlurb"></p>
+          <div class="modal-actions">
+            <a class="btn btn-primary" id="mBuy" href="#" target="_blank" rel="noopener noreferrer" aria-label="Buy on Etsy">Buy on Etsy</a>
+            <button class="btn" type="button" id="mCopy" aria-label="Copy Etsy link">Copy link</button>
+          </div>
+          <p style="margin-top:14px; color:rgba(238,241,255,.55); font-size:12px">Tip: press <b>Esc</b> to close.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Intersection Observer for fade/slide-in sections and placeholders & footer
-  document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px 0px -100px 0px",
-      threshold: 0.1
-    };
+    // Newsletter demo (no external service)
+    const notifyBtn = document.getElementById('notifyBtn');
+    const note = document.getElementById('note');
+    notifyBtn?.addEventListener('click', () => {
+      const email = document.getElementById('email');
+      const val = (email?.value || '').trim();
+      if(!val){
+        note.style.display = 'block';
+        note.textContent = 'Please enter an email address to continue (demo).';
+        return;
+      }
+      note.style.display = 'block';
+      note.textContent = 'Thanks — your request is noted locally (demo). For a real list, connect this button to your email provider.';
+      try { localStorage.setItem('vud_newsletter_email', val); } catch(e) {}
+    });
 
-    const visibleSections = new Set();
+    // Modal preview
+    const modal = document.getElementById('modal');
+    const mImg = document.getElementById('mImg');
+    const mTitle = document.getElementById('mTitle');
+    const mBlurb = document.getElementById('mBlurb');
+    const mBuy = document.getElementById('mBuy');
+    const mClose = document.getElementById('mClose');
+    const mCopy = document.getElementById('mCopy');
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          visibleSections.add(entry.target);
-        } else {
-          visibleSections.delete(entry.target);
-          entry.target.classList.remove('visible');
-        }
-      });
-    }, observerOptions);
-
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => observer.observe(section));
-
-    const footer = document.querySelector('footer');
-    if(footer) observer.observe(footer);
-
-    // Lightbox modal elements
-    const modal = document.getElementById('lightbox-modal');
-    const modalImage = document.getElementById('lightbox-image');
-    const modalTitle = document.getElementById('lightbox-title');
-    const modalEtsyLink = document.getElementById('lightbox-etsy-link');
-    const closeBtn = document.getElementById('lightbox-close');
-
-    // Function to open modal with data
-    function openModal(imgSrc, title, etsyUrl, altText) {
-      modalImage.src = imgSrc;
-      modalImage.alt = altText || title || "Featured altar card";
-      modalTitle.textContent = title;
-      modalEtsyLink.href = etsyUrl;
-      modal.focus();
+    function openModal({src, title, etsy, blurb, alt}){
+      mImg.src = src;
+      mImg.alt = alt || title || 'Product preview';
+      mTitle.textContent = title || 'Preview';
+      mBlurb.textContent = blurb || 'Open on Etsy to purchase instantly.';
+      mBuy.href = etsy || '#';
       modal.classList.add('active');
-      // Prevent scroll behind
       document.body.style.overflow = 'hidden';
+      modal.focus();
     }
-
-    // Function to close modal
-    function closeModal() {
+    function closeModal(){
       modal.classList.remove('active');
-      modalImage.src = '';
-      modalImage.alt = '';
-      modalTitle.textContent = '';
-      modalEtsyLink.href = '#';
       document.body.style.overflow = '';
+      mImg.src = '';
+      mImg.alt = '';
+      mTitle.textContent = 'Preview';
+      mBlurb.textContent = '';
+      mBuy.href = '#';
     }
 
-    // Click event on images
-    const featuredImages = document.querySelectorAll('.featured-grid img[data-title]');
-    featuredImages.forEach(img => {
+    document.querySelectorAll('[data-preview="true"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.product');
+        const img = card?.querySelector('img');
+        if(!img) return;
+        openModal({
+          src: img.src,
+          title: img.dataset.title,
+          etsy: img.dataset.etsy,
+          blurb: img.dataset.blurb,
+          alt: img.alt
+        });
+      });
+    });
+
+    // Also allow clicking product images
+    document.querySelectorAll('.product img').forEach(img => {
       img.addEventListener('click', () => {
-        openModal(img.src, img.dataset.title, img.dataset.etsy, img.alt);
-      });
-      // Also support keyboard click on image (space/enter)
-      img.tabIndex = 0;
-      img.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openModal(img.src, img.dataset.title, img.dataset.etsy, img.alt);
-        }
+        openModal({
+          src: img.src,
+          title: img.dataset.title,
+          etsy: img.dataset.etsy,
+          blurb: img.dataset.blurb,
+          alt: img.alt
+        });
       });
     });
 
-    // Close button click
-    closeBtn.addEventListener('click', () => {
-      closeModal();
-    });
-
-    // Click outside modal content closes modal
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-
-    // ESC key to close modal
+    mClose?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
+      if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+
+    mCopy?.addEventListener('click', async () => {
+      const url = mBuy.href;
+      try {
+        await navigator.clipboard.writeText(url);
+        mCopy.textContent = 'Copied';
+        setTimeout(() => (mCopy.textContent = 'Copy link'), 1200);
+      } catch (e) {
+        mCopy.textContent = 'Copy failed';
+        setTimeout(() => (mCopy.textContent = 'Copy link'), 1200);
       }
     });
-  });
-</script>
+  </script>
 </body>
 </html>

@@ -1,1 +1,670 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AGB & Widerrufsrecht – Virtual Utopia Designz</title>
+  <meta name="description" content="Allgemeine Geschäftsbedingungen und Widerrufsbelehrung von Virtual Utopia Designs." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg0:#070814;
+      --bg1:#0b1026;
+      --bg2:#111a3a;
+      --panel:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:#eef1ff;
+      --muted:rgba(238,241,255,.72);
+      --faint:rgba(238,241,255,.52);
+      --gold:#ffd88a;
+      --gold2:#f5c468;
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --r22:22px;
+      --r28:28px;
+      --max:1160px;
+      --sans:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif:"Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+      --ease:cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 15%, rgba(189,167,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(123,231,255,.14), transparent 55%),
+        radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      background-attachment: fixed;
+      min-height:100vh;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* subtle static stars */
+    .stars{
+      position:fixed;
+      inset:-160px;
+      pointer-events:none;
+      opacity:.28;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.55), transparent 55%),
+        radial-gradient(1px 1px at 110px 140px, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(1.2px 1.2px at 260px 220px, rgba(255,255,255,.40), transparent 55%),
+        radial-gradient(1px 1px at 340px 80px, rgba(255,255,255,.28), transparent 55%),
+        radial-gradient(1.2px 1.2px at 480px 160px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1px 1px at 620px 260px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 760px 120px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1.2px 1.2px at 900px 240px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 1040px 90px, rgba(255,255,255,.26), transparent 55%);
+      background-size:1100px 320px;
+      z-index:-1;
+    }
+
+    .wrap{
+      width:min(var(--max), 100%);
+      margin:0 auto;
+      padding:22px 18px 64px;
+      position:relative;
+      z-index:1;
+    }
+
+    /* Header (index-like) */
+    header{
+      position:sticky;
+      top:14px;
+      z-index:50;
+      border-radius:999px;
+      padding:10px 12px;
+      background:rgba(10,12,26,.55);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px) saturate(140%);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+      color:var(--text);
+    }
+    .mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:
+        radial-gradient(circle at 28% 28%, rgba(255,216,138,.98), rgba(255,216,138,.12) 55%, transparent 72%),
+        linear-gradient(135deg, rgba(189,167,255,.82), rgba(123,231,255,.55));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 18px 50px rgba(189,167,255,.22), 0 12px 40px rgba(255,216,138,.12);
+      flex:0 0 auto;
+    }
+    .brand .name{
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:-.02em;
+      font-size:16px;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand .tag{
+      font-size:12px;
+      color:var(--faint);
+      margin-top:3px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:6px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+    nav a{
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      color:var(--muted);
+      letter-spacing:.02em;
+      transition:transform .18s var(--ease), background-color .18s var(--ease), color .18s var(--ease);
+      outline:none;
+    }
+    nav a:hover, nav a:focus-visible{
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      transform:translateY(-1px);
+      text-decoration:none;
+    }
+    nav a[aria-current="page"]{
+      background:rgba(255,255,255,.10);
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .actions{display:flex; align-items:center; gap:8px}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      letter-spacing:.02em;
+      font-size:13px;
+      transition:transform .18s var(--ease), filter .18s var(--ease), box-shadow .18s var(--ease), background-color .18s var(--ease);
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+      outline:none;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09); text-decoration:none}
+    .btn-primary{
+      border:none;
+      color:#0b1026;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      box-shadow:0 18px 52px rgba(255,216,138,.16);
+    }
+
+    /* Mobile menu */
+    .menuBtn{display:none}
+    .menuIcon{width:18px;height:18px}
+    .mobile-drawer{
+      position:fixed;
+      inset:0;
+      display:none;
+      background:rgba(0,0,0,.62);
+      z-index:200;
+      padding:18px;
+    }
+    .mobile-drawer.active{display:block}
+    .mobile-panel{
+      width:min(520px, 100%);
+      margin:72px auto 0;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(10,12,26,.92);
+      backdrop-filter: blur(18px) saturate(140%);
+      box-shadow:0 30px 120px rgba(0,0,0,.65);
+      overflow:hidden;
+    }
+    .mobile-panel .head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:14px 14px 12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+    }
+    .mobile-panel .head b{font-family:var(--serif); letter-spacing:-.01em}
+    .close{
+      border:none;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--text);
+      width:40px; height:40px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:18px;
+    }
+    .mobile-links{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      padding:12px 12px 14px;
+    }
+    .mobile-links a{
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      font-weight:900;
+      color:var(--text);
+    }
+
+    /* Page card */
+    .page{
+      margin:18px 0 0;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .pageHead{
+      padding:24px 22px 18px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.10);
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      width:max-content;
+    }
+    h1{
+      font-family:var(--serif);
+      margin:12px 0 8px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      letter-spacing:-.03em;
+      line-height:1.08;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:80ch;
+    }
+
+    .content{
+      padding:18px 22px 24px;
+      display:grid;
+      gap:14px;
+    }
+
+    .toc{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+    }
+    .toc a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .toc a:hover{background:rgba(255,255,255,.07); text-decoration:none}
+
+    .block{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      padding:16px 16px 14px;
+    }
+    .block h2{
+      font-family:var(--serif);
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:-.01em;
+    }
+    .block h3{
+      margin:14px 0 6px;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(238,241,255,.88);
+    }
+    .block p, .block li{
+      margin:6px 0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+    }
+    .block ul{margin:8px 0 0 18px}
+
+    .tiny{
+      color:var(--faint);
+      font-size:12px;
+      line-height:1.6;
+      margin-top:10px;
+    }
+
+    footer{
+      margin-top:24px;
+      padding:22px;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap:16px;
+    }
+    footer h5{
+      font-family:var(--serif);
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    footer p{margin:0; color:var(--faint); font-size:13px; line-height:1.6}
+    .links{display:flex; flex-direction:column; gap:10px; font-size:13px}
+    .links a{color:var(--muted); font-weight:700}
+    .links a:hover{text-decoration:underline; color:var(--text)}
+
+    @media (max-width: 980px){
+      nav{display:none}
+      .menuBtn{display:inline-flex}
+      footer{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header role="banner" aria-label="Site header">
+      <a class="brand" href="index.html" aria-label="Virtual Utopia Designz home">
+        <span class="mark" aria-hidden="true"></span>
+        <span style="display:flex; flex-direction:column; min-width:0">
+          <span class="name">Virtual Utopia Designz</span>
+          <span class="tag">The Enchanted Atelier • Altar cards • Cosmic art • Mythic packs</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn menuBtn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg class="menuIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Menu
+        </button>
+        <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">
+          Shop on Etsy
+        </a>
+      </div>
+    </header>
+
+    <!-- Mobile menu drawer -->
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+        <div class="head">
+          <b>Menu</b>
+          <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
+        </div>
+        <div class="mobile-links" role="navigation" aria-label="Mobile primary">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="agb.html" aria-current="page" style="outline:1px solid rgba(255,255,255,.12)">AGB</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="page" role="main">
+      <div class="pageHead">
+        <div class="kicker">Legal</div>
+        <h1>AGB & Widerrufsrecht</h1>
+        <p class="lead">
+          Diese Bedingungen gelten für Bestellungen über diese Website (Virtual Utopia Designs).
+          Für Plattformen Dritter (z. B. Etsy) können ergänzende Bedingungen gelten.
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="toc" aria-label="Inhaltsverzeichnis">
+          <a href="#agb">AGB</a>
+          <a href="#widerruf">Widerrufsbelehrung</a>
+          <a href="#formular">Muster-Widerrufsformular</a>
+          <a href="#streit">Streitbeilegung</a>
+        </div>
+
+        <section id="agb" class="block" aria-label="Allgemeine Geschäftsbedingungen">
+          <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+
+          <h3>1. Geltungsbereich</h3>
+          <p>
+            Diese Allgemeinen Geschäftsbedingungen gelten für alle Bestellungen, die Verbraucher (§ 13 BGB)
+            über die Website von <b>Virtual Utopia Designs</b> tätigen, sowie für digitale Inhalte (Downloads),
+            die über diese Website bereitgestellt werden.
+          </p>
+
+          <h3>2. Anbieter / Vertragspartner</h3>
+          <p>
+            <b>Virtual Utopia Designs</b><br>
+            Inhaber: Tyler Reed<br>
+            Steindamm 9, 25479 Ellerau, Deutschland<br>
+            Telefon: +49 159 01320659<br>
+            E-Mail: tylerreed@outlook.de<br>
+            USt-IdNr.: DE361684923<br>
+            Einzelunternehmen / Kleingewerbe<br>
+            Alle Preise sind Endpreise nach § 19 UStG (Kleinunternehmerregelung) – keine Ausweisung von Umsatzsteuer.
+          </p>
+
+          <h3>3. Angebot und Vertragsschluss</h3>
+          <p>(1) Die Darstellung der Produkte auf dieser Website stellt kein rechtlich bindendes Angebot, sondern eine unverbindliche Produktpräsentation dar.</p>
+          <p>(2) Durch Anklicken des Bestellbuttons geben Sie ein verbindliches Angebot zum Kauf der ausgewählten Waren bzw. digitalen Inhalte ab.</p>
+          <p>(3) Der Vertrag kommt zustande, sobald wir Ihre Bestellung per E-Mail bestätigen oder die Ware versenden bzw. den Download freischalten.</p>
+
+          <h3>4. Preise</h3>
+          <p>
+            Es gelten die zum Zeitpunkt der Bestellung angegebenen Preise. Versandkosten werden – sofern anwendbar –
+            im Checkout gesondert ausgewiesen.
+          </p>
+
+          <h3>5. Zahlung</h3>
+          <p>
+            Die Zahlung erfolgt über die auf der Website angebotenen Zahlungsmethoden.
+            Bei Nutzung externer Zahlungsdienste gelten ergänzend deren Bedingungen.
+          </p>
+
+          <h3>6. Lieferung / Bereitstellung</h3>
+          <p>(1) <b>Physische Ware:</b> Lieferung an die vom Kunden angegebene Adresse über Versanddienstleister. Lieferzeiten sind auf der Produktseite angegeben (sofern vorhanden).</p>
+          <p>(2) <b>Digitale Inhalte:</b> Digitale Produkte werden elektronisch bereitgestellt (z. B. als Download-Link oder per E-Mail). Für eine erfolgreiche Bereitstellung ist eine korrekte E-Mail-Adresse erforderlich.</p>
+
+          <h3>7. Digitale Inhalte – Nutzungsrechte</h3>
+          <p>(1) Digitale Inhalte sind ausschließlich zur <b>privaten Nutzung</b> bestimmt, sofern nicht ausdrücklich anders vereinbart.</p>
+          <p>(2) Eine Weitergabe, Vervielfältigung, der Weiterverkauf oder das öffentliche Bereitstellen (z. B. Upload, Teilen in Gruppen, Weitergabe von Download-Links) ist untersagt, sofern keine schriftliche Erlaubnis erteilt wurde.</p>
+
+          <h3>8. Widerrufsrecht bei digitalen Inhalten</h3>
+          <p>
+            Bei digitalen Inhalten, die nicht auf einem körperlichen Datenträger geliefert werden, erlischt das Widerrufsrecht vorzeitig,
+            sobald wir mit der Ausführung des Vertrags begonnen haben, nachdem Sie ausdrücklich zugestimmt haben und Ihre Kenntnis vom Verlust
+            des Widerrufsrechts bestätigt haben.
+          </p>
+
+          <h3>9. Eigentumsvorbehalt</h3>
+          <p>Bei physischen Waren bleibt die Ware bis zur vollständigen Zahlung unser Eigentum.</p>
+
+          <h3>10. Gewährleistung</h3>
+          <p>Es gelten die gesetzlichen Gewährleistungsrechte.</p>
+
+          <h3>11. Haftung</h3>
+          <p>(1) Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit.</p>
+          <p>(2) Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten) und beschränkt auf den vorhersehbaren, typischerweise eintretenden Schaden.</p>
+          <p>(3) Die Haftung für entgangenen Gewinn ist ausgeschlossen, soweit gesetzlich zulässig.</p>
+
+          <h3>12. Anwendbares Recht</h3>
+          <p>
+            Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts.
+            Für Verbraucher gilt dies nur, soweit dadurch keine zwingenden Schutzvorschriften des Staates des gewöhnlichen Aufenthalts entzogen werden.
+          </p>
+
+          <h3>13. Schlussbestimmungen</h3>
+          <p>Sollte eine Bestimmung dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+
+          <p class="tiny">
+            Hinweis: Diese AGB sind für deinen Website-Shop formuliert. Wenn du zusätzlich über Plattformen Dritter verkaufst (z. B. Etsy),
+            können dort ergänzende Regelungen gelten.
+          </p>
+        </section>
+
+        <section id="widerruf" class="block" aria-label="Widerrufsbelehrung">
+          <h2>Widerrufsbelehrung</h2>
+
+          <h3>Widerrufsrecht</h3>
+          <p>Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
+
+          <h3>Widerrufsfrist</h3>
+          <p>
+            Die Widerrufsfrist beträgt 14 Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter,
+            der nicht der Beförderer ist, die Ware in Besitz genommen haben.
+          </p>
+
+          <h3>Widerruf ausüben</h3>
+          <p>
+            Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Tyler Reed, Steindamm 9, 25479 Ellerau, Deutschland,
+            E-Mail: tylerreed@outlook.de) mittels einer eindeutigen Erklärung (z. B. per E-Mail) über Ihren Entschluss informieren.
+            Sie können dafür das unten beigefügte Muster-Widerrufsformular verwenden.
+          </p>
+
+          <h3>Folgen des Widerrufs</h3>
+          <p>
+            Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens
+            binnen 14 Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf bei uns eingegangen ist.
+            Für die Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben.
+          </p>
+          <p>
+            Wir können die Rückzahlung verweigern, bis wir die Waren zurückerhalten haben oder bis Sie den Nachweis erbracht haben,
+            dass Sie die Waren zurückgesandt haben.
+          </p>
+
+          <h3>Rücksendung</h3>
+          <p>
+            Sie haben die Waren unverzüglich und in jedem Fall spätestens binnen 14 Tagen ab dem Tag zurückzusenden, an dem Sie uns
+            über den Widerruf unterrichten. Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.
+          </p>
+
+          <h3>Ausschluss / vorzeitiges Erlöschen des Widerrufsrechts</h3>
+          <ul>
+            <li>Digitale Inhalte, die nicht auf einem körperlichen Datenträger geliefert werden, wenn mit der Ausführung des Vertrags begonnen wurde, nachdem der Verbraucher ausdrücklich zugestimmt hat und seine Kenntnis vom Verlust des Widerrufsrechts bestätigt hat.</li>
+            <li>Versiegelte Waren, die aus Gründen des Gesundheitsschutzes oder der Hygiene nicht zur Rückgabe geeignet sind, wenn ihre Versiegelung nach der Lieferung entfernt wurde.</li>
+          </ul>
+        </section>
+
+        <section id="formular" class="block" aria-label="Muster-Widerrufsformular">
+          <h2>Muster-Widerrufsformular</h2>
+          <p>(Wenn Sie den Vertrag widerrufen wollen, füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</p>
+          <p>
+            <b>An:</b> Tyler Reed, Steindamm 9, 25479 Ellerau, Deutschland, E-Mail: tylerreed@outlook.de
+          </p>
+          <p>
+            Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*)
+            / die Erbringung der folgenden Dienstleistung (*)
+          </p>
+          <p>Bestellt am (*) / erhalten am (*)</p>
+          <p>Name des/der Verbraucher(s)</p>
+          <p>Anschrift des/der Verbraucher(s)</p>
+          <p>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)</p>
+          <p>Datum</p>
+          <p class="tiny">(*) Unzutreffendes streichen.</p>
+        </section>
+
+        <section id="streit" class="block" aria-label="Online-Streitbeilegung">
+          <h2>Online-Streitbeilegung / Verbraucherschlichtung</h2>
+          <p>
+            Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <h5>Virtual Utopia Designz</h5>
+        <p>Legal pages designed to match your cosmic storefront aesthetic.</p>
+        <p class="tiny">Stand: <span id="policyDate"></span></p>
+      </div>
+
+      <div>
+        <h5>Quick links</h5>
+        <div class="links">
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+          <a href="blog.html">Blog</a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Store policies</h5>
+        <div class="links">
+          <a href="agb.html">AGB</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="impressum.html#datenschutz">Datenschutz</a>
+          <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Etsy shop</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu logic
+    const btn = document.getElementById("menuBtn");
+    const drawer = document.getElementById("mobileMenu");
+    const closeBtn = document.getElementById("menuClose");
+
+    function openMenu(){
+      drawer.classList.add("active");
+      drawer.setAttribute("aria-hidden","false");
+      btn?.setAttribute("aria-expanded","true");
+      document.body.style.overflow = "hidden";
+    }
+    function closeMenu(){
+      drawer.classList.remove("active");
+      drawer.setAttribute("aria-hidden","true");
+      btn?.setAttribute("aria-expanded","false");
+      document.body.style.overflow = "";
+    }
+
+    btn?.addEventListener("click", openMenu);
+    closeBtn?.addEventListener("click", closeMenu);
+    drawer?.addEventListener("click", (e) => { if(e.target === drawer) closeMenu(); });
+    window.addEventListener("keydown", (e) => { if(e.key === "Escape") closeMenu(); });
+
+    // "Stand" date
+    const d = new Date();
+    const fmt = new Intl.DateTimeFormat('de-DE', { year:'numeric', month:'long', day:'2-digit' });
+    document.getElementById("policyDate").textContent = fmt.format(d);
+  </script>
+</body>
+</html>

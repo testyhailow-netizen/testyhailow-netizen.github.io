@@ -1,145 +1,853 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us - Virtual Utopia Designz</title>
-
+  <title>Contact • Virtual Utopia Designz</title>
+  <meta name="description" content="Reach out to Virtual Utopia Designz — commissions, questions, collaborations, and custom altar card requests." />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
     :root{
-      --bg:#f8f6f2;
-      --panel: rgba(14, 16, 28, .52);
-      --text:#E6E2F0;
+      --bg0:#070A14;
+      --bg1:#0A1130;
+      --bg2:#0F2A3A;
+      --panel: rgba(14, 16, 28, .56);
+      --panel2: rgba(255,255,255,.06);
+      --text:#EDEAF7;
       --muted:#BFB9D6;
+      --muted2:#9A92B7;
       --gold:#D7C07A;
-      --border: rgba(255,255,255,.10);
-      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --gold2:#f2db95;
+      --border: rgba(255,255,255,.12);
+      --shadow: 0 18px 55px rgba(0,0,0,.42);
+      --shadow2: 0 22px 70px rgba(0,0,0,.55);
       --radius: 18px;
       --radius2: 26px;
+      --max: 1120px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+      --focus: 0 0 0 4px rgba(215,192,122,.18), 0 0 0 1px rgba(215,192,122,.6) inset;
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; margin:0; font-family: ui-serif, Georgia, "Times New Roman", serif; color: var(--text); background: var(--bg); }
-    a{ color: inherit; text-decoration: none; }
-
-    .wrap{ max-width: 720px; margin: 30px auto 50px; padding: 24px; background: var(--panel); border-radius: var(--radius2); box-shadow: var(--shadow); border: 1px solid var(--border); }
-
-    h1{
-      font-size: 32px;
-      margin-bottom: 24px;
-      letter-spacing: -0.3px;
-      font-weight: 800;
-      color: var(--gold);
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color: var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 12% 8%, rgba(215,192,122,.14), transparent 60%),
+        radial-gradient(900px 600px at 84% 20%, rgba(120,198,255,.14), transparent 60%),
+        radial-gradient(900px 700px at 70% 90%, rgba(166,90,255,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      background-attachment: fixed; /* keeps colors from "sliding" on zoom */
+      overflow-x:hidden;
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    /* subtle static star texture (no drift animation) */
+    .stars{
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      opacity:.35;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.65), transparent 40%),
+        radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,.6), transparent 40%),
+        radial-gradient(1px 1px at 70% 35%, rgba(255,255,255,.55), transparent 40%),
+        radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,.5), transparent 40%),
+        radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,.45), transparent 40%),
+        radial-gradient(1px 1px at 20% 55%, rgba(255,255,255,.45), transparent 40%),
+        radial-gradient(1px 1px at 78% 86%, rgba(255,255,255,.4), transparent 40%);
+      background-size: 420px 420px, 520px 520px, 620px 620px, 720px 720px, 820px 820px, 920px 920px, 1020px 1020px;
+      background-position: 0 0;
+      transform: translateZ(0);
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    .page{
+      position:relative; z-index:1;
+      padding: 28px 18px 70px;
     }
+    .container{ max-width: var(--max); margin:0 auto; }
 
-    label {
-      font-weight: 700;
-      font-size: 15px;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    /* Top capsule */
+    .topCapsule{
+      display:flex; justify-content:center; align-items:center;
+      margin: 10px 0 18px;
+    }
+    .capsule{
+      display:flex; gap:10px; align-items:center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      max-width:min(860px, 100%);
+      overflow:hidden;
+    }
+    .capsule b{
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:#0b0b12;
+      background: linear-gradient(135deg, rgba(215,192,122,.95), rgba(215,192,122,.55));
+      padding: 6px 12px;
+      border-radius: 999px;
+      white-space:nowrap;
+    }
+    .capsule span{
+      font-size: 13px;
       color: var(--muted);
-      user-select: none;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .capsule .dot{ opacity:.45; }
+
+    /* Header */
+    header{
+      display:flex; justify-content:center;
+      margin: 0 auto 24px;
+    }
+    .navShell{
+      width:100%;
+      max-width: var(--max);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(135deg, rgba(20,26,48,.62), rgba(12,14,26,.52));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      padding: 10px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      min-width: 260px;
+    }
+    .logo{
+      width: 34px; height:34px; border-radius: 12px;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.8), rgba(255,255,255,.05) 55%),
+                  linear-gradient(135deg, rgba(215,192,122,.95), rgba(120,198,255,.35));
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.12);
+      flex: 0 0 auto;
+    }
+    .brandText strong{
+      display:block; font-weight: 900;
+      letter-spacing: -0.2px;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      line-height: 1.1;
+    }
+    .brandText em{
+      display:block; font-style:normal;
+      font-size: 12px;
+      color: rgba(191,185,214,.85);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 260px;
     }
 
-    input[type="text"], input[type="email"], textarea {
-      padding: 12px 16px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+    nav.desktopNav{
+      display:flex; gap: 8px; align-items:center; flex: 1 1 auto;
+      justify-content:center;
+    }
+    .navLink{
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(237,234,247,.86);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+      user-select:none;
+    }
+    .navLink:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.10);
+      color: var(--gold2);
+    }
+    .navLink[aria-current="page"]{
+      background: rgba(215,192,122,.14);
+      border-color: rgba(215,192,122,.42);
+      color: var(--gold2);
+    }
+
+    .actions{
+      display:flex; gap:10px; align-items:center;
+      margin-left:auto;
+    }
+    .btn{
+      border:none; cursor:pointer;
+      font-weight: 900;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #0b0b12;
+      background: linear-gradient(135deg, rgba(215,192,122,.95), rgba(215,192,122,.55));
+      box-shadow: 0 18px 50px rgba(215,192,122,.18);
+      transition: transform .18s var(--ease), filter .18s var(--ease);
+      display:inline-flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+    .btnGhost{
+      background: rgba(255,255,255,.06);
+      color: rgba(237,234,247,.92);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    .btnGhost:hover{ border-color: rgba(215,192,122,.35); color: var(--gold2); }
+
+    .hamburger{
+      display:none;
+      width: 44px; height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(237,234,247,.9);
+      cursor:pointer;
+      transition: transform .18s var(--ease), border-color .18s var(--ease);
+    }
+    .hamburger:hover{ transform: translateY(-1px); border-color: rgba(215,192,122,.35); }
+    .hamburger:focus-visible, .navLink:focus-visible, .btn:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible{
+      outline: none;
+      box-shadow: var(--focus);
+    }
+
+    /* Mobile drawer */
+    .drawerBackdrop{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(6px);
+      opacity:0; pointer-events:none;
+      transition: opacity .22s var(--ease);
+      z-index: 40;
+    }
+    .drawer{
+      position:fixed;
+      top: 14px; left: 14px; right: 14px;
+      max-width: 520px;
+      margin: 0 auto;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(20,26,48,.75), rgba(12,14,26,.62));
+      box-shadow: var(--shadow2);
+      transform: translateY(-12px) scale(.98);
+      opacity:0;
+      pointer-events:none;
+      transition: transform .22s var(--ease), opacity .22s var(--ease);
+      z-index: 50;
+      overflow:hidden;
+    }
+    .drawerHeader{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .drawerHeader strong{ font-weight: 900; letter-spacing: .02em; }
+    .drawerClose{
+      width: 42px; height: 38px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(237,234,247,.9);
+      cursor:pointer;
+    }
+    .drawerBody{ padding: 12px; display:grid; gap: 10px; }
+    .drawerGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .drawer a.navLink{
+      display:block;
+      text-align:center;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .drawerActions{ display:grid; gap:10px; margin-top:4px; }
+    .drawerActions a.btn{ justify-content:center; }
+
+    body.menuOpen .drawerBackdrop{ opacity:1; pointer-events:auto; }
+    body.menuOpen .drawer{
+      opacity:1; pointer-events:auto;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Main */
+    main{ margin-top: 18px; }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:stretch;
+      margin-top: 10px;
+    }
+    .card{
+      background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .heroLeft{ padding: 22px; }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(215,192,122,.30);
+      background: rgba(215,192,122,.10);
+      color: var(--gold2);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: 42px;
+      letter-spacing: -0.8px;
+      line-height: 1.06;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+    }
+    .sub{
+      color: rgba(191,185,214,.92);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+    .quickRow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 16px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(237,234,247,.92);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .pill small{ color: rgba(191,185,214,.9); font-weight: 800; }
+
+    .heroRight{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
+    .mini{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+    }
+    .mini h3{ margin:0 0 6px; font-size: 14px; letter-spacing: .02em; }
+    .mini p{ margin:0; color: rgba(191,185,214,.92); font-size: 13px; line-height: 1.5; }
+    .mini a{ color: var(--gold2); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Form */
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1fr .55fr;
+      gap: 18px;
+      align-items:start;
+    }
+    .formCard{ padding: 18px; }
+    .formHead{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .formHead h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: .01em;
+    }
+    .formHead span{
+      color: rgba(191,185,214,.85);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    form{ display:grid; gap: 12px; }
+    .row2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label{
+      display:block;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(191,185,214,.92);
+      margin: 0 0 6px 2px;
+      user-select:none;
+    }
+    input, textarea, select{
+      width:100%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
       color: var(--text);
       font-size: 14px;
-      font-family: ui-serif, Georgia, "Times New Roman", serif;
-      resize: vertical;
-      transition: border-color 0.25s ease;
+      transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+    }
+    textarea{ min-height: 140px; resize: vertical; }
+    input::placeholder, textarea::placeholder{ color: rgba(154,146,183,.9); }
+    input:focus, textarea:focus, select:focus{
+      outline:none;
+      border-color: rgba(215,192,122,.55);
+      background: rgba(215,192,122,.10);
+      box-shadow: 0 0 0 4px rgba(215,192,122,.12);
+    }
+    .help{
+      color: rgba(191,185,214,.85);
+      font-size: 12px;
+      line-height: 1.45;
+      margin-top: -6px;
+      padding-left: 2px;
     }
 
-    input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-      outline: none;
-      border-color: var(--gold);
-      background: rgba(215,192,122,.12);
-      box-shadow: 0 0 8px rgba(215,192,122,.35);
+    .formActions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+      margin-top: 6px;
+    }
+    .btnWide{ padding: 12px 16px; font-size: 14px; }
+    .btnWide svg{ width: 16px; height: 16px; }
+    .status{
+      display:none;
+      margin-top: 10px;
+      padding: 12px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(237,234,247,.92);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .status.good{
+      border-color: rgba(120,198,255,.28);
+      background: rgba(120,198,255,.10);
+    }
+    .status.bad{
+      border-color: rgba(255,120,120,.28);
+      background: rgba(255,120,120,.10);
     }
 
-    button {
-      padding: 14px 20px;
-      border-radius: var(--radius2);
-      border: none;
+    /* Sidebar */
+    .sideCard{ padding: 18px; display:grid; gap: 12px; }
+    .sideCard h3{ margin:0; font-size: 14px; letter-spacing: .02em; }
+    .sideItem{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+      display:grid;
+      gap: 6px;
+    }
+    .sideItem p{ margin:0; color: rgba(191,185,214,.92); font-size: 13px; line-height: 1.5; }
+    .sideItem a{
+      display:inline-flex; align-items:center; gap:8px;
+      color: var(--gold2);
       font-weight: 900;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: 16px;
-      background: linear-gradient(135deg, rgba(215,192,122,.92), rgba(215,192,122,.52));
-      color: #0b0b12;
-      cursor: pointer;
-      box-shadow: 0 18px 45px rgba(215,192,122,.18);
-      transition: filter 0.2s ease, transform 0.2s ease;
+      font-size: 13px;
+      text-decoration:none;
+    }
+    .sideItem a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+    details{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px;
+      font-weight: 900;
+      font-size: 13px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details .faqBody{
+      padding: 0 14px 14px;
+      color: rgba(191,185,214,.92);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .chev{
+      width: 18px; height: 18px;
+      opacity:.8;
+      transition: transform .18s var(--ease);
+    }
+    details[open] .chev{ transform: rotate(180deg); }
+
+    footer{
+      margin-top: 22px;
+      padding: 18px 6px 0;
+      text-align:center;
+      color: rgba(191,185,214,.78);
+      font-size: 12px;
     }
 
-    button:hover {
-      filter: brightness(1.1);
-      transform: translateY(-1px);
-      box-shadow: 0 22px 60px rgba(215,192,122,.22);
+    /* Responsive */
+    @media (max-width: 980px){
+      .brand{ min-width: unset; }
+      nav.desktopNav{ display:none; }
+      .hamburger{ display:inline-flex; align-items:center; justify-content:center; }
+      .actions .btnGhost{ display:none; } /* keep header clean on mobile */
+      .hero{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .row2{ grid-template-columns: 1fr; }
+      .drawerGrid{ grid-template-columns: 1fr; }
+      h1{ font-size: 34px; }
+      .brandText em{ max-width: 46vw; }
     }
-
-    nav {
-      margin-bottom: 30px;
-      display: flex;
-      gap: 18px;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-    }
-    nav a {
-      color: var(--muted);
-      padding: 8px 12px;
-      border-radius: 16px;
-      border: 1px solid transparent;
-      transition: color 0.22s ease, background 0.22s ease, border-color 0.22s ease;
-    }
-    nav a:hover {
-      color: var(--gold);
-      background: rgba(215,192,122,0.12);
-      border-color: var(--gold);
-    }
-
-    @media (max-width: 500px) {
-      .wrap {
-        margin: 20px 12px 40px;
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior:auto !important; transition:none !important; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <nav aria-label="Breadcrumb navigation">
-      <a href="index.html">Home</a>
-      <a href="packs.html">Hero Packs</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <div class="stars" aria-hidden="true"></div>
 
-    <h1>Contact Us</h1>
-    <form action="#" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+  <div class="page">
+    <div class="container">
+      <div class="topCapsule" aria-hidden="true">
+        <div class="capsule">
+          <b>STUDIO NOTES</b>
+          <span>Commissions • Questions • Collaborations • Custom altar card ideas</span>
+        </div>
+      </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <header>
+        <div class="navShell" role="navigation" aria-label="Primary navigation">
+          <a class="brand" href="index.html" aria-label="Virtual Utopia Designz home">
+            <div class="logo" aria-hidden="true"></div>
+            <div class="brandText">
+              <strong>Virtual Utopia Designz</strong>
+              <em>The Enchanted Atelier • Altar cards • Cosmic design</em>
+            </div>
+          </a>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+          <nav class="desktopNav" aria-label="Desktop menu">
+            <a class="navLink" href="index.html">Home</a>
+            <a class="navLink" href="featured.html">Featured</a>
+            <a class="navLink" href="collections.html">Collections</a>
+            <a class="navLink" href="whyus.html">Why Us</a>
+            <a class="navLink" href="blog.html">Blog</a>
+            <a class="navLink" href="about.html">About</a>
+            <a class="navLink" href="contact.html" aria-current="page">Contact</a>
+          </nav>
 
-      <button type="submit">Send</button>
-    </form>
+          <div class="actions">
+            <a class="btn btnGhost" href="shop.html" aria-label="Shop">
+              <span aria-hidden="true">🛒</span> Shop
+            </a>
+            <a class="btn" href="https://www.etsy.com/" target="_blank" rel="noopener">
+              Shop on Etsy <span aria-hidden="true">↗</span>
+            </a>
+
+            <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
+              <span aria-hidden="true">☰</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mobile Drawer -->
+      <div class="drawerBackdrop" id="drawerBackdrop" aria-hidden="true"></div>
+      <div class="drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+        <div class="drawerHeader">
+          <strong>Menu</strong>
+          <button class="drawerClose" id="menuClose" aria-label="Close menu">✕</button>
+        </div>
+        <div class="drawerBody">
+          <div class="drawerGrid">
+            <a class="navLink" href="index.html">Home</a>
+            <a class="navLink" href="featured.html">Featured</a>
+            <a class="navLink" href="collections.html">Collections</a>
+            <a class="navLink" href="whyus.html">Why Us</a>
+            <a class="navLink" href="blog.html">Blog</a>
+            <a class="navLink" href="about.html">About</a>
+            <a class="navLink" href="contact.html" aria-current="page">Contact</a>
+          </div>
+          <div class="drawerActions">
+            <a class="btn btnGhost" href="shop.html"><span aria-hidden="true">🛒</span> Shop</a>
+            <a class="btn" href="https://www.etsy.com/" target="_blank" rel="noopener">Shop on Etsy <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <section class="hero">
+          <div class="card heroLeft">
+            <div class="kicker">CONTACT</div>
+            <h1>Send a note from your corner of the cosmos.</h1>
+            <p class="sub">
+              Use the form below for questions, commissions, wholesale inquiries, or just to say hi.
+              I usually reply within <b>1–2 business days</b>. If it’s urgent, email works best.
+            </p>
+
+            <div class="quickRow" aria-label="Quick contact options">
+              <a class="pill" href="#contactForm" title="Jump to the form">
+                <span aria-hidden="true">✉️</span> Message form <small>fastest</small>
+              </a>
+              <a class="pill" href="mailto:hello@your-domain.com?subject=Virtual%20Utopia%20Designz%20Inquiry" title="Email">
+                <span aria-hidden="true">📨</span> hello@your-domain.com <small>email</small>
+              </a>
+              <a class="pill" href="https://www.etsy.com/" target="_blank" rel="noopener" title="Etsy">
+                <span aria-hidden="true">🛍️</span> Etsy shop <small>browse</small>
+              </a>
+            </div>
+          </div>
+
+          <aside class="card heroRight" aria-label="Info">
+            <div class="mini">
+              <h3>Best for commissions</h3>
+              <p>Pick “Commission/Custom” in the subject and add your timeline + vibe (colors, symbols, mood).</p>
+            </div>
+            <div class="mini">
+              <h3>Order questions</h3>
+              <p>If you’re contacting about an order, include your order number in the message.</p>
+            </div>
+            <div class="mini">
+              <h3>Prefer email?</h3>
+              <p>Write to <a href="mailto:hello@your-domain.com?subject=Virtual%20Utopia%20Designz%20Inquiry">hello@your-domain.com</a>.</p>
+            </div>
+          </aside>
+        </section>
+
+        <section class="grid">
+          <section class="card formCard" aria-label="Contact form">
+            <div class="formHead">
+              <h2 id="contactForm">Message the studio</h2>
+              <span>* required</span>
+            </div>
+
+            <!--
+              MIGRATION NOTE:
+              - For domain hosting: replace the action with your form handler endpoint.
+                Examples: Netlify Forms, Formspree, custom server, etc.
+              - This page currently uses client-side "demo submit" for a nice UX.
+            -->
+            <form id="contactFormEl" action="#" method="post" novalidate>
+              <div class="row2">
+                <div>
+                  <label for="name">Name *</label>
+                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label for="email">Email *</label>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+                </div>
+              </div>
+
+              <div class="row2">
+                <div>
+                  <label for="topic">Subject *</label>
+                  <select id="topic" name="topic" required>
+                    <option value="" selected disabled>Choose one…</option>
+                    <option>General question</option>
+                    <option>Commission / Custom</option>
+                    <option>Order help</option>
+                    <option>Wholesale / Collaboration</option>
+                    <option>Other</option>
+                  </select>
+                  <div class="help">This helps route your message faster.</div>
+                </div>
+                <div>
+                  <label for="timeline">Timeline</label>
+                  <input id="timeline" name="timeline" type="text" placeholder="e.g., this week / next month" />
+                  <div class="help">Optional, but helpful for commissions.</div>
+                </div>
+              </div>
+
+              <div>
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" placeholder="Tell me what you’re envisioning… symbols, colors, mood, budget range, order details, etc." required></textarea>
+                <div class="help">Please avoid sharing sensitive payment info in messages.</div>
+              </div>
+
+              <div class="formActions">
+                <button class="btn btnWide" type="submit">
+                  <span aria-hidden="true">✨</span> Send message
+                </button>
+                <button class="btn btnGhost btnWide" type="button" id="copyEmailBtn" aria-label="Copy email">
+                  <span aria-hidden="true">📋</span> Copy email
+                </button>
+              </div>
+
+              <div class="status" id="statusBox" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <aside class="card sideCard" aria-label="Contact details">
+            <div class="sideItem">
+              <h3>Direct email</h3>
+              <p>If forms are blocked on your network, email is always open.</p>
+              <a href="mailto:hello@your-domain.com?subject=Virtual%20Utopia%20Designz%20Inquiry">
+                hello@your-domain.com <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="sideItem">
+              <h3>Social / updates</h3>
+              <p>Share your unboxing photos and tag the studio ✨</p>
+              <a href="#" onclick="return false;" aria-label="Instagram placeholder">
+                Instagram (add link) <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <details>
+              <summary>
+                FAQ: How long do replies take?
+                <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <div class="faqBody">
+                Most messages get a response in <b>1–2 business days</b>. During launches or holidays it can take a little longer.
+                If you’re following up, replying to your original email/message helps keep everything in one thread.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                FAQ: Do you do custom altar cards?
+                <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <div class="faqBody">
+                Yes — tell me your theme (protection, love, abundance, shadow work, etc.), preferred palette, and any symbols you want included.
+                If you have references, links are perfect.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                FAQ: Where do you ship?
+                <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <div class="faqBody">
+                Shipping options depend on the platform you order through. If you’re unsure, message me with your country and what you’re interested in.
+              </div>
+            </details>
+          </aside>
+        </section>
+
+        <footer>
+          © <span id="year"></span> Virtual Utopia Designz • Contact page ready for domain migration (swap the form action to your future handler).
+        </footer>
+      </main>
+    </div>
   </div>
+
+  <script>
+    // ===== Mobile menu =====
+    const body = document.body;
+    const menuBtn = document.getElementById('menuBtn');
+    const menuClose = document.getElementById('menuClose');
+    const backdrop = document.getElementById('drawerBackdrop');
+    const drawer = document.getElementById('mobileDrawer');
+
+    function openMenu(){
+      body.classList.add('menuOpen');
+      menuBtn.setAttribute('aria-expanded','true');
+      // focus first link for accessibility
+      const firstLink = drawer.querySelector('a.navLink');
+      setTimeout(()=> firstLink && firstLink.focus(), 50);
+    }
+    function closeMenu(){
+      body.classList.remove('menuOpen');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.focus();
+    }
+    menuBtn && menuBtn.addEventListener('click', ()=> {
+      body.classList.contains('menuOpen') ? closeMenu() : openMenu();
+    });
+    menuClose && menuClose.addEventListener('click', closeMenu);
+    backdrop && backdrop.addEventListener('click', closeMenu);
+    window.addEventListener('keydown', (e)=> {
+      if(e.key === 'Escape' && body.classList.contains('menuOpen')) closeMenu();
+    });
+
+    // ===== Contact form (demo submit) =====
+    const form = document.getElementById('contactFormEl');
+    const statusBox = document.getElementById('statusBox');
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const email = 'hello@your-domain.com';
+
+    function setStatus(type, msg){
+      statusBox.className = 'status ' + (type || '');
+      statusBox.style.display = 'block';
+      statusBox.textContent = msg;
+    }
+    function clearStatus(){
+      statusBox.style.display = 'none';
+      statusBox.textContent = '';
+      statusBox.className = 'status';
+    }
+    function isEmailValid(v){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    copyEmailBtn && copyEmailBtn.addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(email);
+        setStatus('good', 'Copied: ' + email);
+      }catch(err){
+        setStatus('bad', 'Copy failed. You can email: ' + email);
+      }
+    });
+
+    form && form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      clearStatus();
+
+      const name = (document.getElementById('name')||{}).value?.trim();
+      const mail = (document.getElementById('email')||{}).value?.trim();
+      const topic = (document.getElementById('topic')||{}).value?.trim();
+      const message = (document.getElementById('message')||{}).value?.trim();
+
+      if(!name){ setStatus('bad', 'Please add your name.'); return; }
+      if(!mail || !isEmailValid(mail)){ setStatus('bad', 'Please enter a valid email.'); return; }
+      if(!topic){ setStatus('bad', 'Please choose a subject.'); return; }
+      if(!message || message.length < 10){ setStatus('bad', 'Please write a little more in your message (10+ characters).'); return; }
+
+      // Demo: show success message + mailto fallback (migration-friendly)
+      const subject = encodeURIComponent('[' + topic + '] Message from ' + name);
+      const bodyMsg = encodeURIComponent(message + '\n\n—\nName: ' + name + '\nEmail: ' + mail);
+      const mailto = 'mailto:' + email + '?subject=' + subject + '&body=' + bodyMsg;
+
+      setStatus('good', "Message ready! This page is in demo mode right now — click 'Open Email' to send via your email app, or connect a form handler when you migrate to hosting.");
+      const openBtn = document.createElement('a');
+      openBtn.className = 'btn btnWide';
+      openBtn.href = mailto;
+      openBtn.textContent = 'Open Email';
+      openBtn.style.marginLeft = '8px';
+      openBtn.style.textDecoration = 'none';
+
+      // prevent stacking buttons
+      const existing = form.querySelector('a.btn[href^="mailto:"]');
+      if(existing) existing.remove();
+      form.querySelector('.formActions')?.appendChild(openBtn);
+
+      form.reset();
+    });
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

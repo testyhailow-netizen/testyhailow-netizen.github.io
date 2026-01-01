@@ -1,1 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About • Virtual Utopia Designz</title>
+  <meta name="description" content="Learn about Virtual Utopia Designz — a cosmic atelier creating altar cards, mystical art, and intention-driven designs." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg0:#070814;
+      --bg1:#0b1026;
+      --bg2:#111a3a;
+      --panel:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:#eef1ff;
+      --muted:rgba(238,241,255,.72);
+      --faint:rgba(238,241,255,.52);
+      --gold:#ffd88a;
+      --gold2:#f5c468;
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --r22:22px;
+      --r28:28px;
+      --max:1160px;
+      --sans:"Inter", system-ui, sans-serif;
+      --serif:"Fraunces", serif;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 15%, rgba(189,167,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(123,231,255,.14), transparent 55%),
+        radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      background-attachment: fixed;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .stars{
+      position:fixed;
+      inset:-200px;
+      pointer-events:none;
+      opacity:.28;
+      background-image:
+        radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,.45), transparent 55%),
+        radial-gradient(1px 1px at 420px 260px, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(1px 1px at 780px 180px, rgba(255,255,255,.30), transparent 55%);
+      background-size:1000px 320px;
+      z-index:-1;
+    }
+
+    a{color:var(--gold); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{
+      width:min(var(--max), 100%);
+      margin:0 auto;
+      padding:22px 18px 64px;
+    }
+
+    /* Header (same logic as index) */
+    header{
+      position:sticky;
+      top:14px;
+      z-index:50;
+      border-radius:999px;
+      padding:10px 12px;
+      background:rgba(10,12,26,.55);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:-.02em;
+    }
+    .mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg, var(--gold), #7be7ff);
+    }
+
+    nav{
+      display:flex;
+      gap:8px;
+    }
+    nav a{
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      color:var(--muted);
+    }
+    nav a:hover{
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+    }
+    nav a[aria-current="page"]{
+      background:rgba(255,255,255,.10);
+      color:var(--text);
+    }
+
+    /* Page */
+    .page{
+      margin-top:32px;
+      border-radius:var(--r28);
+      background:var(--panel);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .pageHead{
+      padding:28px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.10);
+    }
+
+    .kicker{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    h1{
+      font-family:var(--serif);
+      font-size: clamp(30px, 3.5vw, 48px);
+      margin:14px 0 10px;
+    }
+
+    .lead{
+      color:var(--muted);
+      max-width:75ch;
+      line-height:1.6;
+    }
+
+    .content{
+      padding:28px;
+      display:grid;
+      gap:22px;
+    }
+
+    .block{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      padding:20px;
+    }
+
+    .block h2{
+      font-family:var(--serif);
+      margin:0 0 10px;
+      font-size:22px;
+    }
+
+    .block p{
+      margin:8px 0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .values{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+    }
+
+    .value{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+    }
+
+    .value h3{
+      margin:0 0 6px;
+      font-size:16px;
+    }
+
+    footer{
+      margin-top:24px;
+      padding:22px;
+      border-radius:var(--r28);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+    }
+
+    footer h5{
+      font-family:var(--serif);
+      margin:0 0 8px;
+      font-size:16px;
+    }
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      font-size:13px;
+    }
+    .links a{color:var(--muted); font-weight:700}
+    .links a:hover{color:var(--text)}
+
+    @media(max-width:900px){
+      nav{display:none}
+      footer{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars"></div>
+
+  <div class="wrap">
+    <header>
+      <a href="index.html" class="brand">
+        <div class="mark"></div>
+        Virtual Utopia Designz
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="pageHead">
+        <span class="kicker">Our Story</span>
+        <h1>Where imagination, intention, and design meet.</h1>
+        <p class="lead">
+          Virtual Utopia Designz is a small creative atelier inspired by mythology,
+          spirituality, symbolism, and the unseen worlds that shape our inner lives.
+        </p>
+      </section>
+
+      <section class="content">
+        <div class="block">
+          <h2>The origin of Virtual Utopia</h2>
+          <p>
+            Virtual Utopia Designz began as a personal exploration of symbolism, altar imagery,
+            and cosmic aesthetics — a space where creativity could merge with intention.
+            What started as experimental designs soon grew into a collection of altar cards,
+            mystical packs, and digital creations shared with others seeking meaning, beauty,
+            and reflection.
+          </p>
+          <p>
+            Each piece is created with care, attention, and respect for the symbolism it carries.
+            This is not mass-produced art — it’s slow, intentional design.
+          </p>
+        </div>
+
+        <div class="block">
+          <h2>What we create</h2>
+          <p>
+            The shop focuses on altar cards, cosmic artwork, and themed digital packs
+            designed to support personal rituals, meditation, journaling, or creative inspiration.
+          </p>
+          <p>
+            Many designs draw inspiration from mythology, archetypes, celestial motifs,
+            and intuitive symbolism — meant to be interpreted personally by each viewer.
+          </p>
+        </div>
+
+        <div class="block">
+          <h2>Values & philosophy</h2>
+          <div class="values">
+            <div class="value">
+              <h3>Intentional creation</h3>
+              <p>Every design is made with a clear concept and emotional direction.</p>
+            </div>
+            <div class="value">
+              <h3>Symbolic depth</h3>
+              <p>Artwork is layered with meaning, not just decoration.</p>
+            </div>
+            <div class="value">
+              <h3>Small & independent</h3>
+              <p>This is an independent, artist-run project — not a factory brand.</p>
+            </div>
+            <div class="value">
+              <h3>Personal connection</h3>
+              <p>Each piece is meant to resonate differently with each individual.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>From Etsy to our own space</h2>
+          <p>
+            Virtual Utopia Designz originally grew through Etsy, connecting with people
+            from all over the world. This website is the next step — a dedicated home
+            for the brand, its story, and future creations.
+          </p>
+          <p>
+            Thank you for being part of this journey.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <h5>Virtual Utopia Designz</h5>
+        <p class="faint">
+          A cosmic atelier for altar art, symbolism, and intentional design.
+        </p>
+      </div>
+      <div>
+        <h5>Quick links</h5>
+        <div class="links">
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
 

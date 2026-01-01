@@ -1,0 +1,4 @@
+# Blog routing (pretty URLs)
+/blog      /blog.html  200
+/blog/     /blog.html  200
+/blog/*    /post.html?slug=:splat  200

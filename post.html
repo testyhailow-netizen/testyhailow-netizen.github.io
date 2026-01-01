@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Virtual Utopia Designz — Blog Post</title>
+  <meta name="description" content="A post from Virtual Utopia Designz — rituals, altar cards, and cosmic studio notes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!--
+    ✅ IMPORTANT (kid-simple):
+    - This page makes real SEO URLs for posts.
+    - It loads ONE post from Supabase using the slug.
+
+    You MUST paste your Supabase URL + anon key below.
+    (This is safe for read-only public posts when RLS is set.)
+  -->
+
+  <style>
+    :root{
+      --bg0:#070814;
+      --bg1:#0b1026;
+      --bg2:#111a3a;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.10);
+      --stroke:rgba(255,255,255,.14);
+      --stroke2:rgba(255,255,255,.20);
+      --text:#eef1ff;
+      --muted:rgba(238,241,255,.72);
+      --faint:rgba(238,241,255,.52);
+      --gold:#ffd88a;
+      --gold2:#f5c468;
+      --violet:#bda7ff;
+      --aqua:#7be7ff;
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --shadow2:0 28px 90px rgba(0,0,0,.62);
+      --r12:12px;
+      --r16:16px;
+      --r22:22px;
+      --r28:28px;
+      --max:1160px;
+      --sans:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif:"Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+      --ease:cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 15%, rgba(189,167,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(123,231,255,.14), transparent 55%),
+        radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      background-attachment: fixed;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    a{color:inherit; text-decoration:none}
+
+    .stars, .stars::before, .stars::after{
+      position:fixed;
+      inset:-200px;
+      content:"";
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.55), transparent 55%),
+        radial-gradient(1px 1px at 110px 140px, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(1.2px 1.2px at 260px 220px, rgba(255,255,255,.40), transparent 55%),
+        radial-gradient(1px 1px at 340px 80px, rgba(255,255,255,.28), transparent 55%),
+        radial-gradient(1.2px 1.2px at 480px 160px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1px 1px at 620px 260px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 760px 120px, rgba(255,255,255,.32), transparent 55%),
+        radial-gradient(1.2px 1.2px at 900px 240px, rgba(255,255,255,.30), transparent 55%),
+        radial-gradient(1px 1px at 1040px 90px, rgba(255,255,255,.26), transparent 55%);
+      background-size:1100px 320px;
+      opacity:.35;
+      pointer-events:none;
+      z-index:-2;
+    }
+    .stars::before{opacity:.22; filter:blur(.2px)}
+    .stars::after{opacity:.16; filter:blur(.6px)}
+
+    .wrap{width:min(var(--max), 100%); margin:0 auto; padding:22px 18px 64px; position:relative; z-index:1;}
+
+    header{
+      position:sticky;
+      top:14px;
+      z-index:50;
+      border-radius:999px;
+      padding:10px 12px;
+      background:rgba(10,12,26,.55);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px) saturate(140%);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{display:flex;align-items:center;gap:12px;min-width:0;}
+    .mark{width:42px;height:42px;border-radius:14px;background: radial-gradient(circle at 28% 28%, rgba(255,216,138,.98), rgba(255,216,138,.12) 55%, transparent 72%), linear-gradient(135deg, rgba(189,167,255,.82), rgba(123,231,255,.55)); border:1px solid rgba(255,255,255,.18); box-shadow:0 18px 50px rgba(189,167,255,.22), 0 12px 40px rgba(255,216,138,.12); position:relative; overflow:hidden; flex:0 0 auto;}
+    .mark::after{content:""; position:absolute; inset:-50%; background:conic-gradient(from 180deg, rgba(255,216,138,.0), rgba(255,216,138,.45), rgba(123,231,255,.2), rgba(189,167,255,.22), rgba(255,216,138,.0)); animation: spin 10s linear infinite; opacity:.65;}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .brand .name{font-family:var(--serif);font-weight:700;letter-spacing:-.02em;font-size:16px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .brand .tag{font-size:12px;color:var(--faint);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+    nav{display:flex;align-items:center;gap:8px;}
+    .navlink{padding:10px 12px;border-radius:999px;color:var(--muted);font-weight:700;font-size:13px;letter-spacing:.02em;border:1px solid transparent;transition:transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);}
+    .navlink:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:var(--text);transform:translateY(-1px);}
+    .cta{padding:10px 14px;border-radius:999px;font-weight:900;font-size:13px;letter-spacing:.02em;color:#0b1026;background:linear-gradient(135deg, var(--gold), var(--gold2));border:1px solid rgba(255,255,255,.22);box-shadow:0 16px 40px rgba(255,216,138,.18);}
+
+    .menuBtn{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--text);font-weight:900;font-size:13px;letter-spacing:.02em;cursor:pointer;transition:transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);}
+    .menuBtn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22)}
+
+    /* Desktop: hide mobile menu button */
+    @media (min-width: 981px){ .menuBtn{display:none !important} }
+
+    @media (max-width: 980px){
+      nav{display:none}
+      header{gap:10px}
+      .brand .name{font-size:14px}
+      .brand .tag{display:none}
+    }
+
+    .hero{padding:22px 6px 12px;}
+    .kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--muted);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;}
+    .kicker .spark{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg, var(--violet), var(--aqua)); box-shadow:0 0 0 6px rgba(123,231,255,.10);}
+
+    h1{margin:14px 0 10px;font-family:var(--serif);font-size:42px;line-height:1.05;letter-spacing:-.03em;}
+    @media (max-width: 720px){ h1{font-size:32px} }
+
+    .panel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r28);box-shadow:var(--shadow);backdrop-filter: blur(14px) saturate(140%);}
+    .postWrap{padding:22px 22px 18px;}
+    @media (max-width: 720px){ .postWrap{padding:18px 16px 14px} }
+
+    .meta{color:var(--muted);font-size:13px;font-weight:700;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+    .dot{width:8px;height:8px;border-radius:99px;background:linear-gradient(135deg, var(--violet), var(--aqua)); box-shadow:0 0 0 6px rgba(189,167,255,.10);}
+
+    .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+    .tagChip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--muted);font-weight:800;font-size:12px;}
+
+    .content{margin-top:18px;color:rgba(238,241,255,.86);font-size:16px;line-height:1.7;}
+    .content h2,.content h3{font-family:var(--serif);letter-spacing:-.02em;margin:22px 0 10px;}
+    .content h2{font-size:26px}
+    .content h3{font-size:20px}
+    .content p{margin:0 0 14px}
+    .content ul{margin:10px 0 16px 22px}
+    .content li{margin:6px 0}
+    .content a{text-decoration:underline;text-decoration-color:rgba(255,216,138,.55);text-underline-offset:4px;}
+    .hr{height:1px;background:rgba(255,255,255,.12);margin:18px 0;}
+
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--text);font-weight:900;font-size:13px;letter-spacing:.02em;cursor:pointer;transition:transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);}
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22)}
+
+    footer{margin-top:26px;color:var(--faint);font-size:12px;text-align:center;}
+
+    /* Mobile drawer */
+    .drawer{
+      position:fixed; inset:0; z-index:100;
+      background:rgba(0,0,0,.55);
+      display:none;
+      align-items:flex-start;
+      justify-content:flex-end;
+      padding:18px;
+    }
+    .drawer.active{display:flex}
+    .drawerPanel{
+      width:min(360px, 100%);
+      border-radius:22px;
+      background:rgba(10,12,26,.92);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:var(--shadow2);
+      backdrop-filter: blur(16px) saturate(150%);
+      padding:14px;
+    }
+    .drawerHead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 6px 10px;}
+    .drawerHead b{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .x{width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--text);font-weight:900;cursor:pointer}
+    .drawerLinks{display:flex;flex-direction:column;gap:8px;padding:6px;}
+    .drawerLinks a{padding:12px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);color:var(--text);font-weight:800;}
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header>
+      <a class="brand" href="index.html" aria-label="Go to home">
+        <div class="mark" aria-hidden="true"></div>
+        <div style="min-width:0">
+          <div class="name">Virtual Utopia Designz</div>
+          <div class="tag">The Enchanted Atelier</div>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <a class="navlink" href="index.html#why">Why</a>
+        <a class="navlink" href="index.html#featured">Shop</a>
+        <a class="navlink" href="blog.html">Blog</a>
+        <a class="navlink" href="about.html">About</a>
+        <a class="navlink" href="contact.html">Contact</a>
+        <a class="cta" href="index.html#featured">Browse Cards</a>
+      </nav>
+
+      <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="drawer">Menu</button>
+    </header>
+
+    <section class="hero">
+      <div class="kicker"><span class="spark" aria-hidden="true"></span> Blog post</div>
+      <h1 id="h1">Loading…</h1>
+    </section>
+
+    <main class="panel" aria-live="polite">
+      <div class="postWrap">
+        <div class="meta" id="meta"><span class="dot" aria-hidden="true"></span> Fetching post…</div>
+        <div class="tags" id="tags" aria-label="Tags"></div>
+        <div class="hr"></div>
+        <div class="content" id="content">
+          <p>One moment — loading the post.</p>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="blog.html">← Back to Blog</a>
+          <button class="btn" id="copyBtn" type="button">Copy link</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      © <span id="y"></span> Virtual Utopia Designz · Crafted for ritual, story, and sacred spaces.
+    </footer>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawerPanel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="drawerHead">
+        <b>Menu</b>
+        <button class="x" id="drawerClose" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="drawerLinks">
+        <a href="index.html#why">Why</a>
+        <a href="index.html#featured">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#featured">Browse Cards</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Mobile drawer
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const drawer = document.getElementById('drawer');
+      const close = document.getElementById('drawerClose');
+      const open = () => {
+        drawer.classList.add('active');
+        drawer.setAttribute('aria-hidden','false');
+        btn.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      };
+      const shut = () => {
+        drawer.classList.remove('active');
+        drawer.setAttribute('aria-hidden','true');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      };
+      btn.addEventListener('click', open);
+      close.addEventListener('click', shut);
+      drawer.addEventListener('click', (e)=>{ if(e.target === drawer) shut(); });
+      window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') shut(); });
+
+      // Only show menu button when nav hidden
+      const mq = window.matchMedia('(max-width: 980px)');
+      const sync = () => { btn.style.display = mq.matches ? 'inline-flex' : 'none'; if(!mq.matches) shut(); };
+      sync();
+      mq.addEventListener?.('change', sync);
+    })();
+
+    // ===== Supabase settings (PASTE YOURS HERE) =====
+    const SUPABASE_URL = 'PASTE_YOUR_SUPABASE_URL_HERE';
+    const SUPABASE_ANON_KEY = 'PASTE_YOUR_SUPABASE_ANON_KEY_HERE';
+    const POSTS_TABLE = 'posts';
+
+    // Get slug from either:
+    //  - /post.html?slug=your-slug
+    //  - /blog/your-slug   (when using Netlify _redirects)
+    function getSlug(){
+      const params = new URLSearchParams(location.search);
+      const qSlug = params.get('slug');
+      if(qSlug) return qSlug;
+
+      const path = location.pathname || '';
+      // if path ends with /blog/<slug>
+      const m = path.match(/\/blog\/?([^\/]+)$/i);
+      if(m && m[1]) return decodeURIComponent(m[1]);
+
+      return '';
+    }
+
+    function esc(s){
+      return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    }
+
+    function fmtDate(iso){
+      if(!iso) return '';
+      const d = new Date(iso);
+      if(String(d) === 'Invalid Date') return iso;
+      return d.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
+    }
+
+    // very small markdown-ish converter (good enough for your current posts)
+    function mdToHtml(md){
+      let s = String(md||'');
+      s = s.replace(/\r\n/g,'\n');
+      s = s.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
+      s = s.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
+      // bullet lists
+      s = s.replace(/^(?:- .+(?:\n|$))+?/gm, (block)=>{
+        const items = block.trim().split(/\n/).map(line => line.replace(/^\-\s+/,'').trim()).filter(Boolean);
+        if(!items.length) return block;
+        return '<ul>' + items.map(i=>`<li>${i}</li>`).join('') + '</ul>';
+      });
+      // paragraphs
+      const parts = s.split(/\n\n+/).map(p=>p.trim()).filter(Boolean);
+      s = parts.map(p => {
+        // if already a block element
+        if(/^<h2>|^<h3>|^<ul>/.test(p)) return p;
+        // links [text](url)
+        p = p.replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+        return '<p>' + p.replace(/\n/g,'<br>') + '</p>';
+      }).join('');
+      return s;
+    }
+
+    async function fetchPostBySlug(slug){
+      const url = `${SUPABASE_URL}/rest/v1/${POSTS_TABLE}?slug=eq.${encodeURIComponent(slug)}&select=*`;
+      const res = await fetch(url, {
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Accept': 'application/json'
+        }
+      });
+      if(!res.ok){
+        const t = await res.text().catch(()=> '');
+        throw new Error(`Supabase error ${res.status}: ${t}`);
+      }
+      const arr = await res.json();
+      return arr?.[0] || null;
+    }
+
+    function estimateMinutes(text){
+      const words = String(text||'').trim().split(/\s+/).filter(Boolean).length;
+      return Math.max(2, Math.round(words / 200));
+    }
+
+    async function main(){
+      const slug = getSlug();
+      const h1 = document.getElementById('h1');
+      const meta = document.getElementById('meta');
+      const tags = document.getElementById('tags');
+      const content = document.getElementById('content');
+
+      if(!slug){
+        h1.textContent = 'Post not found';
+        meta.innerHTML = '<span class="dot" aria-hidden="true"></span> Missing slug in the link.';
+        content.innerHTML = '<p>Go back to the blog and open a post again.</p>';
+        return;
+      }
+
+      try{
+        const post = await fetchPostBySlug(slug);
+        if(!post){
+          h1.textContent = 'Post not found';
+          meta.innerHTML = '<span class="dot" aria-hidden="true"></span> This post does not exist (or is not published).';
+          content.innerHTML = '<p>Go back to the blog and try another post.</p>';
+          return;
+        }
+
+        const title = post.title || slug;
+        const date = post.created_at || post.published_at || post.date || '';
+        const excerpt = post.excerpt || '';
+        const raw = post.content || '';
+        const mins = estimateMinutes(raw);
+
+        document.title = title + ' — Virtual Utopia Designz';
+        h1.textContent = title;
+
+        const section = post.category || 'Blog';
+        meta.innerHTML = `<span class="dot" aria-hidden="true"></span> ${esc(section)} <span aria-hidden="true">•</span> ${esc(fmtDate(date))} <span aria-hidden="true">•</span> ${mins} min read`;
+
+        const tagList = Array.isArray(post.tags) ? post.tags : (typeof post.tags === 'string' && post.tags.trim() ? post.tags.split(',').map(t=>t.trim()).filter(Boolean) : []);
+        tags.innerHTML = tagList.slice(0,10).map(t=>`<span class="tagChip">${esc(t)}</span>`).join('');
+
+        content.innerHTML = (excerpt ? `<p style="color:var(--muted); font-weight:700">${esc(excerpt)}</p>` : '') + mdToHtml(raw);
+
+        // Copy link button
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.addEventListener('click', async () => {
+          try{
+            await navigator.clipboard.writeText(location.href);
+            copyBtn.textContent = 'Copied ✓';
+            setTimeout(()=> copyBtn.textContent = 'Copy link', 1200);
+          }catch{
+            copyBtn.textContent = 'Copy failed';
+            setTimeout(()=> copyBtn.textContent = 'Copy link', 1200);
+          }
+        });
+
+      } catch (err){
+        h1.textContent = 'Could not load post';
+        meta.innerHTML = '<span class="dot" aria-hidden="true"></span> Error talking to Supabase.';
+        content.innerHTML = `<p><b>Quick fix:</b> make sure SUPABASE_URL + SUPABASE_ANON_KEY are pasted into post.html.</p><p style="color:var(--muted)">${esc(err?.message || err)}</p>`;
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

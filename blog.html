@@ -807,7 +807,7 @@
     .pageHero h1{margin:0 0 8px; font-family:var(--serif); letter-spacing:-.02em; font-size:40px; line-height:1.05}
     .pageHero p{margin:0; color:var(--muted); line-height:1.6}
 
-    .blogWrap{display:grid; grid-template-columns: 1fr 360px; gap:18px; align-items:start}
+    .blogWrap{display:grid; grid-template-columns: minmax(0,1fr) minmax(280px,360px); gap:22px; align-items:start}
 
     .searchRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .input{
@@ -878,7 +878,7 @@
     .postActions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-top:12px}
     .readBtn{display:inline-flex}
 
-    .sidePanel{position:sticky; top:106px; display:grid; gap:14px}
+    .sidePanel{position:sticky; top:24px; display:grid; gap:16px; align-self:start}
     .panel{
       border-radius:22px;
       border:1px solid rgba(255,255,255,.12);
@@ -1064,19 +1064,10 @@
             </div>
           </div>
 
-          <div class="panel" aria-label="Popular posts">
-            <h3>Popular spells</h3>
+          <div class="panel" aria-label="Newest posts">
+            <h3>Newest Posts</h3>
             <div class="list" id="popular"></div>
           </div>
-
-          <div class="panel" aria-label="Migration notes">
-            <h3>Ready for hosting</h3>
-            <p>This page is built as a standalone <b>blog.html</b> so you can drop it into any host. Later, you can migrate the post data to a CMS (WordPress, Ghost, Webflow CMS) without redesigning the UI.</p>
-            <div class="list">
-              <div class="mini"><div><b>SEO-friendly</b><span>Canonical + OG + JSON‑LD</span></div></div>
-              <div class="mini"><div><b>Accessible</b><span>Keyboard + ARIA</span></div></div>
-              <div class="mini"><div><b>Fast</b><span>No external JS deps</span></div></div>
-            </div>
           </div>
         </aside>
       </section>
@@ -1165,6 +1156,27 @@
   
 
   <script>
+
+    async function copyTextSmart(text){
+      // Clipboard API requires a secure context (HTTPS or localhost)
+      if (window.isSecureContext && navigator.clipboard && navigator.clipboard.writeText){
+        return navigator.clipboard.writeText(text);
+      }
+      // Fallback for insecure contexts / older browsers
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      ta.style.left = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, ta.value.length);
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      if(!ok) throw new Error('execCommand copy failed');
+    }
+
     // ===== Mobile menu (same behavior as the main site) =====
     (function(){
       const btn = document.getElementById('menuBtn');
@@ -1454,7 +1466,7 @@
       if(copy){
         const id = copy.getAttribute('data-copy');
         const url = location.origin ? (location.origin + location.pathname + '#' + id) : ('blog.html#' + id);
-        try{ await navigator.clipboard.writeText(url); copy.textContent = 'Copied!'; setTimeout(()=>copy.textContent='Copy link', 900); }
+        try{ await copyTextSmart(url); copy.textContent='Copied!'; setTimeout(()=>copy.textContent='Copy link', 900); }
         catch{ copy.textContent='Copy failed'; setTimeout(()=>copy.textContent='Copy link', 900); }
       }
     });

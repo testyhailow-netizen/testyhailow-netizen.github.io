@@ -604,23 +604,26 @@
         <section class="card" aria-label="Contact form">
           <div class="status" id="statusBox" aria-live="polite"></div>
 
-          <!-- Migration-friendly: connect "action" later to your host (Netlify Forms / Formspree / server endpoint). -->
-          <form id="contactFormEl">
+          <form id="contactFormEl" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks/">
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="display:none">
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
             <div class="row">
               <div>
                 <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Your name" autocomplete="name" required />
+                <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
               </div>
               <div>
                 <label for="email">Email</label>
-                <input id="email" type="email" placeholder="you@email.com" autocomplete="email" required />
+                <input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required />
               </div>
             </div>
 
             <div class="row">
               <div>
                 <label for="topic">Subject</label>
-                <select id="topic" required>
+                <select id="topic" name="topic" required>
                   <option value="" selected disabled>Choose…</option>
                   <option>Order question</option>
                   <option>Custom altar card idea</option>
@@ -631,23 +634,22 @@
               </div>
               <div>
                 <label for="ref">Order / Reference (optional)</label>
-                <input id="ref" type="text" placeholder="e.g. Etsy order number" />
+                <input id="ref" name="ref" type="text" placeholder="e.g. Etsy order number" />
               </div>
             </div>
 
             <div>
               <label for="message">Message</label>
-              <textarea id="message" placeholder="Tell me what you’re imagining… (10+ characters)" required></textarea>
+              <textarea id="message" name="message" placeholder="Tell me what you’re imagining… (10+ characters)" required></textarea>
             </div>
 
             <div class="formActions">
-              <button class="btn btn-primary btnWide" type="submit">Prepare Message</button>
+              <button class="btn btn-primary btnWide" type="submit">Send Message</button>
               <a class="btn btnWide" href="about.html">About the Studio</a>
             </div>
 
             <p style="margin:10px 0 0; color:var(--faint); font-size:12px; line-height:1.6">
-              This page is <b>hosting-ready</b>: later you can connect the form to your domain host (Netlify Forms, Formspree, or your own backend).
-              For now, it prepares a mail draft as a safe fallback.
+              Submitting sends your message through <b>Netlify Forms</b> (no email app needed). If anything fails, you’ll get a safe “Open Email” fallback.
             </p>
           </form>
         </section>
@@ -736,7 +738,7 @@
       mq.addEventListener?.('change', sync);
     })();
 
-    // ===== Contact form (migration-friendly demo submit) =====
+    // ===== Contact form (Netlify Forms + safe mailto fallback) =====
     const form = document.getElementById('contactFormEl');
     const statusBox = document.getElementById('statusBox');
     const copyEmailBtn = document.getElementById('copyEmailBtn');
@@ -767,7 +769,7 @@
       }
     });
 
-    form && form.addEventListener('submit', (e)=>{
+    form && form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       clearStatus();
 
@@ -782,29 +784,54 @@
       if(!topic){ setStatus('bad', 'Please choose a subject.'); return; }
       if(!message || message.length < 10){ setStatus('bad', 'Please write a little more in your message (10+ characters).'); return; }
 
-      const subject = encodeURIComponent('[' + topic + '] Message from ' + name + (ref ? ' (Ref: ' + ref + ')' : ''));
-      const bodyMsg = encodeURIComponent(
-        message +
-        '\n\n—\nName: ' + name +
-        '\nEmail: ' + mail +
-        (ref ? '\nReference: ' + ref : '')
-      );
-      const mailto = 'mailto:' + email + '?subject=' + subject + '&body=' + bodyMsg;
+      // Build Netlify form payload (must include "form-name")
+      const data = new URLSearchParams();
+      data.append('form-name', 'contact');
+      data.append('name', name);
+      data.append('email', mail);
+      data.append('topic', topic);
+      data.append('ref', ref || '');
+      data.append('message', message);
+      data.append('bot-field', ''); // honeypot
 
-      setStatus('good', "Ready! Click “Open Email” to send using your email app (safe fallback). When you migrate to hosting, connect the form action to send automatically.");
-
-      // prevent stacking buttons
+      // Remove any previous fallback mailto button
       const existing = form.querySelector('a.btn[href^="mailto:"]');
       if(existing) existing.remove();
 
-      const openBtn = document.createElement('a');
-      openBtn.className = 'btn btnWide';
-      openBtn.href = mailto;
-      openBtn.textContent = 'Open Email';
-      openBtn.style.textDecoration = 'none';
+      try{
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data.toString()
+        });
 
-      form.querySelector('.formActions')?.appendChild(openBtn);
-      form.reset();
+        if(res.ok){
+          setStatus('good', 'Sent! ✨ Your message was delivered. I usually reply within 1–2 business days.');
+          form.reset();
+          return;
+        }
+
+        throw new Error('Network response not ok');
+      }catch(err){
+        // Safe fallback: open a mail draft
+        const subject = encodeURIComponent('[' + topic + '] Message from ' + name + (ref ? ' (Ref: ' + ref + ')' : ''));
+        const bodyMsg = encodeURIComponent(
+          message +
+          '\n\n—\nName: ' + name +
+          '\nEmail: ' + mail +
+          (ref ? '\nReference: ' + ref : '')
+        );
+        const mailto = 'mailto:' + email + '?subject=' + subject + '&body=' + bodyMsg;
+
+        setStatus('bad', 'Couldn’t send automatically (network or ad-blocker). Use the “Open Email” button below as a safe fallback.');
+
+        const openBtn = document.createElement('a');
+        openBtn.className = 'btn btnWide';
+        openBtn.href = mailto;
+        openBtn.textContent = 'Open Email';
+        openBtn.style.textDecoration = 'none';
+        form.querySelector('.formActions')?.appendChild(openBtn);
+      }
     });
   </script>
 </body>

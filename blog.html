@@ -1156,6 +1156,27 @@
   
 
   <script>
+
+    async function copyTextSmart(text){
+      // Clipboard API requires a secure context (HTTPS or localhost)
+      if (window.isSecureContext && navigator.clipboard && navigator.clipboard.writeText){
+        return navigator.clipboard.writeText(text);
+      }
+      // Fallback for insecure contexts / older browsers
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      ta.style.left = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, ta.value.length);
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      if(!ok) throw new Error('execCommand copy failed');
+    }
+
     // ===== Mobile menu (same behavior as the main site) =====
     (function(){
       const btn = document.getElementById('menuBtn');
@@ -1272,9 +1293,10 @@
       return d.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
     }
 
-    function slugToUrl(id){
-      // future migration: change to /blog/slug/ or /blog/slug.html
-      return 'blog.html#' + encodeURIComponent(id);
+    function slugToUrl(slug){
+      // SEO-friendly URL (Netlify rewrite): /blog/<slug> -> /post.html?slug=<slug>
+      const safe = encodeURIComponent(String(slug||''));
+      return '/blog/' + safe;
     }
 
     function normalize(s){ return (s||'').toLowerCase(); }
@@ -1311,8 +1333,8 @@
             <p class="excerpt">${post.excerpt}</p>
             <div class="tagRow" aria-label="Tags">${tagHtml}</div>
             <div class="postActions">
-              <a class="btn readBtn" href="${slugToUrl(post.id)}" data-open="${post.id}" aria-label="Read ${post.title}">Read post</a>
-              <button class="btn" type="button" data-copy="${post.id}" aria-label="Copy link to ${post.title}">Copy link</button>
+              <a class="btn readBtn" href="${slugToUrl(post.slug)}" data-open="${post.id}" aria-label="Read ${post.title}">Read post</a>
+              <button class="btn" type="button" data-copy="${post.slug}" aria-label="Copy link to ${post.title}">Copy link</button>
             </div>
           </div>
         </article>
@@ -1338,7 +1360,7 @@
       // Popular list = newest 3 (simple)
       const popular = [...POSTS].sort((a,b)=> b.date.localeCompare(a.date)).slice(0,3);
       elPopular.innerHTML = popular.map(p => `
-        <a class="mini" href="${slugToUrl(p.id)}" data-open="${p.id}" aria-label="Open ${p.title}">
+        <a class="mini" href="${slugToUrl(p.slug)}" data-open="${p.id}" aria-label="Open ${p.title}">
           <div>
             <b>${p.title}</b>
             <span>${p.category} • ${fmtDate(p.date)}</span>
@@ -1443,9 +1465,10 @@
       }
       const copy = e.target.closest('[data-copy]');
       if(copy){
-        const id = copy.getAttribute('data-copy');
-        const url = location.origin ? (location.origin + location.pathname + '#' + id) : ('blog.html#' + id);
-        try{ await navigator.clipboard.writeText(url); copy.textContent = 'Copied!'; setTimeout(()=>copy.textContent='Copy link', 900); }
+        const slug = copy.getAttribute('data-copy');
+        const base = (location && location.origin) ? location.origin : '';
+        const url = base ? (base + '/blog/' + encodeURIComponent(String(slug||''))) : ('/blog/' + encodeURIComponent(String(slug||'')));
+        try{ await copyTextSmart(url); copy.textContent='Copied!'; setTimeout(()=>copy.textContent='Copy link', 900); }
         catch{ copy.textContent='Copy failed'; setTimeout(()=>copy.textContent='Copy link', 900); }
       }
     });

@@ -158,6 +158,16 @@
     .content ul{margin:10px 0 16px 22px}
     .content li{margin:6px 0}
     .content a{text-decoration:underline;text-decoration-color:rgba(255,216,138,.55);text-underline-offset:4px;}
+    /* Make images inside blog content fit the post (prevents huge images) */
+    .content img{
+      max-width:min(720px, 100%);
+      width:100%;
+      height:auto;
+      display:block;
+      margin:18px auto;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+    }
     .hr{height:1px;background:rgba(255,255,255,.12);margin:18px 0;}
 
     .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
@@ -329,6 +339,20 @@
     function mdToHtml(md){
       let s = String(md||'');
       s = s.replace(/\r\n/g,'\n');
+
+      // 1) If you paste an <img> tag across multiple lines, our paragraph formatter
+      // would insert <br> inside it (breaking the image). This flattens any <img>
+      // tags to ONE line so they stay valid HTML.
+      s = s.replace(/<img\b[\s\S]*?>/gi, (m)=> m.replace(/\s*\n\s*/g,' '));
+
+      // 2) Support markdown-style images:
+      //    ![alt text](https://example.com/image.jpg)
+      // This is the easiest way to add images in Supabase without writing HTML.
+      s = s.replace(/!\[([^\]]*)\]\((https?:\/\/[^\)\s]+)\)/g, (__, alt, url)=>{
+        const safeAlt = (alt||'').replace(/"/g,'&quot;');
+        return `<img src="${url}" alt="${safeAlt}" loading="lazy" />`;
+      });
+
       s = s.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
       s = s.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
       // bullet lists
@@ -341,7 +365,7 @@
       const parts = s.split(/\n\n+/).map(p=>p.trim()).filter(Boolean);
       s = parts.map(p => {
         // if already a block element
-        if(/^<h2>|^<h3>|^<ul>/.test(p)) return p;
+        if(/^<h2>|^<h3>|^<ul>|^<img\b/i.test(p)) return p;
         // links [text](url)
         p = p.replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
         return '<p>' + p.replace(/\n/g,'<br>') + '</p>';

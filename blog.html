@@ -927,6 +927,16 @@
     .articleBody .content{color:var(--muted); line-height:1.8}
     .articleBody .content p{margin:0 0 12px}
     .articleBody .content ul{margin:0 0 12px 18px}
+    /* Fit any images inside article content */
+    .articleBody .content img{
+      max-width:min(720px, 100%);
+      width:100%;
+      height:auto;
+      display:block;
+      margin:16px auto;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+    }
 
     @media (max-width: 980px){
       .pageHero .inner{grid-template-columns:1fr}
@@ -959,9 +969,9 @@
 
       <nav aria-label="Primary">
         <a href="index.html">Home</a>
-    <a href="index.html#featured">Featured</a>
-<a href="index.html#collections">Collections</a>
-<a href="index.html#why">Why Us</a>
+        <a href="#featured">Featured</a>
+        <a href="#collections">Collections</a>
+        <a href="#why">Why Us</a>
         <a href="blog.html" aria-current="page">Blog</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
@@ -996,9 +1006,9 @@
     </div>
     <div class="mobile-links" role="navigation" aria-label="Mobile primary">
       <a href="index.html">Home</a>
-     <a href="index.html#featured">Featured</a>
-<a href="index.html#collections">Collections</a>
-<a href="index.html#why">Why Us</a>
+      <a href="#featured">Featured</a>
+      <a href="#collections">Collections</a>
+      <a href="#why">Why Us</a>
       <a href="blog.html" aria-current="page">Blog</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -1112,7 +1122,7 @@
         <div class="links">
           <a href="#featured">Featured</a>
           <a href="#collections">Collections</a>
-         <a href="blog.html">Blog</a>
+          <a href="packs.html">Blog</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </div>
@@ -1432,14 +1442,37 @@
 
     // Modal open/close
     function mdToHtml(md){
-      // Tiny markdown-ish formatter for this demo content
-      return md
-        .replace(/^###\s(.+)$/gm, '<h3>$1</h3>')
-        .replace(/\n-\s(.+)/g, '<ul><li>$1</li></ul>')
-        .replace(/<\/ul>\s*<ul>/g, '')
-        .replace(/\n\n/g, '</p><p>')
-        .replace(/^/, '<p>')
-        .replace(/$/, '</p>');
+      // Small markdown-ish formatter (now supports images safely)
+      let s = String(md||'').replace(/\r\n/g,'\n');
+
+      // Flatten multi-line <img ...> tags so line-break handling doesn't break them
+      s = s.replace(/<img\b[\s\S]*?>/gi, (m)=> m.replace(/\s*\n\s*/g,' '));
+
+      // Support markdown images: ![alt](url)
+      s = s.replace(/!\[([^\]]*)\]\((https?:\/\/[^\)\s]+)\)/g, (__, alt, url)=>{
+        const safeAlt = (alt||'').replace(/"/g,'&quot;');
+        return `<img src="${url}" alt="${safeAlt}" loading="lazy" />`;
+      });
+
+      s = s.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
+      s = s.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
+
+      // Bullet lists (- item)
+      s = s.replace(/^(?:- .+(?:\n|$))+?/gm, (block)=>{
+        const items = block.trim().split(/\n/).map(line => line.replace(/^\-\s+/,'').trim()).filter(Boolean);
+        if(!items.length) return block;
+        return '<ul>' + items.map(i=>`<li>${i}</li>`).join('') + '</ul>';
+      });
+
+      // Paragraphs
+      const parts = s.split(/\n\n+/).map(p=>p.trim()).filter(Boolean);
+      return parts.map(p => {
+        // keep block elements as-is
+        if(/^<h2>|^<h3>|^<ul>|^<img\b/i.test(p)) return p;
+        // links [text](url)
+        p = p.replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+        return '<p>' + p.replace(/\n/g,'<br>') + '</p>';
+      }).join('');
     }
 
     function openArticle(id){

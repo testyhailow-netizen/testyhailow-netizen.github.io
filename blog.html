@@ -1294,7 +1294,15 @@
     }
 
     function slugToUrl(slug){
-  return '/blog/' + encodeURIComponent(slug);
+  const s = encodeURIComponent(slug);
+
+  // If running on GitHub Pages, use the real file URL
+  if (location.hostname.endsWith('github.io')) {
+    return '/post.html?slug=' + s;
+  }
+
+  // On your real site (Netlify), use the nice URL
+  return '/blog/' + s;
 }
 
     function normalize(s){ return (s||'').toLowerCase(); }

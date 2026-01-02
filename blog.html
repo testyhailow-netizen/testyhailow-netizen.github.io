@@ -1293,10 +1293,9 @@
       return d.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
     }
 
-    function slugToUrl(id){
-      // future migration: change to /blog/slug/ or /blog/slug.html
-      return 'blog.html#' + encodeURIComponent(id);
-    }
+    function slugToUrl(slug){
+  return '/blog/' + encodeURIComponent(slug);
+}
 
     function normalize(s){ return (s||'').toLowerCase(); }
 
@@ -1332,7 +1331,10 @@
             <p class="excerpt">${post.excerpt}</p>
             <div class="tagRow" aria-label="Tags">${tagHtml}</div>
             <div class="postActions">
-              <a class="btn readBtn" href="${slugToUrl(post.id)}" data-open="${post.id}" aria-label="Read ${post.title}">Read post</a>
+          <a class="btn readBtn" href="${slugToUrl(post.id)}" target="_blank" rel="noopener noreferrer" aria-label="Read ${post.title}">
+  Read post
+</a>
+
               <button class="btn" type="button" data-copy="${post.id}" aria-label="Copy link to ${post.title}">Copy link</button>
             </div>
           </div>
@@ -1465,7 +1467,7 @@
       const copy = e.target.closest('[data-copy]');
       if(copy){
         const id = copy.getAttribute('data-copy');
-        const url = location.origin ? (location.origin + location.pathname + '#' + id) : ('blog.html#' + id);
+        const url = location.origin + slugToUrl(id);
         try{ await copyTextSmart(url); copy.textContent='Copied!'; setTimeout(()=>copy.textContent='Copy link', 900); }
         catch{ copy.textContent='Copy failed'; setTimeout(()=>copy.textContent='Copy link', 900); }
       }

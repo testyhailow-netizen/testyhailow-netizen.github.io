@@ -1,223 +1,377 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>AGB – Virtual Utopia Designs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Allgemeine Geschäftsbedingungen (AGB) von Virtual Utopia Designs">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AGB – Virtual Utopia Designz</title>
+  <meta name="description" content="Allgemeine Geschäftsbedingungen (AGB) von Virtual Utopia Designz inklusive Widerrufsbelehrung und Plattformhinweisen." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b1026;
-      color: #eef1ff;
-      line-height: 1.65;
+    :root{
+      --bg0:#070814;
+      --bg1:#0b1026;
+      --bg2:#111a3a;
+      --panel:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:#eef1ff;
+      --muted:rgba(238,241,255,.72);
+      --faint:rgba(238,241,255,.55);
+      --gold:#ffd88a;
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --r22:22px;
+      --max:860px;
+      --sans:"Inter", system-ui, sans-serif;
+      --serif:"Fraunces", serif;
     }
 
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 16px;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 15%, rgba(189,167,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(123,231,255,.14), transparent 55%),
+        radial-gradient(900px 600px at 70% 90%, rgba(255,216,138,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      background-attachment: fixed;
+      min-height:100vh;
     }
 
-    h1, h2, h3 {
-      color: #ffd88a;
+    a{color:var(--gold); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    header{
+      max-width:var(--max);
+      margin:24px auto 0;
+      padding:12px 14px;
+      border-radius:999px;
+      background:rgba(10,12,26,.55);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .brand{
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:-.02em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .toplinks{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .toplinks a{
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+    .toplinks a:hover{color:var(--text); background:rgba(255,255,255,.07); text-decoration:none}
+
+    main{
+      max-width:var(--max);
+      margin:18px auto 24px;
+      padding:22px;
+      border-radius:var(--r22);
+      background:var(--panel);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
+    h1{
+      font-family:var(--serif);
+      text-align:center;
+      margin:6px 0 14px;
+      font-size:30px;
+      letter-spacing:-.03em;
     }
 
-    h2 {
-      margin-top: 40px;
+    h2{
+      font-family:var(--serif);
+      margin:26px 0 8px;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+    h3{
+      margin:14px 0 6px;
+      font-size:14px;
+      letter-spacing:.01em;
+      color:var(--text);
     }
 
-    h3 {
-      margin-top: 25px;
+    p, li{
+      margin:6px 0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
     }
 
-    p {
-      margin: 10px 0;
-      font-size: 14px;
+    .note{
+      margin-top:10px;
+      color:var(--faint);
+      font-size:12px;
+      line-height:1.6;
     }
 
-    .box {
-      background: rgba(255,255,255,0.06);
-      padding: 15px;
-      border-radius: 12px;
-      margin: 15px 0;
+    .divider{
+      margin:22px 0 8px;
+      height:1px;
+      background:rgba(255,255,255,.10);
+      border:0;
     }
 
-    footer {
-      text-align: center;
-      font-size: 12px;
-      opacity: 0.7;
-      margin: 40px 0 20px;
+    .toc{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin:10px 0 6px;
+    }
+    .toc a{
+      color:var(--muted);
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+    .toc a:hover{color:var(--text); background:rgba(255,255,255,.07); text-decoration:none}
+
+    footer{
+      max-width:var(--max);
+      margin:0 auto 32px;
+      padding:12px 18px;
+      text-align:center;
+      color:rgba(238,241,255,.55);
+      font-size:12px;
+    }
+
+    .block{
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      margin:10px 0;
     }
   </style>
 </head>
 
 <body>
 
+<header>
+  <div class="brand">Virtual Utopia Designz</div>
+  <!-- MENU BACK (site buttons) -->
+  <nav class="toplinks" aria-label="Seitenlinks">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Kontakt</a>
+    <a href="agb.html">AGB</a>
+    <!-- kept as buttons, but NOT embedded on this page -->
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </nav>
+</header>
+
 <main>
-  <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+  <h1>AGB</h1>
 
-  <h3>1. Geltungsbereich</h3>
-  <p>
-    (1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die Verbraucher (§ 13 BGB)
-    über die Website bzw. den Online-Shop von Virtual Utopia Designs abschließen.
-  </p>
-  <p>
-    (2) Für Verträge über externe Verkaufsplattformen (z. B. Etsy oder eBay) gelten zusätzlich bzw.
-    vorrangig die jeweiligen Nutzungs- und Geschäftsbedingungen der Plattformbetreiber.
-  </p>
-
-  <h3>2. Anbieter / Vertragspartner</h3>
-  <div class="box">
-    <p>
-      <strong>Virtual Utopia Designs</strong><br>
-      Inhaber: Tyler Reed<br>
-      Steindamm 9<br>
-      25479 Ellerau<br>
-      Deutschland<br>
-      Telefon: +49 159 01320659<br>
-      E-Mail: tylerreed@outlook.de<br>
-      USt-IdNr.: DE361684923
-    </p>
-    <p>
-      Kleinunternehmer im Sinne von § 19 UStG (keine Ausweisung der Umsatzsteuer).
-    </p>
+  <div class="toc" aria-label="Sprungmarken">
+    <a href="#agb">AGB</a>
+    <a href="#widerruf">Widerruf</a>
+    <a href="#plattformen">Plattformhinweise</a>
+    <a href="#schlichtung">Schlichtung</a>
   </div>
 
-  <h3>3. Angebot und Vertragsschluss</h3>
-  <p>
-    (1) Die Darstellung der Produkte stellt kein rechtlich bindendes Angebot dar.
-  </p>
-  <p>
-    (2) Durch Anklicken des Bestellbuttons geben Sie ein verbindliches Angebot ab.
-  </p>
-  <p>
-    (3) Der Vertrag kommt durch Bestellbestätigung, Versand oder Bereitstellung zustande.
-  </p>
+  <!-- =================== AGB (ONLY) =================== -->
+  <section id="agb" aria-label="Allgemeine Geschäftsbedingungen">
+    <h2>Allgemeine Geschäftsbedingungen (AGB) – Virtual Utopia Designs</h2>
 
-  <h3>4. Preise und Versandkosten</h3>
-  <p>
-    Alle Preise sind Endpreise. Aufgrund der Kleinunternehmerregelung wird keine Umsatzsteuer ausgewiesen.
-    Versandkosten werden – sofern anwendbar – gesondert angezeigt.
-  </p>
+    <h3>1. Geltungsbereich</h3>
+    <p>(1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die Verbraucher (§ 13 BGB) über die Website bzw. den Online-Shop von Virtual Utopia Designs abschließen.</p>
+    <p>(2) Für Verträge, die über externe Verkaufsplattformen (z. B. Etsy oder eBay) zustande kommen, gelten zusätzlich bzw. vorrangig die jeweiligen Nutzungs- und Geschäftsbedingungen der Plattformbetreiber sowie die dort im Bestellprozess bereitgestellten Verkäuferinformationen.</p>
 
-  <h3>5. Zahlung</h3>
-  <p>
-    Die Zahlung erfolgt über die im Shop angebotenen Zahlungsmethoden.
-  </p>
+    <h3>2. Anbieter / Vertragspartner</h3>
+    <div class="block">
+      <p><strong>Virtual Utopia Designs</strong><br>
+        Inhaber: Tyler Reed<br>
+        Steindamm 9, 25479 Ellerau, Deutschland<br>
+        Telefon: +49 159 01320659<br>
+        E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a><br>
+        USt-IdNr.: DE361684923
+      </p>
+      <p>Kleinunternehmer im Sinne von § 19 UStG (keine Ausweisung der Umsatzsteuer).</p>
+    </div>
 
-  <h3>6. Lieferung / Bereitstellung</h3>
-  <p>
-    Physische Waren werden versendet. Digitale Inhalte werden elektronisch bereitgestellt.
-  </p>
+    <h3>3. Angebot und Vertragsschluss</h3>
+    <p>(1) Die Darstellung der Produkte auf der Website stellt kein rechtlich bindendes Angebot dar, sondern eine unverbindliche Produktpräsentation.</p>
+    <p>(2) Durch Anklicken des Bestellbuttons geben Sie ein verbindliches Angebot zum Kauf der ausgewählten Waren bzw. digitalen Inhalte ab.</p>
+    <p>(3) Der Vertrag kommt zustande, sobald wir Ihre Bestellung per E-Mail bestätigen oder die Ware versenden bzw. digitale Inhalte freischalten.</p>
 
-  <h3>7. Digitale Inhalte – Nutzungsrechte</h3>
-  <p>
-    Digitale Inhalte sind ausschließlich zur privaten Nutzung bestimmt.
-    Weitergabe oder Weiterverkauf ist untersagt.
-  </p>
+    <h3>4. Preise und Versandkosten</h3>
+    <p>(1) Es gelten die zum Zeitpunkt der Bestellung angegebenen Preise. Alle Preise sind Endpreise. Aufgrund der Kleinunternehmerregelung (§ 19 UStG) wird keine Umsatzsteuer ausgewiesen.</p>
+    <p>(2) Versandkosten werden – sofern anwendbar – im Checkout bzw. Bestellprozess gesondert ausgewiesen.</p>
 
-  <h3>8. Widerrufsrecht bei digitalen Inhalten</h3>
-  <p>
-    Das Widerrufsrecht erlischt vorzeitig, sobald mit der Ausführung begonnen wurde
-    und der Verbraucher dem ausdrücklich zugestimmt hat.
-  </p>
+    <h3>5. Zahlung</h3>
+    <p>(1) Die Zahlung erfolgt über die im Online-Shop angebotenen Zahlungsmethoden.</p>
+    <p>(2) Bei Nutzung externer Zahlungsdienste gelten ergänzend deren Geschäftsbedingungen.</p>
 
-  <h3>9. Eigentumsvorbehalt</h3>
-  <p>
-    Physische Waren bleiben bis zur vollständigen Zahlung unser Eigentum.
-  </p>
+    <h3>6. Lieferung / Bereitstellung</h3>
+    <p>(1) Physische Waren werden an die vom Kunden angegebene Lieferadresse versandt. Sofern auf der Produktseite keine abweichende Lieferzeit angegeben ist, erfolgt die Lieferung innerhalb von 3–7 Werktagen.</p>
+    <p>(2) Digitale Inhalte werden elektronisch bereitgestellt (z. B. per Download-Link oder per E-Mail). Voraussetzung ist eine korrekt angegebene E-Mail-Adresse.</p>
 
-  <h3>10. Gewährleistung</h3>
-  <p>
-    Es gelten die gesetzlichen Gewährleistungsrechte.
-  </p>
+    <h3>7. Digitale Inhalte – Nutzungsrechte</h3>
+    <p>(1) Digitale Inhalte sind ausschließlich zur privaten Nutzung bestimmt, sofern nicht ausdrücklich etwas anderes vereinbart wurde.</p>
+    <p>(2) Eine Weitergabe, Vervielfältigung, Veröffentlichung, der Weiterverkauf oder das öffentliche Zugänglichmachen (z. B. Upload, Teilen oder Weitergabe von Download-Links) ist ohne ausdrückliche schriftliche Zustimmung untersagt.</p>
 
-  <h3>11. Haftung</h3>
-  <p>
-    Unbeschränkte Haftung bei Vorsatz und grober Fahrlässigkeit.
-    Bei leichter Fahrlässigkeit nur bei wesentlichen Vertragspflichten.
-  </p>
-
-  <h3>12. Anwendbares Recht</h3>
-  <p>
-    Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts.
-  </p>
-
-  <h3>13. Schlussbestimmungen</h3>
-  <p>
-    Sollte eine Bestimmung unwirksam sein, bleibt der Rest wirksam.
-  </p>
-
-  <h2>Widerrufsbelehrung</h2>
-
-  <h3>Widerrufsrecht</h3>
-  <p>
-    Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.
-  </p>
-
-  <h3>Widerrufsfrist</h3>
-  <p>
-    14 Tage ab Erhalt der Ware.
-  </p>
-
-  <h3>Widerruf ausüben</h3>
-  <p>
-    Tyler Reed, Steindamm 9, 25479 Ellerau<br>
-    E-Mail: tylerreed@outlook.de
-  </p>
-
-  <h3>Folgen des Widerrufs</h3>
-  <p>
-    Rückzahlung binnen 14 Tagen nach Widerruf.
-  </p>
-
-  <h3>Muster-Widerrufsformular</h3>
-  <div class="box">
+    <h3>8. Widerrufsrecht bei digitalen Inhalten</h3>
     <p>
-      An: Tyler Reed, Steindamm 9, 25479 Ellerau<br>
-      E-Mail: tylerreed@outlook.de
+      Bei digitalen Inhalten, die nicht auf einem körperlichen Datenträger geliefert werden, erlischt das Widerrufsrecht des Verbrauchers vorzeitig,
+      sobald wir mit der Ausführung des Vertrags begonnen haben, nachdem
+      (1) der Verbraucher ausdrücklich zugestimmt hat, dass wir mit der Ausführung des Vertrags vor Ablauf der Widerrufsfrist beginnen, und
+      (2) der Verbraucher seine Kenntnis davon bestätigt hat, dass er durch seine Zustimmung mit Beginn der Ausführung des Vertrags sein Widerrufsrecht verliert.
     </p>
+
+    <h3>9. Eigentumsvorbehalt</h3>
+    <p>Bei physischen Waren bleibt die Ware bis zur vollständigen Zahlung unser Eigentum.</p>
+
+    <h3>10. Gewährleistung</h3>
+    <p>Es gelten die gesetzlichen Gewährleistungsrechte.</p>
+
+    <h3>11. Haftung</h3>
+    <p>(1) Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder Gesundheit.</p>
+    <p>(2) Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten) und beschränkt auf den vorhersehbaren, typischerweise eintretenden Schaden.</p>
+    <p>(3) Die Haftung für entgangenen Gewinn ist ausgeschlossen, soweit gesetzlich zulässig.</p>
+
+    <h3>12. Anwendbares Recht</h3>
+    <p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Für Verbraucher gilt dies nur, soweit keine zwingenden Verbraucherschutzvorschriften des Staates des gewöhnlichen Aufenthalts entgegenstehen.</p>
+
+    <h3>13. Schlussbestimmungen</h3>
+    <p>Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- =================== WIDERRUF (ONLY) =================== -->
+  <section id="widerruf" aria-label="Widerrufsbelehrung">
+    <h2>Widerrufsbelehrung</h2>
+
+    <h3>Widerrufsrecht</h3>
+    <p>Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
+
+    <h3>Widerrufsfrist</h3>
+    <p>Die Widerrufsfrist beträgt 14 Tage ab dem Tag, – an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Waren in Besitz genommen haben bzw. hat.</p>
+
+    <h3>Widerruf ausüben</h3>
     <p>
-      Hiermit widerrufe(n) ich/wir (*) den Vertrag über den Kauf der folgenden Waren (*)
+      Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Tyler Reed, Steindamm 9, 25479 Ellerau, Deutschland,
+      E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a>) mittels einer eindeutigen Erklärung (z. B. per E-Mail)
+      über Ihren Entschluss informieren. Sie können dafür das unten beigefügte Muster-Widerrufsformular verwenden.
     </p>
-    <p>(*) Unzutreffendes streichen.</p>
-  </div>
 
-  <h2>Mini-AGB / Plattformhinweise</h2>
+    <h3>Folgen des Widerrufs</h3>
+    <p>
+      Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten
+      (mit Ausnahme zusätzlicher Kosten für eine andere als die günstigste Standardlieferung), unverzüglich und spätestens binnen 14 Tagen ab dem Tag
+      des Eingangs der Widerrufserklärung zurückzuzahlen. Wir können die Rückzahlung verweigern, bis wir die Waren zurückerhalten haben oder bis Sie
+      den Nachweis der Rücksendung erbracht haben.
+    </p>
 
-  <h3>Etsy</h3>
-  <p>
-    Verträge kommen ausschließlich über Etsy zustande. Es gelten die Etsy-AGB.
-  </p>
+    <h3>Rücksendung</h3>
+    <p>Sie haben die Waren spätestens binnen 14 Tagen ab dem Tag der Widerrufserklärung zurückzusenden. Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.</p>
 
-  <h3>eBay</h3>
-  <p>
-    Verträge kommen ausschließlich über eBay zustande. Es gelten die eBay-AGB.
-  </p>
+    <h3>Ausschluss / vorzeitiges Erlöschen des Widerrufsrechts</h3>
+    <p>
+      Das Widerrufsrecht besteht nicht bzw. erlischt vorzeitig bei Verträgen – zur Lieferung digitaler Inhalte, wenn mit der Ausführung des Vertrags begonnen wurde,
+      nachdem der Verbraucher ausdrücklich zugestimmt hat und seine Kenntnis vom Verlust des Widerrufsrechts bestätigt hat; – zur Lieferung versiegelter Waren,
+      die aus Gründen des Gesundheitsschutzes oder der Hygiene nicht zur Rückgabe geeignet sind, wenn ihre Versiegelung nach der Lieferung entfernt wurde.
+    </p>
 
-  <h3>Shopify</h3>
-  <p>
-    Verträge kommen über diesen Online-Shop zustande. Maßgeblich sind die im Checkout angezeigten Bedingungen.
-  </p>
+    <h3>Muster-Widerrufsformular</h3>
+    <div class="block" aria-label="Muster-Widerrufsformular">
+      <p>
+        An: Tyler Reed<br>
+        Steindamm 9<br>
+        25479 Ellerau, Deutschland<br>
+        E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a>
+      </p>
+      <p>
+        Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*) /
+        die Erbringung der folgenden Dienstleistung (*)
+      </p>
+      <p>Bestellt am (*) / erhalten am (*)</p>
+      <p>Name des/der Verbraucher(s)</p>
+      <p>Anschrift des/der Verbraucher(s)</p>
+      <p>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)</p>
+      <p>Datum</p>
+      <p class="note">(*) Unzutreffendes streichen.</p>
+    </div>
+  </section>
 
-  <h3>Verbraucherschlichtung</h3>
-  <p>
-    Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren teilzunehmen.
-  </p>
+  <hr class="divider" />
+
+  <!-- =================== PLATTFORMEN (ONLY) =================== -->
+  <section id="plattformen" aria-label="Mini-AGB Plattformverkäufe">
+    <h2>Mini-AGB / Rechtliche Hinweise</h2>
+
+    <h3>Mini-AGB / Rechtliche Hinweise für Verkäufe über Etsy</h3>
+    <p>
+      Die über diesen Etsy-Shop angebotenen Produkte werden von Virtual Utopia Designs verkauft. Verträge kommen ausschließlich über die Plattform Etsy zustande.
+      Es gelten die Allgemeinen Geschäftsbedingungen, Richtlinien und Verbraucherinformationen von Etsy in ihrer jeweils gültigen Fassung. Ergänzend gelten die
+      gesetzlichen Vorschriften des deutschen Verbraucherrechts. Digitale Inhalte (Downloads) unterliegen den gesetzlichen Regelungen, insbesondere § 356 Abs. 5 BGB.
+      Weitergehende eigene Allgemeine Geschäftsbedingungen bestehen für Verkäufe über Etsy nicht.
+    </p>
+
+    <h3>Mini-AGB / Rechtliche Hinweise für Verkäufe über eBay</h3>
+    <p>
+      Die über eBay angebotenen Produkte werden von Virtual Utopia Designs verkauft. Verträge kommen ausschließlich über die Plattform eBay zustande.
+      Es gelten die Allgemeinen Geschäftsbedingungen von eBay sowie die im jeweiligen Angebot angegebenen Rücknahme- und Verbraucherbedingungen.
+      Ergänzend gelten die gesetzlichen Vorschriften des deutschen Verbraucherrechts. Digitale Inhalte (Downloads) unterliegen den gesetzlichen Regelungen,
+      insbesondere § 356 Abs. 5 BGB. Weitergehende eigene Allgemeine Geschäftsbedingungen bestehen für Verkäufe über eBay nicht.
+    </p>
+
+    <h3>Mini-AGB / Rechtliche Hinweise für den Shopify-Shop</h3>
+    <p>
+      Die über diesen Online-Shop angebotenen Produkte werden von Virtual Utopia Designs verkauft. Verträge kommen ausschließlich über diesen Online-Shop zustande.
+      Maßgeblich sind die im Bestellprozess bereitgestellten Allgemeinen Geschäftsbedingungen sowie die gesetzlich vorgeschriebenen Verbraucherinformationen.
+      Digitale Inhalte unterliegen den gesetzlichen Regelungen, insbesondere § 356 Abs. 5 BGB. Ergänzend gelten die gesetzlichen Vorschriften des deutschen Verbraucherrechts.
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- =================== SCHLICHTUNG (ONLY) =================== -->
+  <section id="schlichtung" aria-label="Verbraucherschlichtung">
+    <h2>Verbraucherschlichtung</h2>
+    <p>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+  </section>
 </main>
 
 <footer>
-  © <span id="year"></span> Virtual Utopia Designs
+  © <span id="year"></span> Virtual Utopia Designz ·
+  <a href="index.html">Home</a> ·
+  <a href="contact.html">Kontakt</a> ·
+  <a href="agb.html">AGB</a> ·
+  <a href="impressum.html">Impressum</a> ·
+  <a href="datenschutz.html">Datenschutz</a>
 </footer>
 
 <script>

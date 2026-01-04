@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AGB & Widerrufsrecht – Virtual Utopia Designz</title>
-  <meta name="description" content="Allgemeine Geschäftsbedingungen und Widerrufsbelehrung von Virtual Utopia Designs." />
+  <title>Impressum, AGB & Datenschutz – Virtual Utopia Designz</title>
+  <meta name="description" content="Impressum, Allgemeine Geschäftsbedingungen (AGB) und Datenschutzerklärung von Virtual Utopia Designz – Rechtliche Angaben gemäß § 5 TMG und DSGVO." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -20,16 +19,13 @@
       --stroke:rgba(255,255,255,.14);
       --text:#eef1ff;
       --muted:rgba(238,241,255,.72);
-      --faint:rgba(238,241,255,.52);
+      --faint:rgba(238,241,255,.55);
       --gold:#ffd88a;
-      --gold2:#f5c468;
       --shadow:0 18px 60px rgba(0,0,0,.55);
       --r22:22px;
-      --r28:28px;
-      --max:1160px;
-      --sans:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      --serif:"Fraunces", ui-serif, Georgia, "Times New Roman", serif;
-      --ease:cubic-bezier(.2,.8,.2,1);
+      --max:860px;
+      --sans:"Inter", system-ui, sans-serif;
+      --serif:"Fraunces", serif;
     }
 
     *{box-sizing:border-box}
@@ -44,627 +40,478 @@
         linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
       background-attachment: fixed;
       min-height:100vh;
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
 
-    a{color:inherit; text-decoration:none}
+    a{color:var(--gold); text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* subtle static stars */
-    .stars{
-      position:fixed;
-      inset:-160px;
-      pointer-events:none;
-      opacity:.28;
-      background-image:
-        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.55), transparent 55%),
-        radial-gradient(1px 1px at 110px 140px, rgba(255,255,255,.35), transparent 55%),
-        radial-gradient(1.2px 1.2px at 260px 220px, rgba(255,255,255,.40), transparent 55%),
-        radial-gradient(1px 1px at 340px 80px, rgba(255,255,255,.28), transparent 55%),
-        radial-gradient(1.2px 1.2px at 480px 160px, rgba(255,255,255,.32), transparent 55%),
-        radial-gradient(1px 1px at 620px 260px, rgba(255,255,255,.30), transparent 55%),
-        radial-gradient(1px 1px at 760px 120px, rgba(255,255,255,.32), transparent 55%),
-        radial-gradient(1.2px 1.2px at 900px 240px, rgba(255,255,255,.30), transparent 55%),
-        radial-gradient(1px 1px at 1040px 90px, rgba(255,255,255,.26), transparent 55%);
-      background-size:1100px 320px;
-      z-index:-1;
-    }
-
-    .wrap{
-      width:min(var(--max), 100%);
-      margin:0 auto;
-      padding:22px 18px 64px;
-      position:relative;
-      z-index:1;
-    }
-
-    /* Header (index-like) */
     header{
-      position:sticky;
-      top:14px;
-      z-index:50;
+      max-width:var(--max);
+      margin:24px auto 0;
+      padding:12px 14px;
       border-radius:999px;
-      padding:10px 12px;
       background:rgba(10,12,26,.55);
-      border:1px solid rgba(255,255,255,.12);
+      border:1px solid var(--stroke);
       box-shadow:var(--shadow);
-      backdrop-filter: blur(14px) saturate(140%);
+      backdrop-filter: blur(14px);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:10px;
     }
-
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-      color:var(--text);
-    }
-    .mark{
-      width:42px;
-      height:42px;
-      border-radius:14px;
-      background:
-        radial-gradient(circle at 28% 28%, rgba(255,216,138,.98), rgba(255,216,138,.12) 55%, transparent 72%),
-        linear-gradient(135deg, rgba(189,167,255,.82), rgba(123,231,255,.55));
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:0 18px 50px rgba(189,167,255,.22), 0 12px 40px rgba(255,216,138,.12);
-      flex:0 0 auto;
-    }
-    .brand .name{
       font-family:var(--serif);
       font-weight:700;
       letter-spacing:-.02em;
-      font-size:16px;
-      line-height:1.1;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .brand .tag{
-      font-size:12px;
-      color:var(--faint);
-      margin-top:3px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    nav{
+    .toplinks{
       display:flex;
-      align-items:center;
-      gap:6px;
-      padding:6px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-    }
-    nav a{
-      padding:10px 12px;
-      border-radius:999px;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
       font-size:13px;
+      color:var(--muted);
       font-weight:700;
+    }
+    .toplinks a{
       color:var(--muted);
-      letter-spacing:.02em;
-      transition:transform .18s var(--ease), background-color .18s var(--ease), color .18s var(--ease);
-      outline:none;
-    }
-    nav a:hover, nav a:focus-visible{
-      background:rgba(255,255,255,.08);
-      color:var(--text);
-      transform:translateY(-1px);
-      text-decoration:none;
-    }
-    nav a[aria-current="page"]{
-      background:rgba(255,255,255,.10);
-      color:var(--text);
-      border:1px solid rgba(255,255,255,.14);
-    }
-
-    .actions{display:flex; align-items:center; gap:8px}
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:11px 14px;
+      padding:8px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:800;
-      letter-spacing:.02em;
-      font-size:13px;
-      transition:transform .18s var(--ease), filter .18s var(--ease), box-shadow .18s var(--ease), background-color .18s var(--ease);
-      cursor:pointer;
-      user-select:none;
-      white-space:nowrap;
-      outline:none;
-    }
-    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09); text-decoration:none}
-    .btn-primary{
-      border:none;
-      color:#0b1026;
-      background:linear-gradient(135deg, var(--gold), var(--gold2));
-      box-shadow:0 18px 52px rgba(255,216,138,.16);
-    }
-
-    /* Mobile menu */
-    .menuBtn{display:none}
-    .menuIcon{width:18px;height:18px}
-    .mobile-drawer{
-      position:fixed;
-      inset:0;
-      display:none;
-      background:rgba(0,0,0,.62);
-      z-index:200;
-      padding:18px;
-    }
-    .mobile-drawer.active{display:block}
-    .mobile-panel{
-      width:min(520px, 100%);
-      margin:72px auto 0;
-      border-radius:24px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(10,12,26,.92);
-      backdrop-filter: blur(18px) saturate(140%);
-      box-shadow:0 30px 120px rgba(0,0,0,.65);
-      overflow:hidden;
-    }
-    .mobile-panel .head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:14px 14px 12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-    }
-    .mobile-panel .head b{font-family:var(--serif); letter-spacing:-.01em}
-    .close{
-      border:none;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      color:var(--text);
-      width:40px; height:40px;
-      border-radius:999px;
-      cursor:pointer;
-      font-size:18px;
-    }
-    .mobile-links{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      padding:12px 12px 14px;
-    }
-    .mobile-links a{
-      padding:12px 12px;
-      border-radius:14px;
       border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      font-weight:900;
-      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+    .toplinks a:hover{color:var(--text); background:rgba(255,255,255,.07); text-decoration:none}
+
+    main{
+      max-width:var(--max);
+      margin:18px auto 24px;
+      padding:22px;
+      border-radius:var(--r22);
+      background:var(--panel);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
     }
 
-    /* Page card */
-    .page{
-      margin:18px 0 0;
-      border-radius:var(--r28);
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .pageHead{
-      padding:24px 22px 18px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.10);
-    }
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      color:var(--muted);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      width:max-content;
-    }
     h1{
       font-family:var(--serif);
-      margin:12px 0 8px;
-      font-size: clamp(28px, 3.2vw, 44px);
+      text-align:center;
+      margin:6px 0 14px;
+      font-size:30px;
       letter-spacing:-.03em;
-      line-height:1.08;
-    }
-    .lead{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-      max-width:80ch;
     }
 
-    .content{
-      padding:18px 22px 24px;
-      display:grid;
-      gap:14px;
-    }
-
-    .toc{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      padding:14px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-    }
-    .toc a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-      font-weight:900;
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .toc a:hover{background:rgba(255,255,255,.07); text-decoration:none}
-
-    .block{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      padding:16px 16px 14px;
-    }
-    .block h2{
+    h2{
       font-family:var(--serif);
-      margin:0 0 8px;
-      font-size:18px;
+      margin:26px 0 8px;
+      font-size:20px;
       letter-spacing:-.01em;
     }
-    .block h3{
+    h3{
       margin:14px 0 6px;
-      font-size:13px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:rgba(238,241,255,.88);
+      font-size:14px;
+      letter-spacing:.01em;
+      color:var(--text);
     }
-    .block p, .block li{
+
+    p, li{
       margin:6px 0;
       color:var(--muted);
       line-height:1.65;
       font-size:14px;
     }
-    .block ul{margin:8px 0 0 18px}
 
-    .tiny{
+    .note{
+      margin-top:10px;
       color:var(--faint);
       font-size:12px;
       line-height:1.6;
-      margin-top:10px;
     }
+
+    .divider{
+      margin:22px 0 8px;
+      height:1px;
+      background:rgba(255,255,255,.10);
+      border:0;
+    }
+
+    .toc{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin:10px 0 6px;
+    }
+    .toc a{
+      color:var(--muted);
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+    .toc a:hover{color:var(--text); background:rgba(255,255,255,.07); text-decoration:none}
 
     footer{
-      margin-top:24px;
-      padding:22px;
-      border-radius:var(--r28);
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
-      box-shadow:var(--shadow);
-      display:grid;
-      grid-template-columns: 1.2fr .8fr .8fr;
-      gap:16px;
+      max-width:var(--max);
+      margin:0 auto 32px;
+      padding:12px 18px;
+      text-align:center;
+      color:rgba(238,241,255,.55);
+      font-size:12px;
     }
-    footer h5{
-      font-family:var(--serif);
-      margin:0 0 8px;
-      font-size:16px;
-      letter-spacing:-.01em;
-    }
-    footer p{margin:0; color:var(--faint); font-size:13px; line-height:1.6}
-    .links{display:flex; flex-direction:column; gap:10px; font-size:13px}
-    .links a{color:var(--muted); font-weight:700}
-    .links a:hover{text-decoration:underline; color:var(--text)}
 
-    @media (max-width: 980px){
-      nav{display:none}
-      .menuBtn{display:inline-flex}
-      footer{grid-template-columns:1fr}
+    /* small helpers for forms/blocks */
+    .block{
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      margin:10px 0;
     }
   </style>
 </head>
 
 <body>
-  <div class="stars" aria-hidden="true"></div>
 
-  <div class="wrap">
-    <header role="banner" aria-label="Site header">
-      <a class="brand" href="index.html" aria-label="Virtual Utopia Designz home">
-        <span class="mark" aria-hidden="true"></span>
-        <span style="display:flex; flex-direction:column; min-width:0">
-          <span class="name">Virtual Utopia Designz</span>
-          <span class="tag">The Enchanted Atelier • Altar cards • Cosmic art • Mythic packs</span>
-        </span>
-      </a>
+<header>
+  <div class="brand">Virtual Utopia Designz</div>
+  <nav class="toplinks" aria-label="Seitenlinks">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Kontakt</a>
+    <a href="#impressum">Impressum</a>
+    <a href="#agb">AGB</a>
+    <a href="#datenschutz">Datenschutz</a>
+  </nav>
+</header>
 
-      <nav aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<main>
+  <h1>Impressum, AGB &amp; Datenschutz</h1>
 
-      <div class="actions">
-        <button class="btn menuBtn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <svg class="menuIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          Menu
-        </button>
-        <a class="btn btn-primary" href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">
-          Shop on Etsy
-        </a>
-      </div>
-    </header>
-
-    <!-- Mobile menu drawer -->
-    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
-      <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
-        <div class="head">
-          <b>Menu</b>
-          <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
-        </div>
-        <div class="mobile-links" role="navigation" aria-label="Mobile primary">
-          <a href="index.html">Home</a>
-          <a href="blog.html">Blog</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="agb.html" aria-current="page" style="outline:1px solid rgba(255,255,255,.12)">AGB</a>
-        </div>
-      </div>
-    </div>
-
-    <main class="page" role="main">
-      <div class="pageHead">
-        <div class="kicker">Legal</div>
-        <h1>AGB & Widerrufsrecht</h1>
-        <p class="lead">
-          Diese Bedingungen gelten für Bestellungen über diese Website (Virtual Utopia Designs).
-          Für Plattformen Dritter (z. B. Etsy) können ergänzende Bedingungen gelten.
-        </p>
-      </div>
-
-      <div class="content">
-        <div class="toc" aria-label="Inhaltsverzeichnis">
-          <a href="#agb">AGB</a>
-          <a href="#widerruf">Widerrufsbelehrung</a>
-          <a href="#formular">Muster-Widerrufsformular</a>
-          <a href="#streit">Streitbeilegung</a>
-        </div>
-
-        <section id="agb" class="block" aria-label="Allgemeine Geschäftsbedingungen">
-          <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
-
-          <h3>1. Geltungsbereich</h3>
-          <p>
-            Diese Allgemeinen Geschäftsbedingungen gelten für alle Bestellungen, die Verbraucher (§ 13 BGB)
-            über die Website von <b>Virtual Utopia Designs</b> tätigen, sowie für digitale Inhalte (Downloads),
-            die über diese Website bereitgestellt werden.
-          </p>
-
-          <h3>2. Anbieter / Vertragspartner</h3>
-          <p>
-            <b>Virtual Utopia Designs</b><br>
-            Inhaber: Tyler Reed<br>
-            Steindamm 9, 25479 Ellerau, Deutschland<br>
-            Telefon: +49 159 01320659<br>
-            E-Mail: tylerreed@outlook.de<br>
-            USt-IdNr.: DE361684923<br>
-            Einzelunternehmen / Kleingewerbe<br>
-            Alle Preise sind Endpreise nach § 19 UStG (Kleinunternehmerregelung) – keine Ausweisung von Umsatzsteuer.
-          </p>
-
-          <h3>3. Angebot und Vertragsschluss</h3>
-          <p>(1) Die Darstellung der Produkte auf dieser Website stellt kein rechtlich bindendes Angebot, sondern eine unverbindliche Produktpräsentation dar.</p>
-          <p>(2) Durch Anklicken des Bestellbuttons geben Sie ein verbindliches Angebot zum Kauf der ausgewählten Waren bzw. digitalen Inhalte ab.</p>
-          <p>(3) Der Vertrag kommt zustande, sobald wir Ihre Bestellung per E-Mail bestätigen oder die Ware versenden bzw. den Download freischalten.</p>
-
-          <h3>4. Preise</h3>
-          <p>
-            Es gelten die zum Zeitpunkt der Bestellung angegebenen Preise. Versandkosten werden – sofern anwendbar –
-            im Checkout gesondert ausgewiesen.
-          </p>
-
-          <h3>5. Zahlung</h3>
-          <p>
-            Die Zahlung erfolgt über die auf der Website angebotenen Zahlungsmethoden.
-            Bei Nutzung externer Zahlungsdienste gelten ergänzend deren Bedingungen.
-          </p>
-
-          <h3>6. Lieferung / Bereitstellung</h3>
-          <p>(1) <b>Physische Ware:</b> Lieferung an die vom Kunden angegebene Adresse über Versanddienstleister. Lieferzeiten sind auf der Produktseite angegeben (sofern vorhanden).</p>
-          <p>(2) <b>Digitale Inhalte:</b> Digitale Produkte werden elektronisch bereitgestellt (z. B. als Download-Link oder per E-Mail). Für eine erfolgreiche Bereitstellung ist eine korrekte E-Mail-Adresse erforderlich.</p>
-
-          <h3>7. Digitale Inhalte – Nutzungsrechte</h3>
-          <p>(1) Digitale Inhalte sind ausschließlich zur <b>privaten Nutzung</b> bestimmt, sofern nicht ausdrücklich anders vereinbart.</p>
-          <p>(2) Eine Weitergabe, Vervielfältigung, der Weiterverkauf oder das öffentliche Bereitstellen (z. B. Upload, Teilen in Gruppen, Weitergabe von Download-Links) ist untersagt, sofern keine schriftliche Erlaubnis erteilt wurde.</p>
-
-          <h3>8. Widerrufsrecht bei digitalen Inhalten</h3>
-          <p>
-            Bei digitalen Inhalten, die nicht auf einem körperlichen Datenträger geliefert werden, erlischt das Widerrufsrecht vorzeitig,
-            sobald wir mit der Ausführung des Vertrags begonnen haben, nachdem Sie ausdrücklich zugestimmt haben und Ihre Kenntnis vom Verlust
-            des Widerrufsrechts bestätigt haben.
-          </p>
-
-          <h3>9. Eigentumsvorbehalt</h3>
-          <p>Bei physischen Waren bleibt die Ware bis zur vollständigen Zahlung unser Eigentum.</p>
-
-          <h3>10. Gewährleistung</h3>
-          <p>Es gelten die gesetzlichen Gewährleistungsrechte.</p>
-
-          <h3>11. Haftung</h3>
-          <p>(1) Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit.</p>
-          <p>(2) Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten) und beschränkt auf den vorhersehbaren, typischerweise eintretenden Schaden.</p>
-          <p>(3) Die Haftung für entgangenen Gewinn ist ausgeschlossen, soweit gesetzlich zulässig.</p>
-
-          <h3>12. Anwendbares Recht</h3>
-          <p>
-            Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts.
-            Für Verbraucher gilt dies nur, soweit dadurch keine zwingenden Schutzvorschriften des Staates des gewöhnlichen Aufenthalts entzogen werden.
-          </p>
-
-          <h3>13. Schlussbestimmungen</h3>
-          <p>Sollte eine Bestimmung dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
-
-          <p class="tiny">
-            Hinweis: Diese AGB sind für deinen Website-Shop formuliert. Wenn du zusätzlich über Plattformen Dritter verkaufst (z. B. Etsy),
-            können dort ergänzende Regelungen gelten.
-          </p>
-        </section>
-
-        <section id="widerruf" class="block" aria-label="Widerrufsbelehrung">
-          <h2>Widerrufsbelehrung</h2>
-
-          <h3>Widerrufsrecht</h3>
-          <p>Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
-
-          <h3>Widerrufsfrist</h3>
-          <p>
-            Die Widerrufsfrist beträgt 14 Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter,
-            der nicht der Beförderer ist, die Ware in Besitz genommen haben.
-          </p>
-
-          <h3>Widerruf ausüben</h3>
-          <p>
-            Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Tyler Reed, Steindamm 9, 25479 Ellerau, Deutschland,
-            E-Mail: tylerreed@outlook.de) mittels einer eindeutigen Erklärung (z. B. per E-Mail) über Ihren Entschluss informieren.
-            Sie können dafür das unten beigefügte Muster-Widerrufsformular verwenden.
-          </p>
-
-          <h3>Folgen des Widerrufs</h3>
-          <p>
-            Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens
-            binnen 14 Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf bei uns eingegangen ist.
-            Für die Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben.
-          </p>
-          <p>
-            Wir können die Rückzahlung verweigern, bis wir die Waren zurückerhalten haben oder bis Sie den Nachweis erbracht haben,
-            dass Sie die Waren zurückgesandt haben.
-          </p>
-
-          <h3>Rücksendung</h3>
-          <p>
-            Sie haben die Waren unverzüglich und in jedem Fall spätestens binnen 14 Tagen ab dem Tag zurückzusenden, an dem Sie uns
-            über den Widerruf unterrichten. Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.
-          </p>
-
-          <h3>Ausschluss / vorzeitiges Erlöschen des Widerrufsrechts</h3>
-          <ul>
-            <li>Digitale Inhalte, die nicht auf einem körperlichen Datenträger geliefert werden, wenn mit der Ausführung des Vertrags begonnen wurde, nachdem der Verbraucher ausdrücklich zugestimmt hat und seine Kenntnis vom Verlust des Widerrufsrechts bestätigt hat.</li>
-            <li>Versiegelte Waren, die aus Gründen des Gesundheitsschutzes oder der Hygiene nicht zur Rückgabe geeignet sind, wenn ihre Versiegelung nach der Lieferung entfernt wurde.</li>
-          </ul>
-        </section>
-
-        <section id="formular" class="block" aria-label="Muster-Widerrufsformular">
-          <h2>Muster-Widerrufsformular</h2>
-          <p>(Wenn Sie den Vertrag widerrufen wollen, füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</p>
-          <p>
-            <b>An:</b> Tyler Reed, Steindamm 9, 25479 Ellerau, Deutschland, E-Mail: tylerreed@outlook.de
-          </p>
-          <p>
-            Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*)
-            / die Erbringung der folgenden Dienstleistung (*)
-          </p>
-          <p>Bestellt am (*) / erhalten am (*)</p>
-          <p>Name des/der Verbraucher(s)</p>
-          <p>Anschrift des/der Verbraucher(s)</p>
-          <p>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)</p>
-          <p>Datum</p>
-          <p class="tiny">(*) Unzutreffendes streichen.</p>
-        </section>
-
-        <section id="streit" class="block" aria-label="Online-Streitbeilegung">
-          <h2>Online-Streitbeilegung / Verbraucherschlichtung</h2>
-          <p>
-            Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-          </p>
-        </section>
-      </div>
-    </main>
-
-    <footer>
-      <div>
-        <h5>Virtual Utopia Designz</h5>
-        <p>Legal pages designed to match your cosmic storefront aesthetic.</p>
-        <p class="tiny">Stand: <span id="policyDate"></span></p>
-      </div>
-
-      <div>
-        <h5>Quick links</h5>
-        <div class="links">
-          <a href="index.html">Home</a>
-          <a href="contact.html">Contact</a>
-          <a href="blog.html">Blog</a>
-        </div>
-      </div>
-
-      <div>
-        <h5>Store policies</h5>
-        <div class="links">
-          <a href="agb.html">AGB</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="impressum.html#datenschutz">Datenschutz</a>
-          <a href="https://www.etsy.com/de/shop/VirtualUtopiaDesignz" target="_blank" rel="noopener noreferrer">Etsy shop</a>
-        </div>
-      </div>
-    </footer>
+  <div class="toc" aria-label="Sprungmarken">
+    <a href="#impressum">Impressum</a>
+    <a href="#agb">AGB</a>
+    <a href="#datenschutz">Datenschutz</a>
   </div>
 
-  <script>
-    // Mobile menu logic
-    const btn = document.getElementById("menuBtn");
-    const drawer = document.getElementById("mobileMenu");
-    const closeBtn = document.getElementById("menuClose");
+  <!-- =================== IMPRESSUM =================== -->
+  <section id="impressum" aria-label="Impressum">
+    <h2>Impressum</h2>
+    <p><strong>Angaben gemäß § 5 TMG</strong></p>
 
-    function openMenu(){
-      drawer.classList.add("active");
-      drawer.setAttribute("aria-hidden","false");
-      btn?.setAttribute("aria-expanded","true");
-      document.body.style.overflow = "hidden";
-    }
-    function closeMenu(){
-      drawer.classList.remove("active");
-      drawer.setAttribute("aria-hidden","true");
-      btn?.setAttribute("aria-expanded","false");
-      document.body.style.overflow = "";
-    }
+    <p>Der Virtual Utopia Designs Shop wird betrieben von:</p>
+    <p>
+      <strong>Tyler Reed</strong><br>
+      Steindamm 9<br>
+      25479 Ellerau<br>
+      Deutschland
+    </p>
 
-    btn?.addEventListener("click", openMenu);
-    closeBtn?.addEventListener("click", closeMenu);
-    drawer?.addEventListener("click", (e) => { if(e.target === drawer) closeMenu(); });
-    window.addEventListener("keydown", (e) => { if(e.key === "Escape") closeMenu(); });
+    <h3>Kontakt</h3>
+    <p>Telefon: <a href="tel:+4915901320659">+49 159 01320659</a></p>
+    <p>E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a></p>
 
-    // "Stand" date
-    const d = new Date();
-    const fmt = new Intl.DateTimeFormat('de-DE', { year:'numeric', month:'long', day:'2-digit' });
-    document.getElementById("policyDate").textContent = fmt.format(d);
-  </script>
+    <h3>Umsatzsteuer</h3>
+    <p>Umsatzsteuer-Identifikationsnummer: <strong>DE361684923</strong></p>
+    <p>Einzelunternehmen (Kleingewerbe)</p>
+    <p>Kleinunternehmerregelung nach § 19 UStG</p>
+
+    <h3>Haftung für Inhalte</h3>
+    <p>
+      Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
+      nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter
+      jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen
+      oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+    </p>
+
+    <h3>Haftung für Links</h3>
+    <p>
+      Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+      Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+      Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+    </p>
+
+    <h3>Urheberrecht</h3>
+    <p>
+      Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+      Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+    </p>
+
+    <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+    <p>
+      Tyler Reed<br>
+      Steindamm 9<br>
+      25479 Ellerau
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- =================== AGB =================== -->
+  <section id="agb" aria-label="Allgemeine Geschäftsbedingungen">
+    <h2>Allgemeine Geschäftsbedingungen (AGB) – Virtual Utopia Designs</h2>
+
+    <h3>1. Geltungsbereich</h3>
+    <p>(1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die Verbraucher (§ 13 BGB) über die Website bzw. den Online-Shop von Virtual Utopia Designs abschließen.</p>
+    <p>(2) Für Verträge, die über externe Verkaufsplattformen (z. B. Etsy oder eBay) zustande kommen, gelten zusätzlich bzw. vorrangig die jeweiligen Nutzungs- und Geschäftsbedingungen der Plattformbetreiber sowie die dort im Bestellprozess bereitgestellten Verkäuferinformationen.</p>
+
+    <h3>2. Anbieter / Vertragspartner</h3>
+    <div class="block">
+      <p><strong>Virtual Utopia Designs</strong><br>
+        Inhaber: Tyler Reed<br>
+        Steindamm 9, 25479 Ellerau, Deutschland<br>
+        Telefon: +49 159 01320659<br>
+        E-Mail: tylerreed@outlook.de<br>
+        USt-IdNr.: DE361684923
+      </p>
+      <p>Kleinunternehmer im Sinne von § 19 UStG (keine Ausweisung der Umsatzsteuer).</p>
+    </div>
+
+    <h3>3. Angebot und Vertragsschluss</h3>
+    <p>(1) Die Darstellung der Produkte auf der Website stellt kein rechtlich bindendes Angebot dar, sondern eine unverbindliche Produktpräsentation.</p>
+    <p>(2) Durch Anklicken des Bestellbuttons geben Sie ein verbindliches Angebot zum Kauf der ausgewählten Waren bzw. digitalen Inhalte ab.</p>
+    <p>(3) Der Vertrag kommt zustande, sobald wir Ihre Bestellung per E-Mail bestätigen oder die Ware versenden bzw. digitale Inhalte freischalten.</p>
+
+    <h3>4. Preise und Versandkosten</h3>
+    <p>(1) Es gelten die zum Zeitpunkt der Bestellung angegebenen Preise. Alle Preise sind Endpreise. Aufgrund der Kleinunternehmerregelung (§ 19 UStG) wird keine Umsatzsteuer ausgewiesen.</p>
+    <p>(2) Versandkosten werden – sofern anwendbar – im Checkout bzw. Bestellprozess gesondert ausgewiesen.</p>
+
+    <h3>5. Zahlung</h3>
+    <p>(1) Die Zahlung erfolgt über die im Online-Shop angebotenen Zahlungsmethoden.</p>
+    <p>(2) Bei Nutzung externer Zahlungsdienste gelten ergänzend deren Geschäftsbedingungen.</p>
+
+    <h3>6. Lieferung / Bereitstellung</h3>
+    <p>(1) Physische Waren werden an die vom Kunden angegebene Lieferadresse versandt. Sofern auf der Produktseite keine abweichende Lieferzeit angegeben ist, erfolgt die Lieferung innerhalb von 3–7 Werktagen.</p>
+    <p>(2) Digitale Inhalte werden elektronisch bereitgestellt (z. B. per Download-Link oder per E-Mail). Voraussetzung ist eine korrekt angegebene E-Mail-Adresse.</p>
+
+    <h3>7. Digitale Inhalte – Nutzungsrechte</h3>
+    <p>(1) Digitale Inhalte sind ausschließlich zur privaten Nutzung bestimmt, sofern nicht ausdrücklich etwas anderes vereinbart wurde.</p>
+    <p>(2) Eine Weitergabe, Vervielfältigung, Veröffentlichung, der Weiterverkauf oder das öffentliche Zugänglichmachen (z. B. Upload, Teilen oder Weitergabe von Download-Links) ist ohne ausdrückliche schriftliche Zustimmung untersagt.</p>
+
+    <h3>8. Widerrufsrecht bei digitalen Inhalten</h3>
+    <p>
+      Bei digitalen Inhalten, die nicht auf einem körperlichen Datenträger geliefert werden, erlischt das Widerrufsrecht des Verbrauchers vorzeitig,
+      sobald wir mit der Ausführung des Vertrags begonnen haben, nachdem
+      (1) der Verbraucher ausdrücklich zugestimmt hat, dass wir mit der Ausführung des Vertrags vor Ablauf der Widerrufsfrist beginnen, und
+      (2) der Verbraucher seine Kenntnis davon bestätigt hat, dass er durch seine Zustimmung mit Beginn der Ausführung des Vertrags sein Widerrufsrecht verliert.
+    </p>
+
+    <h3>9. Eigentumsvorbehalt</h3>
+    <p>Bei physischen Waren bleibt die Ware bis zur vollständigen Zahlung unser Eigentum.</p>
+
+    <h3>10. Gewährleistung</h3>
+    <p>Es gelten die gesetzlichen Gewährleistungsrechte.</p>
+
+    <h3>11. Haftung</h3>
+    <p>(1) Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder Gesundheit.</p>
+    <p>(2) Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten) und beschränkt auf den vorhersehbaren, typischerweise eintretenden Schaden.</p>
+    <p>(3) Die Haftung für entgangenen Gewinn ist ausgeschlossen, soweit gesetzlich zulässig.</p>
+
+    <h3>12. Anwendbares Recht</h3>
+    <p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Für Verbraucher gilt dies nur, soweit keine zwingenden Verbraucherschutzvorschriften des Staates des gewöhnlichen Aufenthalts entgegenstehen.</p>
+
+    <h3>13. Schlussbestimmungen</h3>
+    <p>Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+
+    <hr class="divider" />
+
+    <h2>Widerrufsbelehrung</h2>
+
+    <h3>Widerrufsrecht</h3>
+    <p>Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
+
+    <h3>Widerrufsfrist</h3>
+    <p>Die Widerrufsfrist beträgt 14 Tage ab dem Tag, – an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Waren in Besitz genommen haben bzw. hat.</p>
+
+    <h3>Widerruf ausüben</h3>
+    <p>
+      Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Tyler Reed, Steindamm 9, 25479 Ellerau, Deutschland,
+      E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a>) mittels einer eindeutigen Erklärung (z. B. per E-Mail)
+      über Ihren Entschluss informieren. Sie können dafür das unten beigefügte Muster-Widerrufsformular verwenden.
+    </p>
+
+    <h3>Folgen des Widerrufs</h3>
+    <p>
+      Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten
+      (mit Ausnahme zusätzlicher Kosten für eine andere als die günstigste Standardlieferung), unverzüglich und spätestens binnen 14 Tagen ab dem Tag
+      des Eingangs der Widerrufserklärung zurückzuzahlen. Wir können die Rückzahlung verweigern, bis wir die Waren zurückerhalten haben oder bis Sie
+      den Nachweis der Rücksendung erbracht haben.
+    </p>
+
+    <h3>Rücksendung</h3>
+    <p>Sie haben die Waren spätestens binnen 14 Tagen ab dem Tag der Widerrufserklärung zurückzusenden. Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.</p>
+
+    <h3>Ausschluss / vorzeitiges Erlöschen des Widerrufsrechts</h3>
+    <p>
+      Das Widerrufsrecht besteht nicht bzw. erlischt vorzeitig bei Verträgen – zur Lieferung digitaler Inhalte, wenn mit der Ausführung des Vertrags begonnen wurde,
+      nachdem der Verbraucher ausdrücklich zugestimmt hat und seine Kenntnis vom Verlust des Widerrufsrechts bestätigt hat; – zur Lieferung versiegelter Waren,
+      die aus Gründen des Gesundheitsschutzes oder der Hygiene nicht zur Rückgabe geeignet sind, wenn ihre Versiegelung nach der Lieferung entfernt wurde.
+    </p>
+
+    <h3>Muster-Widerrufsformular</h3>
+    <div class="block" aria-label="Muster-Widerrufsformular">
+      <p>
+        An: Tyler Reed<br>
+        Steindamm 9<br>
+        25479 Ellerau, Deutschland<br>
+        E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a>
+      </p>
+      <p>
+        Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*) /
+        die Erbringung der folgenden Dienstleistung (*)
+      </p>
+      <p>Bestellt am (*) / erhalten am (*)</p>
+      <p>Name des/der Verbraucher(s)</p>
+      <p>Anschrift des/der Verbraucher(s)</p>
+      <p>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)</p>
+      <p>Datum</p>
+      <p class="note">(*) Unzutreffendes streichen.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <h2>Mini-AGB / Rechtliche Hinweise (Plattformverkäufe)</h2>
+
+    <h3>Verkäufe über Etsy</h3>
+    <p>
+      Die über diesen Etsy-Shop angebotenen Produkte werden von Virtual Utopia Designs verkauft. Verträge kommen ausschließlich über die Plattform Etsy zustande.
+      Es gelten die Allgemeinen Geschäftsbedingungen, Richtlinien und Verbraucherinformationen von Etsy in ihrer jeweils gültigen Fassung. Ergänzend gelten die
+      gesetzlichen Vorschriften des deutschen Verbraucherrechts. Digitale Inhalte (Downloads) unterliegen den gesetzlichen Regelungen, insbesondere § 356 Abs. 5 BGB.
+      Weitergehende eigene Allgemeine Geschäftsbedingungen bestehen für Verkäufe über Etsy nicht.
+    </p>
+
+    <h3>Verkäufe über eBay</h3>
+    <p>
+      Die über eBay angebotenen Produkte werden von Virtual Utopia Designs verkauft. Verträge kommen ausschließlich über die Plattform eBay zustande.
+      Es gelten die Allgemeinen Geschäftsbedingungen von eBay sowie die im jeweiligen Angebot angegebenen Rücknahme- und Verbraucherbedingungen.
+      Ergänzend gelten die gesetzlichen Vorschriften des deutschen Verbraucherrechts. Digitale Inhalte (Downloads) unterliegen den gesetzlichen Regelungen,
+      insbesondere § 356 Abs. 5 BGB. Weitergehende eigene Allgemeine Geschäftsbedingungen bestehen für Verkäufe über eBay nicht.
+    </p>
+
+    <h3>Rechtliche Hinweise für den Shopify-Shop</h3>
+    <p>
+      Die über diesen Online-Shop angebotenen Produkte werden von Virtual Utopia Designs verkauft. Verträge kommen ausschließlich über diesen Online-Shop zustande.
+      Maßgeblich sind die im Bestellprozess bereitgestellten Allgemeinen Geschäftsbedingungen sowie die gesetzlich vorgeschriebenen Verbraucherinformationen.
+      Digitale Inhalte unterliegen den gesetzlichen Regelungen, insbesondere § 356 Abs. 5 BGB. Ergänzend gelten die gesetzlichen Vorschriften des deutschen Verbraucherrechts.
+    </p>
+
+    <hr class="divider" />
+
+    <h2>Online-Streitbeilegung / Verbraucherschlichtung</h2>
+    <p>
+      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+      <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>
+    </p>
+    <p>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- =================== DATENSCHUTZ =================== -->
+  <section id="datenschutz" aria-label="Datenschutzerklärung">
+    <h2>Datenschutzerklärung</h2>
+
+    <h3>1. Verantwortlicher</h3>
+    <p>
+      Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+      <strong>Tyler Reed</strong>, Steindamm 9, 25479 Ellerau, Deutschland<br>
+      Telefon: <a href="tel:+4915901320659">+49 159 01320659</a> ·
+      E-Mail: <a href="mailto:tylerreed@outlook.de">tylerreed@outlook.de</a>
+    </p>
+
+    <h3>2. Allgemeine Hinweise</h3>
+    <p>
+      Wir nehmen den Schutz Ihrer personenbezogenen Daten ernst. Personenbezogene Daten sind alle Daten,
+      mit denen Sie persönlich identifiziert werden können. Diese Datenschutzerklärung erläutert,
+      welche Daten wir erheben und wofür wir sie nutzen.
+    </p>
+
+    <h3>3. Zugriffsdaten / Server-Logfiles</h3>
+    <p>
+      Beim Aufrufen dieser Website kann der Hosting-Anbieter automatisch Informationen in sogenannten Server-Logfiles speichern
+      (z. B. Browsertyp, Betriebssystem, Referrer-URL, Uhrzeit der Anfrage, IP-Adresse). Diese Daten sind technisch erforderlich,
+      um die Website auszuliefern und Stabilität/Sicherheit zu gewährleisten.
+    </p>
+    <p class="note">
+      Hinweis: Die konkrete Speicherdauer und der genaue Umfang hängen von Ihrem späteren Hosting-Anbieter ab. Wenn du mir sagst,
+      ob du z. B. Netlify, IONOS, Strato oder Vercel nutzt, kann ich das sauber anpassen.
+    </p>
+
+    <h3>4. Kontaktaufnahme</h3>
+    <p>
+      Wenn Sie uns per E-Mail oder Kontaktformular kontaktieren, werden Ihre Angaben (z. B. Name, E-Mail-Adresse, Nachricht)
+      zur Bearbeitung der Anfrage gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+    </p>
+
+    <h3>5. Newsletter / E-Mail-Liste</h3>
+    <p>
+      Sofern auf der Website eine Newsletter-Funktion angeboten wird, werden die dafür eingegebenen Daten ausschließlich
+      zum Versand genutzt. Eine Abmeldung ist jederzeit möglich.
+    </p>
+    <p class="note">
+      Wenn du später Mailchimp/Klaviyo o. ä. nutzt, muss hier der konkrete Anbieter + Rechtsgrundlage + Speicherdauer ergänzt werden.
+    </p>
+
+    <h3>6. Cookies</h3>
+    <p>
+      Diese Website kann Cookies verwenden. Cookies richten auf Ihrem Endgerät keinen Schaden an.
+      Sie dienen dazu, Angebote nutzerfreundlicher zu machen. Sie können Ihren Browser so einstellen, dass er Cookies blockiert
+      oder Sie darüber informiert.
+    </p>
+    <p class="note">
+      Wenn du später Tracking (z. B. Google Analytics, Meta Pixel) einbaust, brauchst du ein Cookie-Banner + detaillierte Angaben.
+    </p>
+
+    <h3>7. Externe Links (z. B. Etsy)</h3>
+    <p>
+      Diese Website kann Links zu externen Plattformen (z. B. Etsy) enthalten. Wenn Sie einen solchen Link anklicken,
+      verlassen Sie unsere Website. Für die Datenverarbeitung auf externen Seiten ist der jeweilige Betreiber verantwortlich.
+    </p>
+
+    <h3>8. Ihre Rechte</h3>
+    <p>
+      Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger
+      sowie den Zweck der Verarbeitung. Außerdem haben Sie das Recht auf Berichtigung, Löschung, Einschränkung der Verarbeitung
+      sowie Datenübertragbarkeit, soweit anwendbar.
+    </p>
+    <p>
+      Außerdem haben Sie das Recht, eine erteilte Einwilligung jederzeit zu widerrufen sowie sich bei einer Datenschutzaufsichtsbehörde
+      zu beschweren.
+    </p>
+
+    <h3>9. Rechtsgrundlagen</h3>
+    <p>
+      Die Verarbeitung erfolgt je nach Fall auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertrag/Anbahnung),
+      Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, z. B. sichere Bereitstellung der Website) oder
+      Art. 6 Abs. 1 lit. a DSGVO (Einwilligung, z. B. Newsletter).
+    </p>
+
+    <h3>10. SSL-/TLS-Verschlüsselung</h3>
+    <p>
+      Wenn diese Seite über HTTPS betrieben wird, werden Daten verschlüsselt übertragen. So können Dritte die Daten nicht mitlesen.
+    </p>
+
+    <h3>11. Stand</h3>
+    <p>Stand: <span id="policyDate"></span></p>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Virtual Utopia Designz · <a href="index.html">Home</a> · <a href="contact.html">Kontakt</a> · <a href="#agb">AGB</a> · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  // show a friendly "last updated" date
+  const d = new Date();
+  const fmt = new Intl.DateTimeFormat('de-DE', { year:'numeric', month:'long', day:'2-digit' });
+  document.getElementById("policyDate").textContent = fmt.format(d);
+</script>
+
 </body>
 </html>
